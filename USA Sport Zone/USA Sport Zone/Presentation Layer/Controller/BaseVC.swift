@@ -1,0 +1,49 @@
+//
+//  BaseVC.swift
+
+// //  WilCity
+//  Created by Mahesh Mahalik on 30/01/20.
+//  Copyright © 2020 Mahesh Mahalik. All rights reserved.
+//
+
+import UIKit
+
+
+class BaseVC: UIViewController {
+   
+       
+        var appDel:AppDelegate? = nil
+        
+        var inputAccView : UIView?
+        var statusBar : UIView?
+        var originalframe :CGRect?
+       var heightStatus : CGFloat = 0.0
+        override var preferredStatusBarStyle: UIStatusBarStyle{
+            return .lightContent
+        }
+        
+
+        
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            self.appDel = (UIApplication.shared.delegate as! AppDelegate)
+            statusBar = UIView(frame: UIApplication.shared.statusBarFrame)
+            originalframe = statusBar?.frame
+            heightStatus = statusBar?.frame.height ?? 0.0
+            let statusBarColor = APP_THEAM_COLOR
+            statusBar?.backgroundColor = statusBarColor
+            view.addSubview(statusBar ?? UIView())
+        }
+       
+        
+       
+        override func didReceiveMemoryWarning() {
+            super.didReceiveMemoryWarning()
+            // Dispose of any resources that can be recreated.
+        }
+       
+        
+        
+        
+    }
+
