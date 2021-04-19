@@ -214,7 +214,6 @@
 		112C951B262C6AE1005A7788 /* Presentation Layer */ = {
 			isa = PBXGroup;
 			children = (
-				CE544663262E1183004D656A /* Model Banners */,
 				112C955E262C6F35005A7788 /* View */,
 				112C955D262C6F18005A7788 /* Controller */,
 			);
@@ -232,6 +231,7 @@
 		112C951D262C6AF9005A7788 /* BusinessLayer */ = {
 			isa = PBXGroup;
 			children = (
+				CE544663262E1183004D656A /* Model Banners */,
 				112C953B262C6CD1005A7788 /* CustomView */,
 				112C9522262C6B33005A7788 /* AppConstant */,
 				112C9521262C6B2A005A7788 /* AppDelegate */,
