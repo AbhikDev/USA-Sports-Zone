@@ -4,7 +4,7 @@
 import UIKit
 
 
-class ShopVC: UIViewController {
+class ShopVC: BaseVC {
     @IBOutlet weak var tabBarCollectionView: UICollectionView!
 
     override func viewDidLoad() {

@@ -34,10 +34,9 @@ extension TabbarVC:UICollectionViewDelegate,UICollectionViewDataSource,UICollect
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = tabBarCollectionView.dequeueReusableCell(withReuseIdentifier: "TabbarCollCell", for: indexPath) as! TabbarCollCell
         if (indexPath.row == 0){
-            cell.imageTab.image = UIImage.init(named: "home_icon")
             if (selectedIndex == indexPath.row){
-                cell.imageTab.tintColor = APP_THEAM_COLOR
-                cell.labelTap.textColor = APP_THEAM_COLOR
+                cell.imageTab.tintColor = UIColor(named:"AppPurple")//APP_THEAM_COLOR
+                cell.labelTap.textColor = UIColor(named:"AppPurple")//APP_THEAM_COLOR
                 cell.labelTap.text = "Home"
                 
             }
@@ -47,13 +46,13 @@ extension TabbarVC:UICollectionViewDelegate,UICollectionViewDataSource,UICollect
                 cell.labelTap.text = ""
                 
             }
-            
+            cell.imageTab.image = UIImage.init(named: "Home")
         }
         else if (indexPath.row == 1){
             
             if (selectedIndex == indexPath.row){
-                cell.imageTab.tintColor = APP_THEAM_COLOR
-                cell.labelTap.textColor = APP_THEAM_COLOR
+                cell.imageTab.tintColor = UIColor(named:"AppPurple")//APP_THEAM_COLOR
+                cell.labelTap.textColor = UIColor(named:"AppPurple")//APP_THEAM_COLOR
                 cell.labelTap.text = "Shop"
                 
             }
@@ -63,15 +62,15 @@ extension TabbarVC:UICollectionViewDelegate,UICollectionViewDataSource,UICollect
                 cell.labelTap.text = ""
                 
             }
-            cell.imageTab.image = UIImage.init(named: "listing")
+            cell.imageTab.image = UIImage.init(named: "ShoppingCart")
             
             
         }
         else if (indexPath.row == 2){
             
             if (selectedIndex == indexPath.row){
-                cell.imageTab.tintColor = APP_THEAM_COLOR
-                cell.labelTap.textColor = APP_THEAM_COLOR
+                cell.imageTab.tintColor = UIColor(named:"AppPurple")//APP_THEAM_COLOR
+                cell.labelTap.textColor = UIColor(named:"AppPurple")//APP_THEAM_COLOR
                 cell.labelTap.text = "Blog"
             }
             else {
@@ -82,16 +81,15 @@ extension TabbarVC:UICollectionViewDelegate,UICollectionViewDataSource,UICollect
                 
             }
             
-            cell.imageTab.image = UIImage.init(named: "events")
+            cell.imageTab.image = UIImage.init(named: "Blog")
             
             
         }
         else if indexPath.row == 3{
-            cell.imageTab.image = UIImage.init(named: "user")
             
             if (selectedIndex == indexPath.row){
-                cell.imageTab.tintColor = APP_THEAM_COLOR
-                cell.labelTap.textColor = APP_THEAM_COLOR
+                cell.imageTab.tintColor = UIColor(named:"AppPurple")//APP_THEAM_COLOR
+                cell.labelTap.textColor = UIColor(named:"AppPurple")//APP_THEAM_COLOR
                 cell.labelTap.text = "More"
             }
             else {
@@ -99,13 +97,13 @@ extension TabbarVC:UICollectionViewDelegate,UICollectionViewDataSource,UICollect
                 cell.labelTap.textColor = .darkGray
                 cell.labelTap.text = ""
             }
-            
+            cell.imageTab.image = UIImage.init(named: "Info")
         }
         else {
-            cell.imageTab.image = UIImage.init(named: "more")
+            cell.imageTab.image = UIImage.init(named: "Info")
             if (selectedIndex == indexPath.row){
-                cell.imageTab.tintColor = APP_THEAM_COLOR
-                cell.labelTap.textColor = APP_THEAM_COLOR
+                cell.imageTab.tintColor = UIColor(named:"AppPurple")//APP_THEAM_COLOR
+                cell.labelTap.textColor = UIColor(named:"AppPurple")//APP_THEAM_COLOR
                 cell.labelTap.text = "More"
             }
             else {
@@ -117,9 +115,7 @@ extension TabbarVC:UICollectionViewDelegate,UICollectionViewDataSource,UICollect
                 
             }
             
-            
-          
-            
+            cell.imageTab.image = UIImage.init(named: "Info")
         }
         return cell
     }
