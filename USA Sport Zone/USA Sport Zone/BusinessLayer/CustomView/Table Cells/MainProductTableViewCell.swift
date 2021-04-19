@@ -106,30 +106,6 @@ class MainProductTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
             cell.backgroundColor = .white
             */
             
-            /*
-            let dict = arrMDataSet[indexPath.row]
-            let imgPath =  dict["product_image1"] as! String
-            cell.imgReletedProduct.downloadImageWith(URL: imgPath, Placeholder: UIImage(named: "no_product")!)
-            
-            
-            cell.lblRelatedProduct.text = ""
-            if let productName = dict["product_name"] as? String{
-                cell.lblRelatedProduct.text = productName
-            }
-            
-            cell.lblRelatedProductPrice.text = ""
-            if let productName = dict["product_price"] as? String{
-                cell.lblRelatedProductPrice.text = productName
-            }
-            //print("IsInWishList",dict)
-            if let value = dict["IsInWishList"] as? Bool{
-                print(value)
-            }
-            cell.btnFav.tintColor = (dict["IsInWishList"] as? Bool ?? false) ? UIColor(named: "AppBlue") : .darkGray
-            cell.btnFav.tag = indexPath.row
-            cell.btnFav.addTarget(self, action: #selector(addToWishlist), for: .touchUpInside)
-            */
-            
             let cell: MainItemCollectionViewCell = collMainProduct.dequeueReusableCell(withReuseIdentifier: "itemMain", for: indexPath) as! MainItemCollectionViewCell
             collMainProduct.backgroundColor = .white
             cell.frame.size = CGSize(width: (collMainProduct.frame.width), height: 1)
@@ -141,7 +117,7 @@ class MainProductTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
             return cell
         case DashboardSection.DASHBOARD_SECTION_CATEGORY.rawValue?:
             let cell: CategoryColCell = collMainProduct.dequeueReusableCell(withReuseIdentifier: "CategoryColCell", for: indexPath) as! CategoryColCell
-            collMainProduct.backgroundColor = .lightGray
+            collMainProduct.backgroundColor = UIColor(named: "AppLightGrayColor")
             cell.frame.size = CGSize(width:150, height: 130)
             
           
@@ -149,9 +125,18 @@ class MainProductTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
             
             let dict = arrMDataSet[indexPath.row]
             cell.lblInfo.text = (dict["banner_name"] as! String)
-            //cell.imgCellContent.image = UIImage(named: (dict["banner_image"] as! String))
+           
             let imgPath =  (dict["banner_image"] as! String)
             let imagePathFull = ImageBaseUrl + imgPath
+            cell.imgCellContent.image = UIImage(named: "ic_launcher_round")
+            /*if let url = URL(string:imagePathFull ){
+                cell.imgCellContent.downloadImage(from: url)
+            }*/
+            
+            /*
+            if let url = URL(string:imagePathFull ){
+                cell.imgCellContent.kf.setImage(with: url)
+            }*/
             cell.imgCellContent.downloadImageWith(URL: imagePathFull, Placeholder: UIImage(named: "AppLogo")!)
             
             /*

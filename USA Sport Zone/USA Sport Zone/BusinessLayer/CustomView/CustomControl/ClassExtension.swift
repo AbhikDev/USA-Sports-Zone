@@ -249,7 +249,21 @@ extension UIImageView {
             }
         }
     }
-    
+    /*
+    func downloadImage(from url: URL) {
+        print("Download Started")
+        getData(from: url) { data, response, error in
+            guard let data = data, error == nil else { return }
+            print(response?.suggestedFilename ?? url.lastPathComponent)
+            print("Download Finished")
+            DispatchQueue.main.async() { [weak self] in
+                self?.image = UIImage(data: data)
+            }
+        }
+    }
+    func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
+    }*/
 }
 extension UINavigationController {
     //Mark:  - Check in navigation stack
@@ -302,9 +316,6 @@ extension UIView {
     }*/
     func makeShadow() {
         // Initialization code
-        
-      
-
         /*
         self.layer.shadowRadius = 2.5
         self.layer.shadowColor = UIColor(red: 176.0 / 255.0, green: 199.0 / 255.0, blue: 226.0 / 255.0, alpha: 1.0).cgColor

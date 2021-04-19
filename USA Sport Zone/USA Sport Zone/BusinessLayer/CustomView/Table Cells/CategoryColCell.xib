@@ -17,11 +17,11 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ydA-f7-QaB" customClass="designableImage" customModule="USA_Sport_Zone" customModuleProvider="target">
-                        <rect key="frame" x="45.5" y="10" width="60" height="60"/>
+                        <rect key="frame" x="43" y="10" width="65" height="65"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="60" id="2Cs-kT-0hr"/>
-                            <constraint firstAttribute="height" constant="60" id="oZ1-mu-guK"/>
+                            <constraint firstAttribute="width" secondItem="ydA-f7-QaB" secondAttribute="height" multiplier="1:1" id="59l-DY-SEv"/>
+                            <constraint firstAttribute="height" constant="65" id="oZ1-mu-guK"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
@@ -33,7 +33,7 @@
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aai-MA-bOW">
-                        <rect key="frame" x="8" y="78" width="135" height="24"/>
+                        <rect key="frame" x="8" y="80" width="135" height="22"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -48,7 +48,7 @@
                 <constraint firstItem="ydA-f7-QaB" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="PTy-fh-qJN"/>
                 <constraint firstAttribute="trailing" secondItem="aai-MA-bOW" secondAttribute="trailing" constant="8" id="aRD-eX-usi"/>
                 <constraint firstAttribute="bottom" secondItem="aai-MA-bOW" secondAttribute="bottom" constant="7" id="ckg-Lw-Myr"/>
-                <constraint firstItem="aai-MA-bOW" firstAttribute="top" secondItem="ydA-f7-QaB" secondAttribute="bottom" constant="8" id="gmz-h5-UhN"/>
+                <constraint firstItem="aai-MA-bOW" firstAttribute="top" secondItem="ydA-f7-QaB" secondAttribute="bottom" constant="5" id="gmz-h5-UhN"/>
             </constraints>
             <size key="customSize" width="151" height="109"/>
             <connections>
