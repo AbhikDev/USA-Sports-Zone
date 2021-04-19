@@ -6,7 +6,8 @@ class MainProductTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
     @IBOutlet weak var collMainProduct: UICollectionView!
     
     var indexPathForCell: Int?
-    var banner:NSMutableArray = []
+    //var banner:NSMutableArray = []
+    var arrCategory_banner:NSMutableArray = []
     var arrMDataSet: Array<[String:Any]> = []
     
     override func awakeFromNib() {
@@ -27,8 +28,8 @@ class MainProductTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
         
         collMainProduct.register(UINib(nibName: "CategoryColCell", bundle: nil), forCellWithReuseIdentifier: "CategoryColCell")
         
-        banner = ["Promotional.png", "AllItems.png"]
-        
+        //banner = ["Promotional.png", "AllItems.png"]
+        arrCategory_banner =  ["sub_banner_1", "sub_banner_2","sub_banner_3"]
         //    self.startTimer()
         
     }
@@ -52,7 +53,7 @@ class MainProductTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
         case DashboardSection.DASHBOARD_SECTION_HIGHLITE.rawValue?:
             return arrMDataSet.count
         case DashboardSection.DASHBOARD_SECTION_FEATURED.rawValue?:
-            return 10//arrMDataSet.count
+            return arrCategory_banner.count//arrMDataSet.count
         case DashboardSection.DASHBOARD_SECTION_CATEGORY.rawValue?:
             return arrMDataSet.count
         case DashboardSection.DASHBOARD_SECTION_TOP.rawValue?:
@@ -92,7 +93,8 @@ class MainProductTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
             
             return cell
         case DashboardSection.DASHBOARD_SECTION_FEATURED.rawValue?:
-            let cell: ProductCell = collMainProduct.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as! ProductCell
+           
+            /*let cell: ProductCell = collMainProduct.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as! ProductCell
             
             cell.frame.size = CGSize(width: 150, height: 160)
             
@@ -102,7 +104,7 @@ class MainProductTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
             
             cell.vawImgContainer.backgroundColor = UIColor(named: "AppLightGrayColor")
             cell.backgroundColor = .white
-            
+            */
             
             /*
             let dict = arrMDataSet[indexPath.row]
@@ -127,6 +129,15 @@ class MainProductTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
             cell.btnFav.tag = indexPath.row
             cell.btnFav.addTarget(self, action: #selector(addToWishlist), for: .touchUpInside)
             */
+            
+            let cell: MainItemCollectionViewCell = collMainProduct.dequeueReusableCell(withReuseIdentifier: "itemMain", for: indexPath) as! MainItemCollectionViewCell
+            collMainProduct.backgroundColor = .white
+            cell.frame.size = CGSize(width: (collMainProduct.frame.width), height: 1)
+            cell.contentView.layer.borderWidth = 1.0
+            cell.contentView.layer.borderColor = UIColor.clear.cgColor
+            cell.frame.size = CGSize(width: 200, height: 160)
+            
+            cell.imgMainProductItem.image = UIImage(named: arrCategory_banner[indexPath.row] as! String)
             return cell
         case DashboardSection.DASHBOARD_SECTION_CATEGORY.rawValue?:
             let cell: CategoryColCell = collMainProduct.dequeueReusableCell(withReuseIdentifier: "CategoryColCell", for: indexPath) as! CategoryColCell
@@ -138,7 +149,10 @@ class MainProductTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
             
             let dict = arrMDataSet[indexPath.row]
             cell.lblInfo.text = (dict["banner_name"] as! String)
-            cell.imgCellContent.image = UIImage(named: (dict["banner_image"] as! String))
+            //cell.imgCellContent.image = UIImage(named: (dict["banner_image"] as! String))
+            let imgPath =  (dict["banner_image"] as! String)
+            let imagePathFull = ImageBaseUrl + imgPath
+            cell.imgCellContent.downloadImageWith(URL: imagePathFull, Placeholder: UIImage(named: "AppLogo")!)
             
             /*
             let dict = arrMDataSet[indexPath.row]
@@ -182,7 +196,7 @@ class MainProductTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
             return CGSize(width:collMainProduct.frame.width, height: collMainProduct.frame.height)
         }
         else if indexPathForCell == DashboardSection.DASHBOARD_SECTION_FEATURED.rawValue {
-            return CGSize(width:150, height: 160)
+            return CGSize(width:200, height: 160)
         }
         else if indexPathForCell == DashboardSection.DASHBOARD_SECTION_CATEGORY.rawValue {
             return CGSize(width:150, height: 130)
@@ -208,7 +222,7 @@ class MainProductTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
     }
     
     @objc func scrollAutomatically(_ timer1: Timer) {
-        
+        /*
         if let coll  = collMainProduct {
             for cell in coll.visibleCells {
                 if indexPathForCell == 1 {
@@ -227,6 +241,7 @@ class MainProductTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
                 }
             }
         }
+        */
     }
     @objc func addToWishlist(sender:UIButton) {
         print("addToWishlist")

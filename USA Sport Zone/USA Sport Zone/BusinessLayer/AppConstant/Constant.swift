@@ -31,7 +31,9 @@ let appDel = UIApplication.shared.delegate as! AppDelegate
 
 let genericDateFormatter = "dd MMM,yyyy"
 ///Mark: API
-let BaseUrl:String  = "https://swrblr.in/railway_project"
+let BaseUrl:String  = "http://www.usasportzone.com"
+let ApiBaseUrl:String  = BaseUrl + "/wp-json/"
+let ImageBaseUrl:String  = BaseUrl + "/wp-content/themes/usasportzone"
    
 //Mark : Api Url 
 public enum API:Int {
@@ -42,7 +44,7 @@ public enum API:Int {
         switch self {
             
         case .getTrainParcel:
-            return URL.init(string: (BaseUrl+"/parcel_train"))
+            return URL.init(string: (ApiBaseUrl+"/parcel_train"))
         }
     }
 }

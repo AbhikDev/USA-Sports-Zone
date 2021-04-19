@@ -22,5 +22,10 @@ import UIKit
               self.layer.cornerRadius = self.cornerRadius
         }
     }
-   
+    @IBInspectable
+    public var borderWidth: CGFloat = 2.0 {
+        didSet {
+            self.layer.borderWidth = self.borderWidth
+        }
+    }
 }

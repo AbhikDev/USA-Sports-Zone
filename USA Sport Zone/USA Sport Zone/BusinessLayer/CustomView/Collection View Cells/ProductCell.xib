@@ -92,11 +92,11 @@
     </objects>
     <designables>
         <designable name="dPF-Xw-vV1">
-            <size key="intrinsicContentSize" width="1582" height="1582"/>
+            <size key="intrinsicContentSize" width="259" height="105"/>
         </designable>
     </designables>
     <resources>
-        <image name="AppLogo" width="1582" height="1582"/>
+        <image name="AppLogo" width="259" height="105"/>
         <namedColor name="AppLightGrayColor">
             <color red="0.89399999380111694" green="0.91299998760223389" blue="0.94900000095367432" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

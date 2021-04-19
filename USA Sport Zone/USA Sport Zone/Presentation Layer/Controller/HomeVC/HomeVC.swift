@@ -44,10 +44,25 @@ class HomeVC: BaseVC {
         
         data.removeAll()
         let arr = ["Headphones", "Gym Supplies", "Car Product","Sports","Shoes","Tea Shirt","Sunglasses","Smart Watches","Electronic","PC Gaming", "Real Favorite"]
+        let arr_keyCategory = ["headphones", "gym_supplies", "car_products","tv_video","shoes","tee_shirt","sunglasses","smart_watches","electronic","computer_accessories", "raul_favorite"]
+        
+        let arr_ImageCategory = ["/assets/images/himg.png",
+                                 "/assets/images/gimg.png",
+                                "/assets/images/cimg.png",
+                                 "/assets/images/timg.png",
+                                 "/assets/images/shimg.png",
+                                 "/assets/images/tsimg.png",
+                                 "/assets/images/suimg.png",
+                                 "/assets/images/imgw.png",
+                                 "/assets/images/elimg.png",
+                                 "/assets/images/coimg.png",
+                                 "/assets/images/rfimg.png"]
+        
         for index in 0...(arr.count - 1) {
             var param1:[String:AnyObject] = [String:AnyObject]()
-            param1["banner_image"] =  "AppLogo" as AnyObject
+            param1["banner_image"] =  arr_ImageCategory[index] as AnyObject
             param1["banner_name"] =  arr[index] as AnyObject
+            param1["banner_key"] =  arr_keyCategory[index] as AnyObject
             data.append(param1)
         }
        arrAllData[2] = data
@@ -105,7 +120,7 @@ extension HomeVC:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         if(section == DashboardSection.DASHBOARD_SECTION_TOP.rawValue){
-            return 220
+            return 300
         }
         return 0
     }
