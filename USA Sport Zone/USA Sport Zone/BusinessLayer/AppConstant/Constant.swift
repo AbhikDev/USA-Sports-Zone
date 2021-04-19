@@ -4,15 +4,12 @@ import Foundation
 import UIKit
 
 //////DashBoardData
+//////DashBoardData
 enum DashboardSection : Int {
-    case DASHBOARD_SECTION_HIGHLITE_1 // 0
-    case DASHBOARD_SECTION_CATEGORY_0 //1
-    case DASHBOARD_SECTION_SEARCH // 2
-    case DASHBOARD_SECTION_FEATURED_2 //3
-    case DASHBOARD_SECTION_OTHERS_6 //3
-    case DASHBOARD_SECTION_RELATED_3 // 4
-    case DASHBOARD_SECTION_TOP_4 // 0
-    case DASHBOARD_SECTION_DISCOUNT_5
+    case DASHBOARD_SECTION_HIGHLITE // 0
+    case DASHBOARD_SECTION_FEATURED //1
+    case DASHBOARD_SECTION_CATEGORY //2
+    case DASHBOARD_SECTION_TOP // 3
     
 }
 var concern_number = ""

@@ -30,7 +30,7 @@ class BaseVC: UIViewController {
             statusBar = UIView(frame: UIApplication.shared.statusBarFrame)
             originalframe = statusBar?.frame
             heightStatus = statusBar?.frame.height ?? 0.0
-            let statusBarColor = APP_THEAM_COLOR
+            let statusBarColor = UIColor(named:"AppPurple")
             statusBar?.backgroundColor = statusBarColor
             view.addSubview(statusBar ?? UIView())
         }

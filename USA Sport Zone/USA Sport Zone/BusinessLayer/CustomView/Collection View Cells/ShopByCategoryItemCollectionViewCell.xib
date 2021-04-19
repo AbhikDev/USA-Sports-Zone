@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-Medium.ttf">
+            <string>Poppins-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="itemShopByCategory" id="gTV-IL-0wX" customClass="ShopByCategoryItemCollectionViewCell" customModule="PharmaStore" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="102" height="95"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="102" height="95"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wj4-Lb-NkF">
+                        <rect key="frame" x="0.0" y="0.0" width="102" height="95"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ehP-gv-ibU">
+                        <rect key="frame" x="0.0" y="75" width="102" height="20"/>
+                        <color key="backgroundColor" systemColor="secondaryLabelColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="w4f-2C-HKi"/>
+                        </constraints>
+                        <string key="text" base64-UTF8="YES">
+IAogA
+</string>
+                        <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="12"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Wj4-Lb-NkF" secondAttribute="trailing" id="1PD-GQ-7p6"/>
+                <constraint firstAttribute="bottom" secondItem="Wj4-Lb-NkF" secondAttribute="bottom" id="MT4-c6-Exn"/>
+                <constraint firstAttribute="bottom" secondItem="ehP-gv-ibU" secondAttribute="bottom" id="OL0-Jo-KUE"/>
+                <constraint firstItem="ehP-gv-ibU" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="bYD-A2-rDX"/>
+                <constraint firstItem="Wj4-Lb-NkF" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="duA-1t-Q8v"/>
+                <constraint firstItem="Wj4-Lb-NkF" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="edu-RO-KKU"/>
+                <constraint firstAttribute="trailing" secondItem="ehP-gv-ibU" secondAttribute="trailing" id="o9X-dq-ZEa"/>
+            </constraints>
+            <size key="customSize" width="102" height="95"/>
+            <connections>
+                <outlet property="imgBanner" destination="Wj4-Lb-NkF" id="ipe-c4-L3s"/>
+                <outlet property="lblBannerTitle" destination="ehP-gv-ibU" id="efj-t5-Mbi"/>
+            </connections>
+            <point key="canvasLocation" x="62.399999999999999" y="97.601199400299862"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

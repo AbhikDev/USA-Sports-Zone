@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-Regular.ttf">
+            <string>Poppins-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProductCell" id="FVI-Zd-wSp" customClass="ProductCell" customModule="USA_Sport_Zone" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="150" height="220"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="150" height="220"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jQu-mS-W5c">
+                        <rect key="frame" x="7.5" y="44" width="135" height="135"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dPF-Xw-vV1">
+                                <rect key="frame" x="30.5" y="30.5" width="74" height="74"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="dPF-Xw-vV1" secondAttribute="height" multiplier="1:1" id="byP-0e-ZAp"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GXf-d9-Ntc">
+                                <rect key="frame" x="104.5" y="5" width="25.5" height="25.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="GXf-d9-Ntc" secondAttribute="height" multiplier="1:1" id="fb7-Le-o5g"/>
+                                </constraints>
+                                <color key="tintColor" name="AppBlue"/>
+                                <state key="normal" image="heart"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="jQu-mS-W5c" secondAttribute="height" multiplier="4:4" id="DHr-Lu-r8l"/>
+                            <constraint firstItem="GXf-d9-Ntc" firstAttribute="top" secondItem="jQu-mS-W5c" secondAttribute="top" constant="5" id="DX8-oZ-Roc"/>
+                            <constraint firstItem="dPF-Xw-vV1" firstAttribute="top" secondItem="GXf-d9-Ntc" secondAttribute="bottom" id="NYb-Cf-MvV"/>
+                            <constraint firstItem="dPF-Xw-vV1" firstAttribute="width" secondItem="jQu-mS-W5c" secondAttribute="width" multiplier="0.55" id="Sr6-9g-y5P"/>
+                            <constraint firstItem="dPF-Xw-vV1" firstAttribute="centerX" secondItem="jQu-mS-W5c" secondAttribute="centerX" id="YJS-SS-3WA"/>
+                            <constraint firstAttribute="trailing" secondItem="GXf-d9-Ntc" secondAttribute="trailing" constant="5" id="any-6L-9gz"/>
+                            <constraint firstItem="dPF-Xw-vV1" firstAttribute="centerY" secondItem="jQu-mS-W5c" secondAttribute="centerY" id="vW6-iV-oId"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vA6-yV-UTa">
+                        <rect key="frame" x="5" y="184" width="140" height="7"/>
+                        <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BRH-tJ-3N7">
+                        <rect key="frame" x="5" y="196" width="140" height="14"/>
+                        <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
+                        <color key="textColor" name="AppBlue"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="Wq4-GD-hdM"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="BRH-tJ-3N7" firstAttribute="trailing" secondItem="vA6-yV-UTa" secondAttribute="trailing" id="1mq-2D-K4D"/>
+                <constraint firstItem="jQu-mS-W5c" firstAttribute="top" secondItem="Wq4-GD-hdM" secondAttribute="top" id="24B-UC-n05"/>
+                <constraint firstItem="vA6-yV-UTa" firstAttribute="leading" secondItem="FVI-Zd-wSp" secondAttribute="leading" constant="5" id="52Z-xO-6Wk"/>
+                <constraint firstItem="BRH-tJ-3N7" firstAttribute="top" secondItem="vA6-yV-UTa" secondAttribute="bottom" constant="5" id="5CN-Wj-wFC"/>
+                <constraint firstAttribute="trailing" secondItem="vA6-yV-UTa" secondAttribute="trailing" constant="5" id="Byw-Ep-NCP"/>
+                <constraint firstItem="BRH-tJ-3N7" firstAttribute="leading" secondItem="vA6-yV-UTa" secondAttribute="leading" id="DkU-r9-Tg1"/>
+                <constraint firstItem="vA6-yV-UTa" firstAttribute="top" secondItem="jQu-mS-W5c" secondAttribute="bottom" constant="5" id="FPB-Av-ipG"/>
+                <constraint firstItem="jQu-mS-W5c" firstAttribute="width" secondItem="FVI-Zd-wSp" secondAttribute="width" multiplier="0.9" id="a7g-zc-Ou0"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="BRH-tJ-3N7" secondAttribute="bottom" constant="10" id="vcf-wu-Hf6"/>
+                <constraint firstItem="jQu-mS-W5c" firstAttribute="centerX" secondItem="Wq4-GD-hdM" secondAttribute="centerX" id="vjE-vr-Fvf"/>
+            </constraints>
+            <size key="customSize" width="101" height="336"/>
+            <connections>
+                <outlet property="btnFav" destination="GXf-d9-Ntc" id="zO9-Ky-085"/>
+                <outlet property="imgReletedProduct" destination="dPF-Xw-vV1" id="XI9-qP-KUZ"/>
+                <outlet property="lblRelatedProduct" destination="vA6-yV-UTa" id="DfO-B1-C6A"/>
+                <outlet property="lblRelatedProductPrice" destination="BRH-tJ-3N7" id="z1T-qL-MYD"/>
+                <outlet property="vawImgContainer" destination="jQu-mS-W5c" id="WUM-h0-Rr3"/>
+            </connections>
+            <point key="canvasLocation" x="57.600000000000001" y="187.1064467766117"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="heart" width="60" height="60"/>
+        <namedColor name="AppBlue">
+            <color red="0.0040000001899898052" green="0.70899999141693115" blue="0.90100002288818359" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
