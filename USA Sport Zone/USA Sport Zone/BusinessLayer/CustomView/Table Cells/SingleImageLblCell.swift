@@ -32,6 +32,10 @@ class SingleImageLblCell: UITableViewCell , UICollectionViewDelegate, UICollecti
         self.collectionView.register(cellNib, forCellWithReuseIdentifier: "itemMain")
         collectionView.contentInsetAdjustmentBehavior = .always
         collectionView?.isPagingEnabled = true
+        
+        collectionView.layer.cornerRadius = 10.0
+        collectionView.layer.borderWidth = 1.0
+        collectionView.layer.borderColor = UIColor.black.cgColor
     }
    
     func cellConfigure(arrDataSet: Array<[String:Any]>) {
@@ -63,7 +67,8 @@ class SingleImageLblCell: UITableViewCell , UICollectionViewDelegate, UICollecti
         return UICollectionViewCell()
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize{
-         return CGSize(width:UIScreen.main.bounds.size.width , height: 290)
+        return CGSize(width:collectionView.frame.size.width , height: collectionView.frame.size.height)
+            //CGSize(width:UIScreen.main.bounds.size.width , height: 290)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0.0

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeVC: UIViewController {
+class HomeVC: BaseVC {
 
     var arrAllData : Array<Array<[String:Any]>> = []
     @IBOutlet weak var tableHome: UITableView!
@@ -16,7 +16,6 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
           tableHome.contentInsetAdjustmentBehavior = .never
             arrAllData.removeAll()
-            arrAllData.append([]) // 0 for Banner product
             arrAllData.append([]) // 1 for Category product
             arrAllData.append([]) // 1 productDASHBOARD_SECTION_SEARCH
             arrAllData.append([]) // 2 for Best Offer
@@ -95,11 +94,27 @@ extension HomeVC:UITableViewDelegate,UITableViewDataSource{
         return nil
     }
     
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if(section == DashboardSection.DASHBOARD_SECTION_TOP.rawValue){
+            return 220
+        }
+        return 0
+    }
+    
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+       
+        if(section == DashboardSection.DASHBOARD_SECTION_TOP.rawValue){
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CommonCellTableViewCell") as! CommonCellTableViewCell
+            return cell
+        }
+        return nil
+    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if(indexPath.section == 0){
             if let cell = tableView.dequeueReusableCell(withIdentifier: "SingleImageLblCell", for: indexPath) as? SingleImageLblCell
             {
-                cell.backgroundColor = .black
+                cell.backgroundColor = .clear
                 cell.cellConfigure(arrDataSet: arrAllData[0])
                 cell.collectionView.reloadData()
                 cell.selectionStyle = .none
