@@ -42,6 +42,15 @@ class HomeVC: BaseVC {
         }
        arrAllData[0] = data
         
+        data.removeAll()
+        let arr = ["Headphones", "Gym Supplies", "Car Product","Sports","Shoes","Tea Shirt","Sunglasses","Smart Watches","Electronic","PC Gaming", "Real Favorite"]
+        for index in 0...(arr.count - 1) {
+            var param1:[String:AnyObject] = [String:AnyObject]()
+            param1["banner_image"] =  "AppLogo" as AnyObject
+            param1["banner_name"] =  arr[index] as AnyObject
+            data.append(param1)
+        }
+       arrAllData[2] = data
         
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -76,9 +85,9 @@ extension HomeVC:UITableViewDelegate,UITableViewDataSource{
         case DashboardSection.DASHBOARD_SECTION_HIGHLITE.rawValue:
             return 200
         case DashboardSection.DASHBOARD_SECTION_FEATURED.rawValue:
-            return 100 //160
+            return 200
         case DashboardSection.DASHBOARD_SECTION_CATEGORY.rawValue:
-            return 160
+            return 130
         case DashboardSection.DASHBOARD_SECTION_TOP.rawValue:
             let productCount =  90
             return CGFloat((productCount / 2 * 100))
@@ -100,8 +109,7 @@ extension HomeVC:UITableViewDelegate,UITableViewDataSource{
         }
         return 0
     }
-    
-    
+
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
        
         if(section == DashboardSection.DASHBOARD_SECTION_TOP.rawValue){

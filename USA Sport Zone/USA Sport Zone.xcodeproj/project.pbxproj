@@ -46,6 +46,8 @@
 		1184864F262D38D50077328A /* MainProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1184864B262D38D50077328A /* MainProductTableViewCell.xib */; };
 		11848650262D38D50077328A /* SingleImageLblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1184864C262D38D50077328A /* SingleImageLblCell.xib */; };
 		11848651262D38D50077328A /* MainProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1184864D262D38D50077328A /* MainProductTableViewCell.swift */; };
+		11848655262D4A630077328A /* CategoryColCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11848653262D4A630077328A /* CategoryColCell.swift */; };
+		11848656262D4A630077328A /* CategoryColCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11848654262D4A630077328A /* CategoryColCell.xib */; };
 		7569B71A93AAEFB2C3731C06 /* Pods_USA_Sport_Zone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 594CDA108E55A1157A6ABB8A /* Pods_USA_Sport_Zone.framework */; };
 		CECCE8A0262CABD900D240BF /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCE89F262CABD900D240BF /* HomeVC.swift */; };
 		CECCE8A4262CAC2D00D240BF /* TabbarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCE8A3262CAC2D00D240BF /* TabbarVC.swift */; };
@@ -99,6 +101,8 @@
 		1184864B262D38D50077328A /* MainProductTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainProductTableViewCell.xib; sourceTree = "<group>"; };
 		1184864C262D38D50077328A /* SingleImageLblCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleImageLblCell.xib; sourceTree = "<group>"; };
 		1184864D262D38D50077328A /* MainProductTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainProductTableViewCell.swift; sourceTree = "<group>"; };
+		11848653262D4A630077328A /* CategoryColCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryColCell.swift; sourceTree = "<group>"; };
+		11848654262D4A630077328A /* CategoryColCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryColCell.xib; sourceTree = "<group>"; };
 		3801CBCBBA5FBF43873EA7CB /* Pods-USA Sport Zone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-USA Sport Zone.release.xcconfig"; path = "Target Support Files/Pods-USA Sport Zone/Pods-USA Sport Zone.release.xcconfig"; sourceTree = "<group>"; };
 		594CDA108E55A1157A6ABB8A /* Pods_USA_Sport_Zone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_USA_Sport_Zone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C3A77BECA1DB43D31D8DB4D /* Pods-USA Sport Zone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-USA Sport Zone.debug.xcconfig"; path = "Target Support Files/Pods-USA Sport Zone/Pods-USA Sport Zone.debug.xcconfig"; sourceTree = "<group>"; };
@@ -266,6 +270,8 @@
 				1184864A262D38D50077328A /* SingleImageLblCell.swift */,
 				1184864C262D38D50077328A /* SingleImageLblCell.xib */,
 				112C9559262C6F02005A7788 /* CommonCellTableViewCell.swift */,
+				11848653262D4A630077328A /* CategoryColCell.swift */,
+				11848654262D4A630077328A /* CategoryColCell.xib */,
 			);
 			path = "Table Cells";
 			sourceTree = "<group>";
@@ -337,10 +343,10 @@
 			children = (
 				11848639262D38C60077328A /* ReletedProductCollectionViewCell.swift */,
 				1184863A262D38C60077328A /* ReletedProductCollectionViewCell.xib */,
-				1184863B262D38C60077328A /* MainItemCollectionViewCell.xib */,
-				1184863C262D38C60077328A /* ProductCell.swift */,
 				1184863D262D38C60077328A /* MainItemCollectionViewCell.swift */,
+				1184863B262D38C60077328A /* MainItemCollectionViewCell.xib */,
 				1184863E262D38C60077328A /* ShopByCategoryItemCollectionViewCell.xib */,
+				1184863C262D38C60077328A /* ProductCell.swift */,
 				1184863F262D38C60077328A /* ProductCell.xib */,
 				11848640262D38C60077328A /* ShopByCategoryItemCollectionViewCell.swift */,
 			);
@@ -467,6 +473,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				112C9540262C6D1F005A7788 /* NetWorkErrorView.xib in Resources */,
+				11848656262D4A630077328A /* CategoryColCell.xib in Resources */,
 				112C9553262C6ED6005A7788 /* CustomNavigationGeneralView.xib in Resources */,
 				112C956A262C6F6C005A7788 /* Main.storyboard in Resources */,
 				1184864F262D38D50077328A /* MainProductTableViewCell.xib in Resources */,
@@ -558,6 +565,7 @@
 				112C9526262C6B7F005A7788 /* MessageConstent.swift in Sources */,
 				112C9556262C6ED6005A7788 /* CustomNavigationGeneralView.swift in Sources */,
 				112C956F262C6F87005A7788 /* USA_Sport_Zone.xcdatamodeld in Sources */,
+				11848655262D4A630077328A /* CategoryColCell.swift in Sources */,
 				11848633262D37B60077328A /* designableImage.swift in Sources */,
 				112C9584262C70C8005A7788 /* Rechability.swift in Sources */,
 				CECCE8B0262CAE3200D240BF /* MoreVC.swift in Sources */,

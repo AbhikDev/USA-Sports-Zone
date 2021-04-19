@@ -18,17 +18,14 @@ class MainProductTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
         
        
         collMainProduct.register(UINib(nibName: "MainItemCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "itemMain")
-        
-        
-        collMainProduct.register(UINib(nibName: "SearchCell", bundle: nil), forCellWithReuseIdentifier: "SearchCell")
-        
+  
         collMainProduct.register(UINib(nibName: "ReletedProductCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "itemReletedProduct")
         
-        collMainProduct.register(UINib(nibName: "ShopByCategoryItemCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "itemShopByCategory")
+    
+        collMainProduct.register(UINib(nibName: "ProductCell", bundle: nil), forCellWithReuseIdentifier: "ProductCell")
         
-        collMainProduct.register(UINib(nibName: "FeaturedItemCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "itemFeatureProduct")
         
-        collMainProduct.register(UINib(nibName: "PromotionalCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "itemPromotional")
+        collMainProduct.register(UINib(nibName: "CategoryColCell", bundle: nil), forCellWithReuseIdentifier: "CategoryColCell")
         
         banner = ["Promotional.png", "AllItems.png"]
         
@@ -55,9 +52,9 @@ class MainProductTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
         case DashboardSection.DASHBOARD_SECTION_HIGHLITE.rawValue?:
             return arrMDataSet.count
         case DashboardSection.DASHBOARD_SECTION_FEATURED.rawValue?:
-            return arrMDataSet.count
+            return 10//arrMDataSet.count
         case DashboardSection.DASHBOARD_SECTION_CATEGORY.rawValue?:
-            return 1
+            return arrMDataSet.count
         case DashboardSection.DASHBOARD_SECTION_TOP.rawValue?:
             return arrMDataSet.count
         default:
@@ -95,17 +92,16 @@ class MainProductTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
             
             return cell
         case DashboardSection.DASHBOARD_SECTION_FEATURED.rawValue?:
-            let cell: ReletedProductCollectionViewCell = collMainProduct.dequeueReusableCell(withReuseIdentifier: "itemReletedProduct", for: indexPath) as! ReletedProductCollectionViewCell
+            let cell: ProductCell = collMainProduct.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as! ProductCell
             
-            cell.frame.size = CGSize(width: (collMainProduct.frame.width)/2.8, height: 210)
+            cell.frame.size = CGSize(width: 150, height: 160)
             
-            cell.layer.cornerRadius = 10.0
-            cell.layer.borderWidth = 1
-            cell.layer.borderColor = UIColor.clear.cgColor
-            
+            cell.vawImgContainer.layer.cornerRadius = 10.0
+            cell.vawImgContainer.layer.borderWidth = 1
             cell.vawImgContainer.layer.borderColor = UIColor.clear.cgColor
-            collMainProduct.backgroundColor = UIColor(named: "AppLightGrayColor")
             
+            cell.vawImgContainer.backgroundColor = UIColor(named: "AppLightGrayColor")
+            cell.backgroundColor = .white
             
             
             /*
@@ -133,14 +129,17 @@ class MainProductTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
             */
             return cell
         case DashboardSection.DASHBOARD_SECTION_CATEGORY.rawValue?:
-            let cell: ReletedProductCollectionViewCell = collMainProduct.dequeueReusableCell(withReuseIdentifier: "itemReletedProduct", for: indexPath) as! ReletedProductCollectionViewCell
-            collMainProduct.backgroundColor = .white
-            cell.frame.size = CGSize(width: (collMainProduct.frame.width)/2.8, height: 210)
+            let cell: CategoryColCell = collMainProduct.dequeueReusableCell(withReuseIdentifier: "CategoryColCell", for: indexPath) as! CategoryColCell
+            collMainProduct.backgroundColor = .lightGray
+            cell.frame.size = CGSize(width:150, height: 130)
             
-            cell.vawImgContainer.layer.cornerRadius = 10.0
-            cell.vawImgContainer.layer.borderWidth = 1
-            cell.vawImgContainer.layer.borderColor = UIColor(named:"AppLightGrayColor")?.cgColor
-            cell.backgroundColor = .white
+          
+            cell.backgroundColor = .clear
+            
+            let dict = arrMDataSet[indexPath.row]
+            cell.lblInfo.text = (dict["banner_name"] as! String)
+            cell.imgCellContent.image = UIImage(named: (dict["banner_image"] as! String))
+            
             /*
             let dict = arrMDataSet[indexPath.row]
             let imgPath =  dict["product_image1"] as! String
@@ -183,10 +182,10 @@ class MainProductTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
             return CGSize(width:collMainProduct.frame.width, height: collMainProduct.frame.height)
         }
         else if indexPathForCell == DashboardSection.DASHBOARD_SECTION_FEATURED.rawValue {
-            return CGSize(width: (collMainProduct.frame.width), height: 70)
+            return CGSize(width:150, height: 160)
         }
         else if indexPathForCell == DashboardSection.DASHBOARD_SECTION_CATEGORY.rawValue {
-            return CGSize(width: (collMainProduct.frame.width)/2.8, height: 210)
+            return CGSize(width:150, height: 130)
         }else if indexPathForCell == DashboardSection.DASHBOARD_SECTION_TOP.rawValue {
             return CGSize(width: (collMainProduct.frame.width - 40), height: 90)
         } else {
