@@ -38,13 +38,16 @@ let ImageBaseUrl:String  = BaseUrl + "/wp-content/themes/usasportzone"
 //Mark : Api Url 
 public enum API:Int {
     case getTrainParcel
-    
+    case banners
     
     func getURL() -> URL? {
         switch self {
             
         case .getTrainParcel:
             return URL.init(string: (ApiBaseUrl+"/parcel_train"))
+        case .banners:
+            return URL.init(string: (ApiBaseUrl+"wp/V2/banners?_embed"))
+            
         }
     }
 }

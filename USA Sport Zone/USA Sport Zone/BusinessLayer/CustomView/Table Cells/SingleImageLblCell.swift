@@ -5,7 +5,8 @@ class SingleImageLblCell: UITableViewCell , UICollectionViewDelegate, UICollecti
     @IBOutlet weak var pageControl: UIPageControl!
     var presentationPageIndex: NSInteger = 0
     
-    var arrBannerDataSet: Array<[String:Any]> = []
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
+    var arrBannerDataSet: [String] = []
     
     //let customFlowLayout = CustomFlowLayout()
     var isEventSelected = false
@@ -13,9 +14,9 @@ class SingleImageLblCell: UITableViewCell , UICollectionViewDelegate, UICollecti
     //weak var delegate: TableViewGalleryCellDelegate?
     
     @IBOutlet weak var collectionView: UICollectionView!
-    var timer = Timer()
+    var timer : Timer?
     var CallFor = ""
-    
+    var x = 1
     var visibleIndexPath: IndexPath? = nil
     
     var direction: UICollectionView.ScrollDirection = .horizontal
@@ -36,9 +37,13 @@ class SingleImageLblCell: UITableViewCell , UICollectionViewDelegate, UICollecti
         collectionView.layer.cornerRadius = 10.0
         collectionView.layer.borderWidth = 1.0
         collectionView.layer.borderColor = UIColor.black.cgColor
+        self.startTimer()
     }
    
-    func cellConfigure(arrDataSet: Array<[String:Any]>) {
+    deinit {
+        self.stopTime()
+    }
+    func cellConfigure(arrDataSet: [String]) {
         
         arrBannerDataSet = arrDataSet
         collectionView.reloadData()
@@ -54,8 +59,14 @@ class SingleImageLblCell: UITableViewCell , UICollectionViewDelegate, UICollecti
         if let cell: MainItemCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "itemMain", for: indexPath) as? MainItemCollectionViewCell
         {
             
-            let dict = arrBannerDataSet[indexPath.row]
-            cell.imgMainProductItem.image = UIImage(named: "AppLogo")
+            let urlString = arrBannerDataSet[indexPath.row]
+            if let url = URL(string: urlString){
+                cell.imgMainProductItem.kf.indicatorType = .activity
+                cell.imgMainProductItem.kf.setImage(with: url,placeholder: UIImage(named: "AppLogo"))
+            }else{
+                cell.imgMainProductItem.kf.indicatorType = .activity
+                cell.imgMainProductItem.image = UIImage(named: "AppLogo")
+            }
             /*
             let imgPath =  dict["banner_image"] as! String
             cell.imgMainProductItem.downloadImageWith(URL: imgPath, Placeholder: UIImage(named: "AppLogo")!)
@@ -117,4 +128,36 @@ class SingleImageLblCell: UITableViewCell , UICollectionViewDelegate, UICollecti
                    })
            })
     }
+    func startTimer() {
+        if timer == nil{
+
+         timer =  Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.autoScroll), userInfo: nil, repeats: true)
+        }
+    }
+    func stopTime(){
+        if timer != nil{
+        timer?.invalidate()
+        timer = nil
+        }
+    }
+    @objc func autoScroll() {
+            if self.x < self.arrBannerDataSet.count {
+              let indexPath = IndexPath(item: x, section: 0)
+                 DispatchQueue.main.async {
+              self.collectionView.scrollToItem(at: indexPath, at: .right, animated: true)
+                self.pageControl.currentPage  = indexPath.row
+                }
+                
+              self.x = self.x + 1
+            }else{
+              self.x = 0
+                DispatchQueue.main.async {
+                self.pageControl.currentPage = 0
+                
+                     self.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .left, animated: true)
+                }
+            
+               
+            }
+        }
 }

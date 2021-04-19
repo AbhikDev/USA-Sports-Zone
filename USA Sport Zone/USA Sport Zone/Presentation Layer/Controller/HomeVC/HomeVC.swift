@@ -8,10 +8,10 @@
 import UIKit
 
 class HomeVC: BaseVC {
-
+static let ALERT_MESSAGE_WRONG = "Something Went wrong"
     var arrAllData : Array<Array<[String:Any]>> = []
     @IBOutlet weak var tableHome: UITableView!
-    //var userModel : ModelUser!
+    var arrayImages:[String] = []
     override func viewDidLoad() {
         super.viewDidLoad()
           tableHome.contentInsetAdjustmentBehavior = .never
@@ -31,7 +31,7 @@ class HomeVC: BaseVC {
             tableHome.tableHeaderView = UIView(frame: frame)
             // Do any additional setup after loading the view.
             
-            //////get User Modeland Initialize value
+    
         
         // Do any additional setup after loading the view.
         var data : Array<[String:Any]> = []
@@ -75,7 +75,10 @@ class HomeVC: BaseVC {
             childVC.selectedIndex = 0
             childVC.tabBarCollectionView.reloadData()
         }
-        
+        self.callApiPopuleBannerList { (status, message) in
+            
+        }
+    
     }
 
     override func didReceiveMemoryWarning() {
@@ -138,7 +141,14 @@ extension HomeVC:UITableViewDelegate,UITableViewDataSource{
             if let cell = tableView.dequeueReusableCell(withIdentifier: "SingleImageLblCell", for: indexPath) as? SingleImageLblCell
             {
                 cell.backgroundColor = .clear
-                cell.cellConfigure(arrDataSet: arrAllData[0])
+                cell.cellConfigure(arrDataSet: self.arrayImages)
+                if self.arrayImages.count > 0{
+                    cell.collectionView.isHidden = false
+                    cell.indicator.stopAnimating()
+                }else{
+                    cell.collectionView.isHidden = true
+                    cell.indicator.startAnimating()
+                }
                 cell.collectionView.reloadData()
                 cell.selectionStyle = .none
                 return cell
@@ -200,4 +210,64 @@ extension HomeVC:UITableViewDelegate,UITableViewDataSource{
         return UITableViewCell()
     }
     
+}
+extension HomeVC{
+     func callApiPopuleBannerList(complitionHandeler:@escaping(_ status: Int, _ message : String) -> ()){
+        let operation = WebServiceOperation.init((API.banners.getURL()?.absoluteString ?? ""), nil, .WEB_SERVICE_GET, nil)
+        operation.completionBlock = {
+            print(operation.responseData?.arrDictionary ?? "")
+            DispatchQueue.main.async {
+                guard let dictResponse = operation.responseData?.arrDictionary, dictResponse.count > 0 else {
+                    complitionHandeler(1, HomeVC.ALERT_MESSAGE_WRONG)
+                    return
+                }
+                do{
+                    let dictArray = try JSONDecoder().decode([Json4Swift_Base].self, from: dictResponse.data!)
+                    for i in  0...dictArray.count - 1{
+                        if let features = dictArray[i].embedded?.wpFeaturedmedia{
+                            for feature in features {
+                                self.arrayImages.append(feature.source_url ?? "")
+                            }
+                            
+                        }
+                    }
+                    self.tableHome.reloadData()
+                   
+                    
+                    
+                    complitionHandeler(0, "Success")
+                }catch let error {
+                    print(error)
+                    complitionHandeler(1, HomeVC.ALERT_MESSAGE_WRONG)
+                }
+                
+               
+                
+            }
+        }
+        
+        AppDelegate.init().operationQueue.addOperation(operation)
+    }
+}
+extension Array {
+
+    func item(at index: Int) -> Element? {
+        return indices.contains(index) ? self[index] : nil
+    }
+}
+
+
+
+extension MutableCollection {
+    subscript(safe index: Index) -> Element? {
+        get {
+            return indices.contains(index) ? self[ index] : nil
+        }
+
+        set(newValue) {
+            if let newValue = newValue, indices.contains(index) {
+                self[ index] = newValue
+            }
+        }
+    }
 }
