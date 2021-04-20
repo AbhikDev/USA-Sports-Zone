@@ -19,7 +19,7 @@ class ProductList: BaseVC {
         // Do any additional setup after loading the view.
         tabBarCollectionView.register(UINib(nibName: "ProductByCategoryColCell", bundle: nil), forCellWithReuseIdentifier: "ProductByCategoryColCell")
         
-      
+        
         self.callApiProductListByCategory(categoryName: (SelectedCategory["banner_key"] as! String)){ (status, message) in
             
         }
@@ -76,9 +76,30 @@ extension ProductList:UICollectionViewDelegate,UICollectionViewDataSource,UIColl
         }
         return cell
     }
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let dictProduct = arrMDataSet[indexPath.row]
+        if let dictTemp =  dictProduct["acf"] as? [String:Any]{
+            let contents = (dictTemp["product_image"] as! String)
+            //do {
+            
+            do {
+                let doc: Document = try SwiftSoup.parse(contents)
+                
+                let src: Element = try doc.select("a").first()!
+                let srcText: String = try src.attr("href")
+                let refPath = "http:" + srcText
+                
+                guard let url = URL(string: refPath) else { return }
+                UIApplication.shared.open(url)
+            } catch Exception.Error( _, let message) {
+                print(message)
+            } catch {
+                print("error")
+            }
+        }
+        
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         return CGSize(width: self.tabBarCollectionView.frame.width/2, height: 250)
@@ -91,9 +112,6 @@ extension ProductList:UICollectionViewDelegate,UICollectionViewDataSource,UIColl
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0.0
     }
-    
-    
-    
 }
 extension ProductList{
     func callApiProductListByCategory(categoryName: String,complitionHandeler:@escaping(_ status: Int, _ message : String) -> ()){
