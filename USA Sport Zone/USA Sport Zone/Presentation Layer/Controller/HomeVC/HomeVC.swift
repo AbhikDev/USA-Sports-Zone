@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import SwiftSoup
 class HomeVC: BaseVC {
     static let ALERT_MESSAGE_WRONG = "Something Went wrong"
     var arrAllData : Array<Array<[String:Any]>> = []
@@ -161,6 +161,7 @@ extension HomeVC:UITableViewDelegate,UITableViewDataSource{
             }
         }else if indexPath.section == DashboardSection.DASHBOARD_SECTION_TOP.rawValue {
             let cell: ProductByCategoryTBLCell! = tableView.dequeueReusableCell(withIdentifier: "ProductByCategoryTBLCell", for: indexPath) as? ProductByCategoryTBLCell
+            cell.delegate = self
             cell.cellConfigure(arrDataSet: arrAllData[3])
             return cell
         }else{
@@ -231,7 +232,30 @@ extension HomeVC:CustomDelegate{
         }
     }
 }
-
+extension HomeVC:CustomCellProductDelegate{
+    func didSelectProductItem(indexPath: Int) {
+        let dictProduct = arrAllData[3][indexPath]
+        if let dictTemp =  dictProduct["acf"] as? [String:Any]{
+            let contents = (dictTemp["product_image"] as! String)
+            //do {
+            
+            do {
+                let doc: Document = try SwiftSoup.parse(contents)
+                
+                let src: Element = try doc.select("a").first()!
+                let srcText: String = try src.attr("href")
+                let refPath = srcText
+                
+                guard let url = URL(string: refPath) else { return }
+                UIApplication.shared.open(url)
+            } catch Exception.Error( _, let message) {
+                print(message)
+            } catch {
+                print("error")
+            }
+        }
+    }
+}
 extension HomeVC{
     func callApiPopuleBannerList(complitionHandeler:@escaping(_ status: Int, _ message : String) -> ()){
         let operation = WebServiceOperation.init((API.banners.getURL()?.absoluteString ?? ""), nil, .WEB_SERVICE_GET, nil)

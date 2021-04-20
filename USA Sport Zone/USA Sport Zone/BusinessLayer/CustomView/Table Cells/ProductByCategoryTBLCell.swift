@@ -7,8 +7,13 @@
 
 import UIKit
 import SwiftSoup
+protocol CustomCellProductDelegate: class {
+    func didSelectProductItem(indexPath: Int)
+}
+
 class ProductByCategoryTBLCell: UITableViewCell {
     var arrMDataSet: Array<[String:Any]> = []
+    var delegate: CustomCellProductDelegate?
     @IBOutlet weak var productCollectionView: UICollectionView!
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -61,7 +66,7 @@ extension ProductByCategoryTBLCell:UICollectionViewDelegate,UICollectionViewData
                     
                     let src: Element = try doc.select("img").first()!
                     let srcText: String = try src.attr("src")
-                    let imagePath = "http:" + srcText
+                    let imagePath = srcText
                     cell.imgReletedProduct.downloadImageWith(URL:imagePath , Placeholder: UIImage(named: "AppLogo")!)
                     cell.imgReletedProduct.contentMode = .scaleAspectFit
                     cell.imgReletedProduct.image = cell.imgReletedProduct.image?.withAlignmentRectInsets(UIEdgeInsets(top: 5, left: 5, bottom: 5, right:5))
@@ -73,20 +78,18 @@ extension ProductByCategoryTBLCell:UICollectionViewDelegate,UICollectionViewData
        
         }
         
-        
-        
-   
         /*
         
         if (dictProduct["title"] as? [String:Any] !=nil ,let dictTemp =  dictProduct["title"] as? [String:Any] , let title = (dictTemp["rendered"] as? String{
         cell.lblRelatedProduct.text = title
         }
          */
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        delegate?.didSelectProductItem(indexPath: indexPath.item)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
@@ -100,7 +103,4 @@ extension ProductByCategoryTBLCell:UICollectionViewDelegate,UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0.0
     }
-    
-    
-    
 }

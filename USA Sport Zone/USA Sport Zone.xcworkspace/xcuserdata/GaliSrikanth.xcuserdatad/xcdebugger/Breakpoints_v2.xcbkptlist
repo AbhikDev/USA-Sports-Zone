@@ -7,54 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "51356F69-D763-490C-9D57-0E26E27B6CD6"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "USA Sport Zone/Presentation Layer/Controller/HomeVC/HomeVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "229"
-            endingLineNumber = "229"
-            landmarkName = "didSelectItem(indexPath:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "51356F69-D763-490C-9D57-0E26E27B6CD6 - 9710012d6fa777de"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "USA_Sport_Zone.HomeVC.didSelectItem(indexPath: Swift.Int) -&gt; ()"
-                  moduleName = "USA Sport Zone"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/GaliSrikanth/Documents/Demo/Demo/USA-Sports-Zone/USA%20Sport%20Zone/USA%20Sport%20Zone/Presentation%20Layer/Controller/HomeVC/HomeVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "229"
-                  endingLineNumber = "229"
-                  offsetFromSymbolStart = "356">
-               </Location>
-               <Location
-                  uuid = "51356F69-D763-490C-9D57-0E26E27B6CD6 - 8ef9d18e3163e833"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Int, Swift.String) -&gt; () in USA_Sport_Zone.HomeVC.didSelectItem(indexPath: Swift.Int) -&gt; ()"
-                  moduleName = "USA Sport Zone"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/GaliSrikanth/Documents/Demo/Demo/USA-Sports-Zone/USA%20Sport%20Zone/USA%20Sport%20Zone/Presentation%20Layer/Controller/HomeVC/HomeVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "231"
-                  endingLineNumber = "231"
-                  offsetFromSymbolStart = "31">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "CCFCB3D2-7C0D-42BB-AF6C-77B7B44F8AD6"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
