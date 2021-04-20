@@ -8,30 +8,32 @@
 import UIKit
 
 class HomeVC: BaseVC {
-static let ALERT_MESSAGE_WRONG = "Something Went wrong"
+    static let ALERT_MESSAGE_WRONG = "Something Went wrong"
     var arrAllData : Array<Array<[String:Any]>> = []
     @IBOutlet weak var tableHome: UITableView!
     var arrayImages:[String] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-          tableHome.contentInsetAdjustmentBehavior = .never
-            arrAllData.removeAll()
-            arrAllData.append([]) // 1 for Category product
-            arrAllData.append([]) // 1 productDASHBOARD_SECTION_SEARCH
-            arrAllData.append([]) // 2 for Best Offer
-           
-            let cellNib = UINib(nibName: "SingleImageLblCell", bundle: nil)
-            self.tableHome.register(cellNib, forCellReuseIdentifier: "SingleImageLblCell")
-            
-            self.tableHome.register(UINib(nibName: "MainProductTableViewCell", bundle: nil), forCellReuseIdentifier: "cellMainProduct")
-            
-            //self.tableHome.contentInset = UIEdgeInsets(top: -20, left: 0, bottom: 0, right: 0)
-            var frame = CGRect.zero
-            frame.size.height = .leastNormalMagnitude
-            tableHome.tableHeaderView = UIView(frame: frame)
-            // Do any additional setup after loading the view.
-            
-    
+        tableHome.contentInsetAdjustmentBehavior = .never
+        arrAllData.removeAll()
+        arrAllData.append([]) // 0 banner
+        arrAllData.append([]) // 1 add
+        arrAllData.append([]) // 2 Category product
+        arrAllData.append([]) // 3 Product ListByCategory
+        
+        let cellNib = UINib(nibName: "SingleImageLblCell", bundle: nil)
+        self.tableHome.register(cellNib, forCellReuseIdentifier: "SingleImageLblCell")
+        
+        self.tableHome.register(UINib(nibName: "MainProductTableViewCell", bundle: nil), forCellReuseIdentifier: "cellMainProduct")
+        self.tableHome.register(UINib(nibName: "ProductByCategoryTBLCell", bundle: nil), forCellReuseIdentifier: "ProductByCategoryTBLCell")
+        
+        //self.tableHome.contentInset = UIEdgeInsets(top: -20, left: 0, bottom: 0, right: 0)
+        var frame = CGRect.zero
+        frame.size.height = .leastNormalMagnitude
+        tableHome.tableHeaderView = UIView(frame: frame)
+        // Do any additional setup after loading the view.
+        
+        
         
         // Do any additional setup after loading the view.
         var data : Array<[String:Any]> = []
@@ -40,7 +42,7 @@ static let ALERT_MESSAGE_WRONG = "Something Went wrong"
             param1["banner_image"] =  "AppLogo" as AnyObject
             data.append(param1)
         }
-       arrAllData[0] = data
+        arrAllData[0] = data
         
         data.removeAll()
         let arr = ["Headphones", "Gym Supplies", "Car Product","Sports","Shoes","Tea Shirt","Sunglasses","Smart Watches","Electronic","PC Gaming", "Real Favorite"]
@@ -48,7 +50,7 @@ static let ALERT_MESSAGE_WRONG = "Something Went wrong"
         
         let arr_ImageCategory = ["/assets/images/himg.png",
                                  "/assets/images/gimg.png",
-                                "/assets/images/cimg.png",
+                                 "/assets/images/cimg.png",
                                  "/assets/images/timg.png",
                                  "/assets/images/shimg.png",
                                  "/assets/images/tsimg.png",
@@ -65,7 +67,7 @@ static let ALERT_MESSAGE_WRONG = "Something Went wrong"
             param1["banner_key"] =  arr_keyCategory[index] as AnyObject
             data.append(param1)
         }
-       arrAllData[2] = data
+        arrAllData[2] = data
         
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -78,9 +80,9 @@ static let ALERT_MESSAGE_WRONG = "Something Went wrong"
         self.callApiPopuleBannerList { (status, message) in
             
         }
-    
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -94,7 +96,7 @@ extension HomeVC:UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return  1
+        return  1
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
@@ -107,14 +109,14 @@ extension HomeVC:UITableViewDelegate,UITableViewDataSource{
         case DashboardSection.DASHBOARD_SECTION_CATEGORY.rawValue:
             return 130
         case DashboardSection.DASHBOARD_SECTION_TOP.rawValue:
-            let productCount =  90
-            return CGFloat((productCount / 2 * 100))
+            let productCount =  10
+            return CGFloat((productCount / 2 * 200))
         default:
             return 0
         }
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-       
+        
         return 0
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -127,9 +129,9 @@ extension HomeVC:UITableViewDelegate,UITableViewDataSource{
         }
         return 0
     }
-
+    
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-       
+        
         if(section == DashboardSection.DASHBOARD_SECTION_TOP.rawValue){
             let cell = tableView.dequeueReusableCell(withIdentifier: "CommonCellTableViewCell") as! CommonCellTableViewCell
             return cell
@@ -154,6 +156,10 @@ extension HomeVC:UITableViewDelegate,UITableViewDataSource{
                 return cell
                 
             }
+        }else if indexPath.section == DashboardSection.DASHBOARD_SECTION_TOP.rawValue {
+            let cell: ProductByCategoryTBLCell! = tableView.dequeueReusableCell(withIdentifier: "ProductByCategoryTBLCell", for: indexPath) as? ProductByCategoryTBLCell
+            
+            return cell
         }else{
             let cell: MainProductTableViewCell! = tableView.dequeueReusableCell(withIdentifier: "cellMainProduct", for: indexPath) as? MainProductTableViewCell
             cell.backgroundColor = .white
@@ -171,7 +177,7 @@ extension HomeVC:UITableViewDelegate,UITableViewDataSource{
                 }
                 cell.collMainProduct.backgroundColor = .white
                 cell.collMainProduct.bounces = false
-               
+                
             }
             else if indexPath.section == DashboardSection.DASHBOARD_SECTION_CATEGORY.rawValue {
                 rc.size.height = cell.collMainProduct.contentSize.height
@@ -212,7 +218,7 @@ extension HomeVC:UITableViewDelegate,UITableViewDataSource{
     
 }
 extension HomeVC{
-     func callApiPopuleBannerList(complitionHandeler:@escaping(_ status: Int, _ message : String) -> ()){
+    func callApiPopuleBannerList(complitionHandeler:@escaping(_ status: Int, _ message : String) -> ()){
         let operation = WebServiceOperation.init((API.banners.getURL()?.absoluteString ?? ""), nil, .WEB_SERVICE_GET, nil)
         operation.completionBlock = {
             print(operation.responseData?.arrDictionary ?? "")
@@ -232,7 +238,7 @@ extension HomeVC{
                         }
                     }
                     self.tableHome.reloadData()
-                   
+                    
                     
                     
                     complitionHandeler(0, "Success")
@@ -240,9 +246,6 @@ extension HomeVC{
                     print(error)
                     complitionHandeler(1, HomeVC.ALERT_MESSAGE_WRONG)
                 }
-                
-               
-                
             }
         }
         
@@ -250,7 +253,7 @@ extension HomeVC{
     }
 }
 extension Array {
-
+    
     func item(at index: Int) -> Element? {
         return indices.contains(index) ? self[index] : nil
     }
@@ -263,7 +266,7 @@ extension MutableCollection {
         get {
             return indices.contains(index) ? self[ index] : nil
         }
-
+        
         set(newValue) {
             if let newValue = newValue, indices.contains(index) {
                 self[ index] = newValue

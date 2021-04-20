@@ -30,6 +30,8 @@
 		112C9582262C70C8005A7788 /* CustomActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112C957D262C70C8005A7788 /* CustomActivityIndicator.swift */; };
 		112C9583262C70C8005A7788 /* CustomAdaptiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112C957E262C70C8005A7788 /* CustomAdaptiveView.swift */; };
 		112C9584262C70C8005A7788 /* Rechability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112C957F262C70C8005A7788 /* Rechability.swift */; };
+		112EEE33262EA26E00310E35 /* ProductByCategoryTBLCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112EEE31262EA26E00310E35 /* ProductByCategoryTBLCell.swift */; };
+		112EEE34262EA26E00310E35 /* ProductByCategoryTBLCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 112EEE32262EA26E00310E35 /* ProductByCategoryTBLCell.xib */; };
 		11848632262D37B60077328A /* designableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1184862E262D37B60077328A /* designableLabel.swift */; };
 		11848633262D37B60077328A /* designableImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1184862F262D37B60077328A /* designableImage.swift */; };
 		11848634262D37B60077328A /* designableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11848630262D37B60077328A /* designableButton.swift */; };
@@ -112,6 +114,8 @@
 		112C957D262C70C8005A7788 /* CustomActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomActivityIndicator.swift; sourceTree = "<group>"; };
 		112C957E262C70C8005A7788 /* CustomAdaptiveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAdaptiveView.swift; sourceTree = "<group>"; };
 		112C957F262C70C8005A7788 /* Rechability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rechability.swift; sourceTree = "<group>"; };
+		112EEE31262EA26E00310E35 /* ProductByCategoryTBLCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductByCategoryTBLCell.swift; sourceTree = "<group>"; };
+		112EEE32262EA26E00310E35 /* ProductByCategoryTBLCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductByCategoryTBLCell.xib; sourceTree = "<group>"; };
 		1184862E262D37B60077328A /* designableLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = designableLabel.swift; sourceTree = "<group>"; };
 		1184862F262D37B60077328A /* designableImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = designableImage.swift; sourceTree = "<group>"; };
 		11848630262D37B60077328A /* designableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = designableButton.swift; sourceTree = "<group>"; };
@@ -327,6 +331,8 @@
 				112C9559262C6F02005A7788 /* CommonCellTableViewCell.swift */,
 				11848653262D4A630077328A /* CategoryColCell.swift */,
 				11848654262D4A630077328A /* CategoryColCell.xib */,
+				112EEE31262EA26E00310E35 /* ProductByCategoryTBLCell.swift */,
+				112EEE32262EA26E00310E35 /* ProductByCategoryTBLCell.xib */,
 			);
 			path = "Table Cells";
 			sourceTree = "<group>";
@@ -565,6 +571,7 @@
 				11848656262D4A630077328A /* CategoryColCell.xib in Resources */,
 				112C9553262C6ED6005A7788 /* CustomNavigationGeneralView.xib in Resources */,
 				112C956A262C6F6C005A7788 /* Main.storyboard in Resources */,
+				112EEE34262EA26E00310E35 /* ProductByCategoryTBLCell.xib in Resources */,
 				1184864F262D38D50077328A /* MainProductTableViewCell.xib in Resources */,
 				118F023C262DBE1800A3600B /* ProductByCategoryColCell.xib in Resources */,
 				112C9569262C6F6C005A7788 /* LaunchScreen.storyboard in Resources */,
@@ -639,6 +646,7 @@
 				11848651262D38D50077328A /* MainProductTableViewCell.swift in Sources */,
 				CECCE8A0262CABD900D240BF /* HomeVC.swift in Sources */,
 				11848634262D37B60077328A /* designableButton.swift in Sources */,
+				112EEE33262EA26E00310E35 /* ProductByCategoryTBLCell.swift in Sources */,
 				CE54467F262E1184004D656A /* Guid.swift in Sources */,
 				11848641262D38C60077328A /* ReletedProductCollectionViewCell.swift in Sources */,
 				CE544691262E1184004D656A /* Image_meta.swift in Sources */,
