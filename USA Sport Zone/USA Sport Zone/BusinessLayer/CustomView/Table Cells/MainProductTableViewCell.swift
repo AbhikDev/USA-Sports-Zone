@@ -1,10 +1,12 @@
 
 import UIKit
-
+protocol CustomDelegate: class {
+    func didSelectItem(indexPath: Int)
+}
 class MainProductTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var collMainProduct: UICollectionView!
-    
+    var delegate: CustomDelegate?
     var indexPathForCell: Int?
     //var banner:NSMutableArray = []
     var arrCategory_banner:NSMutableArray = []
@@ -159,8 +161,7 @@ class MainProductTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
             return cell
         case DashboardSection.DASHBOARD_SECTION_TOP.rawValue?:
             let cell: ProductCell = collMainProduct.dequeueReusableCell(withReuseIdentifier: "itemMain", for: indexPath) as! ProductCell
-           
-            
+          
             cell.frame.size = CGSize(width: (collMainProduct.frame.width - 40), height: 100)
             
             return cell
@@ -200,7 +201,18 @@ class MainProductTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
         
         return 0
     }
+    //     MARK:- CollectionView Delegate (Action)
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch indexPathForCell {
+        case DashboardSection.DASHBOARD_SECTION_CATEGORY.rawValue?:
+            delegate?.didSelectItem(indexPath: indexPath.item)
+            
+        default:
+            break
+        }
+    }
+   
     func startTimer() {
         
         let _ =  Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(self.scrollAutomatically), userInfo: nil, repeats: false)
@@ -242,11 +254,6 @@ class MainProductTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
          delegate?.didSelectItemToWishList(section: indexPathForCell!, indexPath: sender.tag, strProductId:"0")
          }*/
     }
-    //     MARK:- CollectionView Delegate (Action)
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-       //prasadhcu89@gmail.com delegate?.didSelectItem(section: indexPathForCell!, indexPath: indexPath.item)
-    }
     
 }

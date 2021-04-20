@@ -15,59 +15,6 @@ class HomeVC: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
-        
-        
-        /*
-        let contents = "<a href=\'https://www.amazon.com/TOZO-T6-Bluetooth-Headphones-Waterproof/dp/B08F1SX35C?crid=3TE6H026YPEVY&dchild=1&keywords=headphones&qid=1615172293&s=electronics&sprefix=h%2Celectronics%2C412&sr=1-8&linkCode=li3&tag=usasportzone-20&linkId=25737f279cf8bbef294be7115ad615aa&language=en_US&ref_=as_li_ss_il\' target=\'_blank\'><img border=\'0\' src=\'//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B08F1SX35C&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=usasportzone-20&language=en_US\' ></a><img src=\'https://ir-na.amazon-adsystem.com/e/ir?t=usasportzone-20&language=en_US&l=li3&o=1&a=B08F1SX35C\' width=\'1\' height=\'1\' border=\'0\' alt=\'\' style=\'border:none !important; margin:0px !important;\' />"
-      
-        
-        
-       
-        
-        
-        do {
-           
-            do {
-                let doc: Document = try SwiftSoup.parse(contents)
-                
-                let body = doc.body()
-                
-                let link: Element = try doc.select("a").first()!
-                let src: Element = try doc.select("img").first()!
-                
-                let srcText: String = try src.attr("src")
-                
-            } catch Exception.Error(let type, let message) {
-                print(message)
-            } catch {
-                print("error")
-            }
-        } catch {
-            // contents could not be loaded
-        }
-        */
-        
-        
-     /*
-            do {
-               
-                do {
-                    let doc: Document = try SwiftSoup.parse(contents)
-                    for item in try doc.select("script") {
-                        let json = try item.attr("src")
-                        print(json)
-                    }
-                } catch Exception.Error(let type, let message) {
-                    print(message)
-                } catch {
-                    print("error")
-                }
-            } catch {
-                // contents could not be loaded
-            }*/
-       
         tableHome.contentInsetAdjustmentBehavior = .never
         arrAllData.removeAll()
         arrAllData.append([]) // 0 banner
@@ -166,7 +113,7 @@ extension HomeVC:UITableViewDelegate,UITableViewDataSource{
             return 130
         case DashboardSection.DASHBOARD_SECTION_TOP.rawValue:
             let productCount =  arrAllData[3].count
-            return CGFloat((productCount / 2 * 200))
+            return CGFloat((productCount / 2 * 250))
         default:
             return 0
         }
@@ -239,6 +186,7 @@ extension HomeVC:UITableViewDelegate,UITableViewDataSource{
                 rc.size.height = cell.collMainProduct.contentSize.height
                 cell.backgroundColor = UIColor(named: "AppLightGrayColor")
                 cell.collMainProduct.frame = rc
+                cell.delegate = self
                 if let layout = cell.collMainProduct.collectionViewLayout as? UICollectionViewFlowLayout {
                     layout.scrollDirection = .horizontal
                     layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
@@ -273,6 +221,17 @@ extension HomeVC:UITableViewDelegate,UITableViewDataSource{
     }
     
 }
+extension HomeVC:CustomDelegate{
+    func didSelectItem(indexPath: Int) {
+        let dict = arrAllData[2][indexPath]
+        
+        
+        self.callApiProductListByCategory(categoryName: (dict["banner_key"] as! String)){ (status, message) in
+            
+        }
+    }
+}
+
 extension HomeVC{
     func callApiPopuleBannerList(complitionHandeler:@escaping(_ status: Int, _ message : String) -> ()){
         let operation = WebServiceOperation.init((API.banners.getURL()?.absoluteString ?? ""), nil, .WEB_SERVICE_GET, nil)

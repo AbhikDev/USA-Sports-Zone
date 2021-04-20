@@ -41,7 +41,7 @@ extension ProductByCategoryTBLCell:UICollectionViewDelegate,UICollectionViewData
         let cell = productCollectionView.dequeueReusableCell(withReuseIdentifier: "ProductByCategoryColCell", for: indexPath) as! ProductByCategoryColCell
         cell.imgReletedProduct.layer.cornerRadius = 10
         cell.imgReletedProduct.layer.borderColor = UIColor.lightGray.cgColor
-        cell.imgReletedProduct.layer.borderWidth = 1.0
+        cell.imgReletedProduct.layer.borderWidth = 5.0
         
         
         
@@ -90,7 +90,7 @@ extension ProductByCategoryTBLCell:UICollectionViewDelegate,UICollectionViewData
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: self.productCollectionView.frame.width/2, height: 200)
+        return CGSize(width: self.productCollectionView.frame.width/2, height: 250)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
