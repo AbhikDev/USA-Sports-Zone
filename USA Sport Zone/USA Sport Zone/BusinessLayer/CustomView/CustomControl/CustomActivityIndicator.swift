@@ -42,7 +42,7 @@ class CustomActivityIndicator: UIView {
             
             activityIndicator = NVActivityIndicatorView(frame: frame)
             activityIndicator.type = .ballGridPulse // add your type
-            activityIndicator.color = UIColor(named: "AppGreenColor")! // add your color
+            activityIndicator.color = UIColor(named: "AppPurple")! // add your color
             activityIndicator.tag = 1000
             //activityIndicator.backgroundColor = .clear
             self.addSubview(activityIndicator) // or use  webView.addSubview(activityIndicator)

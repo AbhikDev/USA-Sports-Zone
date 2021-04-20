@@ -12,22 +12,16 @@ enum DashboardSection : Int {
     case DASHBOARD_SECTION_TOP // 3
     
 }
+//MARK : AppDelegate instant
+let appDel = UIApplication.shared.delegate as! AppDelegate
 var concern_number = ""
 var contact_us_number = ""
 var contact_us_wp_number = ""
 
 var fcm_Token = ""
-let App_Title:String! = "Pharma Store"
-let APP_THEAM_COLOR : UIColor =
-    UIColor(red: 186.0/255, green: 163.0/255, blue: 91.0/255, alpha: 1)
-var THEME_COLOR_LIGHT: UIColor = UIColor(displayP3Red: 89.0/255.0, green: 191.0/255.0, blue: 148.0/255.0, alpha: 1.0)
-var THEME_COLOR_DARK: UIColor = UIColor(displayP3Red: 51.0/255.0, green: 51.0/255.0, blue: 51.0/255.0, alpha: 1.0)
-var BACKGROUNG_LIGHT: UIColor = UIColor(displayP3Red: 233.0/255.0, green: 233.0/255.0, blue: 233.0/255.0, alpha: 1.0)
-var BACKGROUNG_DARK: UIColor = UIColor(displayP3Red: 244.0/255.0, green: 249.0/255.0, blue: 253.0/255.0, alpha: 1.0)
+let App_Title:String! = "USA Sport Zone"
 
 let deviceBounds:CGRect! = UIScreen.main.bounds
-//MARK : AppDelegate instant
-let appDel = UIApplication.shared.delegate as! AppDelegate
 
 let genericDateFormatter = "dd MMM,yyyy"
 ///Mark: API

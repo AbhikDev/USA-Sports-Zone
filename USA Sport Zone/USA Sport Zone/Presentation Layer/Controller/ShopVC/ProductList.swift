@@ -134,7 +134,7 @@ extension ProductList{
                 
             }
         }
-        
-        AppDelegate.init().operationQueue.addOperation(operation)
+        appDel?.operationQueue.addOperation(operation)
+       
     }
 }
