@@ -20,4 +20,5 @@ target 'USA Sport Zone' do
    pod 'SideMenu'
    pod 'lottie-ios'
    #pod 'AlamofireSwiftyJSON'
+   pod 'SwiftSoup'
 end
