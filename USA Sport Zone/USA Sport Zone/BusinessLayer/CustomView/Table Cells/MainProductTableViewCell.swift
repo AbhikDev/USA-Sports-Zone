@@ -131,33 +131,10 @@ class MainProductTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
             let imgPath =  (dict["banner_image"] as! String)
             let imagePathFull = ImageBaseUrl + imgPath
             cell.imgCellContent.image = UIImage(named: "ic_launcher_round")
-            /*if let url = URL(string:imagePathFull ){
-                cell.imgCellContent.downloadImage(from: url)
-            }*/
             
-            /*
-            if let url = URL(string:imagePathFull ){
-                cell.imgCellContent.kf.setImage(with: url)
-            }*/
             cell.imgCellContent.downloadImageWith(URL: imagePathFull, Placeholder: UIImage(named: "AppLogo")!)
             
-            /*
-            let dict = arrMDataSet[indexPath.row]
-            let imgPath =  dict["product_image1"] as! String
-            cell.imgReletedProduct.downloadImageWith(URL: imgPath, Placeholder: UIImage(named: "no_product")!)
-            
-            
-            cell.btnFav.tintColor = (dict["IsInWishList"] as? Bool ?? false) ? UIColor(named: "AppBlue") : .darkGray
-            cell.btnFav.tag = indexPath.row
-            cell.btnFav.addTarget(self, action: #selector(addToWishlist), for: .touchUpInside)
-            cell.lblRelatedProduct.text = ""
-            if let productName = dict["product_name"] as? String{
-                cell.lblRelatedProduct.text = productName
-            }
-            cell.lblRelatedProductPrice.text = ""
-            if let productName = dict["product_price"] as? String{
-                cell.lblRelatedProductPrice.text = productName
-            }*/
+           
             return cell
         case DashboardSection.DASHBOARD_SECTION_TOP.rawValue?:
             let cell: ProductCell = collMainProduct.dequeueReusableCell(withReuseIdentifier: "itemMain", for: indexPath) as! ProductCell
@@ -240,20 +217,5 @@ class MainProductTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
         }
         */
     }
-    @objc func addToWishlist(sender:UIButton) {
-        print("addToWishlist")
-        //delegate?.didSelectItemToWishList(section: indexPathForCell!, indexPath: sender.tag)
-        
-        /*
-         if indexPathForCell == 3 {
-         let dict = arrMDataSet[3]
-         delegate?.didSelectItemToWishList(section: indexPathForCell!, indexPath: sender.tag, strProductId: "0")
-         
-         }else if indexPathForCell == 5 {
-         let dict = arrMDataSet[5]
-         delegate?.didSelectItemToWishList(section: indexPathForCell!, indexPath: sender.tag, strProductId:"0")
-         }*/
-    }
-    
-    
+   
 }

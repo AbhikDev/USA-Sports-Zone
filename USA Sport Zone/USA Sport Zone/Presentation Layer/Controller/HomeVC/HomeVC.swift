@@ -283,23 +283,6 @@ extension HomeVC{
                 self.arrAllData[3] = dictResponse
                 
                 self.tableHome.reloadData()
-                
-                //let dictArray = try JSONDecoder().decode([Json4Swift_Base].self, from: dictResponse.data!)
-                
-                //print(dictArray)
-                //
-                //                    for i in  0...dictArray.count - 1{
-                //                        if let features = dictArray[i].embedded?.wpFeaturedmedia{
-                //                            for feature in features {
-                //                                self.arrayImages.append(feature.source_url ?? "")
-                //                            }
-                //
-                //                        }
-                //                    }
-                
-                
-                
-                
                 complitionHandeler(0, "Success")
                 
             }
@@ -307,24 +290,6 @@ extension HomeVC{
         
         AppDelegate.init().operationQueue.addOperation(operation)
     }
-    /*
-    func callApiProductByList(categoryName: String)  {
-        let url =  (API.productByCategory.getURL()?.absoluteString ?? "") + categoryName + "?per_page=100&order=asc"
-        let operation = WebServiceOperation.init(url, nil, .WEB_SERVICE_GET, nil)
-            
-        operation.completionBlock = {
-            
-            guard let dictResponse = operation.responseData?.dictionary, dictResponse.count > 0 else {
-                return
-            }
-            let dictArray = try JSONDecoder().decode([Json4Swift_Base].self, from: dictResponse.data!)
-            
-            print(dictArray)
-            
-        }
-        
-        appDel!.operationQueue.addOperation(operation)
-    }*/
 }
 extension Array {
     
@@ -332,8 +297,6 @@ extension Array {
         return indices.contains(index) ? self[index] : nil
     }
 }
-
-
 
 extension MutableCollection {
     subscript(safe index: Index) -> Element? {

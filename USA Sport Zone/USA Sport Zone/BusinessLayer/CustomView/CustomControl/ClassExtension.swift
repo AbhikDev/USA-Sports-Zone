@@ -239,12 +239,12 @@ extension UIImageView {
             KingfisherManager.shared.retrieveImage(with: resource, options: nil, progressBlock: nil) { result in
                 switch result {
                 case .success(let value):
-                    print("Image: \(value.image). Got from: \(value.cacheType)")
+                    //print("Image: \(value.image). Got from: \(value.cacheType)")
                     self.image = value.image
-                    self.contentMode = .scaleAspectFill
-                case .failure(let error):
                     self.contentMode = .scaleAspectFit
-                    print("Error: \(error)")
+                case .failure( _):
+                    self.contentMode = .scaleAspectFit
+                    //print("Error: \(error)")
                 }
             }
         }
