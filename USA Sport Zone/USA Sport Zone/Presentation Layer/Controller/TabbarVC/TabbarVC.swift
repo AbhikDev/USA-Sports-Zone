@@ -112,7 +112,6 @@ extension TabbarVC:UICollectionViewDelegate,UICollectionViewDataSource,UICollect
                 cell.imageTab.tintColor = .darkGray
                 cell.labelTap.textColor = .darkGray
                 cell.labelTap.text = ""
-                
             }
             
             cell.imageTab.image = UIImage.init(named: "Info")

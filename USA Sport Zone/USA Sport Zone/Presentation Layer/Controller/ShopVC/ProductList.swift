@@ -87,7 +87,7 @@ extension ProductList:UICollectionViewDelegate,UICollectionViewDataSource,UIColl
                 
                 let src: Element = try doc.select("a").first()!
                 let srcText: String = try src.attr("href")
-                let refPath = "http:" + srcText
+                let refPath = srcText
                 
                 guard let url = URL(string: refPath) else { return }
                 UIApplication.shared.open(url)
