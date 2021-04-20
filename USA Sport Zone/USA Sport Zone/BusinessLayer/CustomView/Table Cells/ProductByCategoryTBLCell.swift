@@ -44,9 +44,11 @@ extension ProductByCategoryTBLCell:UICollectionViewDelegate,UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = productCollectionView.dequeueReusableCell(withReuseIdentifier: "ProductByCategoryColCell", for: indexPath) as! ProductByCategoryColCell
-        cell.imgReletedProduct.layer.cornerRadius = 10
-        cell.imgReletedProduct.layer.borderColor = UIColor.lightGray.cgColor
-        cell.imgReletedProduct.layer.borderWidth = 5.0
+        
+        cell.imgReletedProduct.makeShadow()
+        //cell.imgReletedProduct.layer.cornerRadius = 10
+        //cell.imgReletedProduct.layer.borderColor = UIColor.lightGray.cgColor
+        //cell.imgReletedProduct.layer.borderWidth = 5.0
         
         
         
@@ -66,10 +68,10 @@ extension ProductByCategoryTBLCell:UICollectionViewDelegate,UICollectionViewData
                     
                     let src: Element = try doc.select("img").first()!
                     let srcText: String = try src.attr("src")
-                    let imagePath = srcText
+                    let imagePath = "http:" + srcText
                     cell.imgReletedProduct.downloadImageWith(URL:imagePath , Placeholder: UIImage(named: "AppLogo")!)
                     cell.imgReletedProduct.contentMode = .scaleAspectFit
-                    cell.imgReletedProduct.image = cell.imgReletedProduct.image?.withAlignmentRectInsets(UIEdgeInsets(top: 5, left: 5, bottom: 5, right:5))
+                    
                 } catch Exception.Error( _, let message) {
                     print(message)
                 } catch {

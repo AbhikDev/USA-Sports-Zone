@@ -406,12 +406,12 @@
 			children = (
 				11848639262D38C60077328A /* ReletedProductCollectionViewCell.swift */,
 				1184863A262D38C60077328A /* ReletedProductCollectionViewCell.xib */,
+				1184863F262D38C60077328A /* ProductCell.xib */,
 				1184863D262D38C60077328A /* MainItemCollectionViewCell.swift */,
 				1184863B262D38C60077328A /* MainItemCollectionViewCell.xib */,
 				11848640262D38C60077328A /* ShopByCategoryItemCollectionViewCell.swift */,
 				1184863E262D38C60077328A /* ShopByCategoryItemCollectionViewCell.xib */,
 				1184863C262D38C60077328A /* ProductCell.swift */,
-				1184863F262D38C60077328A /* ProductCell.xib */,
 				118F0239262DBE1800A3600B /* ProductByCategoryColCell.swift */,
 				118F023A262DBE1800A3600B /* ProductByCategoryColCell.xib */,
 			);

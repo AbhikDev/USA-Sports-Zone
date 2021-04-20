@@ -79,17 +79,7 @@ class MainProductTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
                 
                 cell.lblBannerTitle.text = ""
                 cell.imgBanner.downloadImageWith(URL: "", Placeholder: UIImage(named: "AppLogo")!)
-                /*
-                cell.lblBannerTitle.text = ""
-                if let productName = dict["category"] as? String{
-                    cell.lblBannerTitle.text = productName
-                }
-                let imgPath =  dict["category_image"] as! String
-                cell.imgBanner.downloadImageWith(URL: imgPath, Placeholder: UIImage(named: "no_product")!)
-                */
-                
-                //cell.contentView.layer.borderWidth = 1.0
-                
+              
                 cell.frame.size = CGSize(width: (collMainProduct.frame.width)/4-8, height: (collMainProduct.frame.width)/4-8)
             }
             
