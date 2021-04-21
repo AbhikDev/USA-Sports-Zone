@@ -84,7 +84,19 @@ extension MoreVC:UITableViewDataSource,UITableViewDelegate{
         return 0.01
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let nextVC = storyboard.instantiateViewController(withIdentifier: "CMSVC") as! CMSVC
+        if indexPath.row == 0{
+            nextVC.stringCMSDetails = AboutUS
+        }else if indexPath.row == 1{
+            nextVC.stringCMSDetails = TermsCondition
+        }else if indexPath.row == 2{
+            nextVC.stringCMSDetails = PrivacyPolicy
+        }else if indexPath.row == 3{
+            nextVC.stringCMSDetails = contactus
+        }
+        nextVC.getIndex = indexPath.row
+        navigationController?.pushViewController(nextVC,animated: true)
     }
     
        

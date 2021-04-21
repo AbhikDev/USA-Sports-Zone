@@ -9,6 +9,9 @@ import UIKit
 
 class BlogCell: UITableViewCell {
 
+    @IBOutlet weak var lblContent: UILabel!
+    @IBOutlet weak var lblTitle: UILabel!
+    @IBOutlet weak var imgBlog: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -131,7 +131,7 @@ class SingleImageLblCell: UITableViewCell , UICollectionViewDelegate, UICollecti
     func startTimer() {
         if timer == nil{
 
-         timer =  Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.autoScroll), userInfo: nil, repeats: true)
+         timer =  Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(self.autoScroll), userInfo: nil, repeats: true)
         }
     }
     func stopTime(){
@@ -160,4 +160,32 @@ class SingleImageLblCell: UITableViewCell , UICollectionViewDelegate, UICollecti
                
             }
         }
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        if  scrollView == self.collectionView{
+        targetContentOffset.pointee = scrollView.contentOffset
+        let pageWidth:CGFloat = CGFloat(self.collectionView.bounds.width)
+        let minSpace:CGFloat = 10.0
+        var cellToSwipe:Double = Double(Float((scrollView.contentOffset.x))/Float((pageWidth+minSpace))) + Double(0.5)
+        if cellToSwipe < 0 {
+            cellToSwipe = 0
+        } else if cellToSwipe >= Double(3) {
+            cellToSwipe = Double(3) - Double(1)
+        }
+        let indexPath:IndexPath = IndexPath(row: Int(cellToSwipe), section:0)
+        if self.x < self.arrBannerDataSet.count {
+        self.pageControl.currentPage = indexPath.row
+        self.x = indexPath.row
+        self.collectionView.scrollToItem(at:indexPath, at: UICollectionView.ScrollPosition.left, animated: true)
+        self.x = self.x + 1
+        }else{
+            self.x = 0
+            self.pageControl.currentPage = 0
+            self.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .centeredHorizontally, animated: true)
+        }
+
+        }
+
+    }
+    
 }

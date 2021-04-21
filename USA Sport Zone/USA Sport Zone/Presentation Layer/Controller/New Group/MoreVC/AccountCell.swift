@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import WebKit
 
 class AccountCell: UITableViewCell {
-
+    
+    @IBOutlet weak var heightWeb: NSLayoutConstraint!
+    @IBOutlet weak var viewweb: WKWebView!
     @IBOutlet weak var btnCheck: UIButton!
     @IBOutlet weak var viewBackImage: ViewX!
     @IBOutlet weak var imgViewSection: UIImageView!

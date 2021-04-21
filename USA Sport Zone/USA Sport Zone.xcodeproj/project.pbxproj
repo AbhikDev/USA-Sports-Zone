@@ -79,6 +79,14 @@
 		CE544692262E1184004D656A /* Twentyseventeen_thumbnail_avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE54467A262E1184004D656A /* Twentyseventeen_thumbnail_avatar.swift */; };
 		CE544693262E1184004D656A /* Medium.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE54467B262E1184004D656A /* Medium.swift */; };
 		CE54469A262E134C004D656A /* WpFeaturedmedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE544699262E134C004D656A /* WpFeaturedmedia.swift */; };
+		CEC44F0F26309BE8004AE647 /* CMSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC44F0E26309BE8004AE647 /* CMSVC.swift */; };
+		CEC44F522630B7F2004AE647 /* Woocommerce_thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC44F2F2630B7EE004AE647 /* Woocommerce_thumbnail.swift */; };
+		CEC44F582630B7F2004AE647 /* Woocommerce_gallery_thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC44F352630B7EF004AE647 /* Woocommerce_gallery_thumbnail.swift */; };
+		CEC44F622630B7F2004AE647 /* Shop_single.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC44F3F2630B7F0004AE647 /* Shop_single.swift */; };
+		CEC44F672630B7F2004AE647 /* JsonSwift_Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC44F442630B7F1004AE647 /* JsonSwift_Base.swift */; };
+		CEC44F682630B7F2004AE647 /* Woocommerce_single.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC44F452630B7F1004AE647 /* Woocommerce_single.swift */; };
+		CEC44F6C2630B7F2004AE647 /* Shop_thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC44F492630B7F1004AE647 /* Shop_thumbnail.swift */; };
+		CEC44F702630B7F2004AE647 /* Excerpt.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC44F4D2630B7F2004AE647 /* Excerpt.swift */; };
 		CECCE8A0262CABD900D240BF /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCE89F262CABD900D240BF /* HomeVC.swift */; };
 		CECCE8A4262CAC2D00D240BF /* TabbarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCE8A3262CAC2D00D240BF /* TabbarVC.swift */; };
 		CECCE8AC262CACF500D240BF /* ShopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCE8AB262CACF500D240BF /* ShopVC.swift */; };
@@ -166,6 +174,14 @@
 		CE54467A262E1184004D656A /* Twentyseventeen_thumbnail_avatar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Twentyseventeen_thumbnail_avatar.swift; sourceTree = "<group>"; };
 		CE54467B262E1184004D656A /* Medium.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Medium.swift; sourceTree = "<group>"; };
 		CE544699262E134C004D656A /* WpFeaturedmedia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WpFeaturedmedia.swift; sourceTree = "<group>"; };
+		CEC44F0E26309BE8004AE647 /* CMSVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMSVC.swift; sourceTree = "<group>"; };
+		CEC44F2F2630B7EE004AE647 /* Woocommerce_thumbnail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Woocommerce_thumbnail.swift; sourceTree = "<group>"; };
+		CEC44F352630B7EF004AE647 /* Woocommerce_gallery_thumbnail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Woocommerce_gallery_thumbnail.swift; sourceTree = "<group>"; };
+		CEC44F3F2630B7F0004AE647 /* Shop_single.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shop_single.swift; sourceTree = "<group>"; };
+		CEC44F442630B7F1004AE647 /* JsonSwift_Base.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonSwift_Base.swift; sourceTree = "<group>"; };
+		CEC44F452630B7F1004AE647 /* Woocommerce_single.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Woocommerce_single.swift; sourceTree = "<group>"; };
+		CEC44F492630B7F1004AE647 /* Shop_thumbnail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shop_thumbnail.swift; sourceTree = "<group>"; };
+		CEC44F4D2630B7F2004AE647 /* Excerpt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Excerpt.swift; sourceTree = "<group>"; };
 		CECCE89F262CABD900D240BF /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		CECCE8A3262CAC2D00D240BF /* TabbarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarVC.swift; sourceTree = "<group>"; };
 		CECCE8AB262CACF500D240BF /* ShopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopVC.swift; sourceTree = "<group>"; };
@@ -237,6 +253,7 @@
 		112C951D262C6AF9005A7788 /* BusinessLayer */ = {
 			isa = PBXGroup;
 			children = (
+				CEC44F2B2630B5C3004AE647 /* ModelBlog */,
 				CE544663262E1183004D656A /* Model Banners */,
 				112C953B262C6CD1005A7788 /* CustomView */,
 				112C9522262C6B33005A7788 /* AppConstant */,
@@ -342,6 +359,7 @@
 		112C955D262C6F18005A7788 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				CEC44F0D26309BC9004AE647 /* CMSVC */,
 				CECCE8B2262CAE7400D240BF /* BaseVC.swift */,
 				CECCE8AA262CACE600D240BF /* ShopVC */,
 				CECCE8A7262CAC3E00D240BF /* HomeVC */,
@@ -465,6 +483,28 @@
 				CE54467B262E1184004D656A /* Medium.swift */,
 			);
 			path = "Model Banners";
+			sourceTree = "<group>";
+		};
+		CEC44F0D26309BC9004AE647 /* CMSVC */ = {
+			isa = PBXGroup;
+			children = (
+				CEC44F0E26309BE8004AE647 /* CMSVC.swift */,
+			);
+			path = CMSVC;
+			sourceTree = "<group>";
+		};
+		CEC44F2B2630B5C3004AE647 /* ModelBlog */ = {
+			isa = PBXGroup;
+			children = (
+				CEC44F4D2630B7F2004AE647 /* Excerpt.swift */,
+				CEC44F442630B7F1004AE647 /* JsonSwift_Base.swift */,
+				CEC44F3F2630B7F0004AE647 /* Shop_single.swift */,
+				CEC44F492630B7F1004AE647 /* Shop_thumbnail.swift */,
+				CEC44F352630B7EF004AE647 /* Woocommerce_gallery_thumbnail.swift */,
+				CEC44F452630B7F1004AE647 /* Woocommerce_single.swift */,
+				CEC44F2F2630B7EE004AE647 /* Woocommerce_thumbnail.swift */,
+			);
+			path = ModelBlog;
 			sourceTree = "<group>";
 		};
 		CECCE8A2262CAC2D00D240BF /* TabbarVC */ = {
@@ -660,6 +700,7 @@
 				11848645262D38C60077328A /* MainItemCollectionViewCell.swift in Sources */,
 				CE54467C262E1184004D656A /* Full.swift in Sources */,
 				112C9529262C6B8D005A7788 /* AppDelegate.swift in Sources */,
+				CEC44F522630B7F2004AE647 /* Woocommerce_thumbnail.swift in Sources */,
 				118F023B262DBE1800A3600B /* ProductByCategoryColCell.swift in Sources */,
 				11848632262D37B60077328A /* designableLabel.swift in Sources */,
 				CE54468B262E1184004D656A /* Curies.swift in Sources */,
@@ -667,11 +708,15 @@
 				112C9554262C6ED6005A7788 /* CustomNavigationView.swift in Sources */,
 				112C9577262C7046005A7788 /* WebServiceOperation.swift in Sources */,
 				CECCE8B9262CAF7D00D240BF /* AccountCell.swift in Sources */,
+				CEC44F672630B7F2004AE647 /* JsonSwift_Base.swift in Sources */,
 				CE544682262E1184004D656A /* Thumbnail.swift in Sources */,
 				11848648262D38C60077328A /* ShopByCategoryItemCollectionViewCell.swift in Sources */,
+				CEC44F582630B7F2004AE647 /* Woocommerce_gallery_thumbnail.swift in Sources */,
 				112C955A262C6F02005A7788 /* CommonCellTableViewCell.swift in Sources */,
 				1184864E262D38D50077328A /* SingleImageLblCell.swift in Sources */,
+				CEC44F0F26309BE8004AE647 /* CMSVC.swift in Sources */,
 				CECCE8AC262CACF500D240BF /* ShopVC.swift in Sources */,
+				CEC44F702630B7F2004AE647 /* Excerpt.swift in Sources */,
 				11848644262D38C60077328A /* ProductCell.swift in Sources */,
 				CECCE8A4262CAC2D00D240BF /* TabbarVC.swift in Sources */,
 				CE54468D262E1184004D656A /* Title.swift in Sources */,
@@ -687,6 +732,7 @@
 				CE54467E262E1184004D656A /* Replies.swift in Sources */,
 				112C9584262C70C8005A7788 /* Rechability.swift in Sources */,
 				CE544683262E1184004D656A /* Sizes.swift in Sources */,
+				CEC44F6C2630B7F2004AE647 /* Shop_thumbnail.swift in Sources */,
 				CE54469A262E134C004D656A /* WpFeaturedmedia.swift in Sources */,
 				CE54467D262E1184004D656A /* GetSelf.swift in Sources */,
 				CE54468A262E1184004D656A /* _links.swift in Sources */,
@@ -698,8 +744,10 @@
 				CE544687262E1184004D656A /* Json4Swift_Base.swift in Sources */,
 				CE544690262E1184004D656A /* _embedded.swift in Sources */,
 				112C9525262C6B7F005A7788 /* Constant.swift in Sources */,
+				CEC44F682630B7F2004AE647 /* Woocommerce_single.swift in Sources */,
 				112C9583262C70C8005A7788 /* CustomAdaptiveView.swift in Sources */,
 				CECCE8BC262CB38500D240BF /* CustomClass.swift in Sources */,
+				CEC44F622630B7F2004AE647 /* Shop_single.swift in Sources */,
 				112C9582262C70C8005A7788 /* CustomActivityIndicator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
