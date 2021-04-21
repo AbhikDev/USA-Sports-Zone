@@ -19,8 +19,13 @@ class MoreVC: BaseVC {
     @IBOutlet weak var tableMore: UITableView!
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var imgviewProfile: UIImageView!
+    @IBOutlet weak var bgVW: UIView!
     @IBOutlet weak var imgviewCover: UIImageView!
    
+    
+    let arrImg = ["user","terms","policy","contact"]
+    let arrImgColor = ["#c6794d","#2a88d9","#f80100","#249937"]
+    let arrbgColor = ["#fff3eb" ,"#ecf6ff", "#ffebec", "#eaf9ed"]
     fileprivate func setupTable() {
         let section1 = HomeSections.init(key: "\u{f007}", value: "About Us", object: nil)
         let section2 = HomeSections.init(key: "\u{f0e0}", value: "Terms & Condition", object: nil)
@@ -57,7 +62,15 @@ extension MoreVC:UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AccountCell", for: indexPath) as! AccountCell
         cell.lblName.text = tempCate[indexPath.row].value
-        cell.lblImage.text = tempCate[indexPath.row].key ?? ""
+       //cell.lblImage.text = tempCate[indexPath.row].key ?? ""
+        
+        let bgColor = UtilityClass.getColorFromHexString(arrbgColor[indexPath.row])
+        let imgtintColor = UtilityClass.getColorFromHexString(arrImgColor [indexPath.row])
+        let imgName = arrImg[indexPath.row]
+        
+        cell.imgContent.image = UIImage(named: imgName)
+        cell.imgContent.tintColor = imgtintColor
+        cell.viewBackImage.backgroundColor = bgColor
         
         return cell
     }

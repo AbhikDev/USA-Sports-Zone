@@ -11,7 +11,7 @@ struct UtilityClass {
         style.backgroundColor = UIColor(named: "AppGreenColor")!
         //style.maxWidthPercentage
         style.messageFont = UIFont.systemFont(ofSize: 15.0)
-            //UIFont(name: "System", size: 15.0)!
+        //UIFont(name: "System", size: 15.0)!
         style.messageColor = .white
         ToastManager.shared.style = style
         
@@ -47,41 +47,64 @@ struct UtilityClass {
         let calendar = Calendar.current
         let now = birthdayDate
         let eight_today = calendar.date(
-          bySettingHour: 12,
-          minute: 00,
-          second: 0,
-          of: now)!
-
+            bySettingHour: 12,
+            minute: 00,
+            second: 0,
+            of: now)!
+        
         let four_thirty_today = calendar.date(
-          bySettingHour: 23,
-          minute: 59,
-          second: 0,
-          of: now)!
-
+            bySettingHour: 23,
+            minute: 59,
+            second: 0,
+            of: now)!
+        
         if now >= eight_today &&
-          now <= four_thirty_today
+            now <= four_thirty_today
         {
-          return true
+            return true
         }
         return false
     }
     static func dateFormatterFlexibleLocal(strDate:String, fromDateFromat:String, toDateFormat:String)->String
-       {
-           let dateFormatter = DateFormatter()
-           dateFormatter.locale =  NSLocale.init(localeIdentifier: "en") as Locale
-           let tempLocale = dateFormatter.locale // save locale temporarily
-           
-           dateFormatter.dateFormat = fromDateFromat//"dd-MM-yyyy hh:mm a"
-           guard let date = dateFormatter.date(from: strDate) else {
-               return strDate
-           }
-           //let date = try dateFormatter.date(from: strDate)!
-           dateFormatter.dateFormat = toDateFormat//"hh:mm a"
-           dateFormatter.locale = tempLocale // reset the locale
-           let dateString = dateFormatter.string(from: date)
-           //print("EXACT_DATE : \(dateString)")
-           return dateString
-       }
+    {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale =  NSLocale.init(localeIdentifier: "en") as Locale
+        let tempLocale = dateFormatter.locale // save locale temporarily
+        
+        dateFormatter.dateFormat = fromDateFromat//"dd-MM-yyyy hh:mm a"
+        guard let date = dateFormatter.date(from: strDate) else {
+            return strDate
+        }
+        //let date = try dateFormatter.date(from: strDate)!
+        dateFormatter.dateFormat = toDateFormat//"hh:mm a"
+        dateFormatter.locale = tempLocale // reset the locale
+        let dateString = dateFormatter.string(from: date)
+        //print("EXACT_DATE : \(dateString)")
+        return dateString
+    }
+    // #pragma mark Color from HEX code
+    
+    static func getColorFromHexString(_ hexString: String?) -> UIColor? {
+        var cleanString = hexString?.replacingOccurrences(of: "#", with: "")
+        if cleanString!.count == 3 {
+            cleanString = "\((cleanString! as NSString).substring(with: NSRange(location: 0, length: 1)))\((cleanString! as NSString).substring(with: NSRange(location: 0, length: 1)))\((cleanString! as NSString).substring(with: NSRange(location: 1, length: 1)))\((cleanString! as NSString).substring(with: NSRange(location: 1, length: 1)))\((cleanString! as NSString).substring(with: NSRange(location: 2, length: 1)))\((cleanString! as NSString).substring(with: NSRange(location: 2, length: 1)))"
+            
+        }
+        
+        if cleanString!.count == 6 {
+            cleanString = cleanString! + "ff"
+        }
+        var baseValue:UInt32 = 0
+        Scanner(string: cleanString!).scanHexInt32(&baseValue)
+        
+        let red: Float = Float(((baseValue >> 24) & 0xff)) / 255.0
+        let green: Float = Float(((baseValue >> 16) & 0xff)) / 255.0
+        let blue: Float = Float(((baseValue >> 8) & 0xff)) / 255.0
+        let alpha: Float = Float(((baseValue >> 0) & 0xff)) / 255.0
+        
+        return UIColor(red: CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha: CGFloat(alpha))
+    }
+    
 }
 
 extension UIDevice {
@@ -145,24 +168,24 @@ extension UIDevice {
 }
 extension UIButton {
     func makeButtonCornerRadius(){
-       let radius = (self.frame.size.height / 2)
-           self.layer.cornerRadius = radius
-           self.clipsToBounds = true
-       }
+        let radius = (self.frame.size.height / 2)
+        self.layer.cornerRadius = radius
+        self.clipsToBounds = true
+    }
 }
 
 extension String {
     var isNumeric: Bool {
-          guard self.count > 0 else { return false }
-          let nums: Set<Character> = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
-          return Set(self).isSubset(of: nums)
-      }
+        guard self.count > 0 else { return false }
+        let nums: Set<Character> = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+        return Set(self).isSubset(of: nums)
+    }
     init?(htmlEncodedString: String) {
-
+        
         guard let data = htmlEncodedString.data(using: .utf8) else {
             return nil
         }
-
+        
         let options: [NSAttributedString.DocumentReadingOptionKey: Any] = [
             .documentType: NSAttributedString.DocumentType.html,
             .characterEncoding: String.Encoding.utf8.rawValue
@@ -170,10 +193,10 @@ extension String {
         guard let attributedString = try? NSAttributedString(data: data, options: options, documentAttributes: nil) else {
             return nil
         }
-
+        
         self.init(attributedString.string)
     }
-
+    
 }
 
 extension String {
@@ -182,7 +205,7 @@ extension String {
         
         let charset = CharacterSet(charactersIn: ".")
         if self.rangeOfCharacter(from: charset) != nil {
-           return  self.components(separatedBy: ".").first ?? ""
+            return  self.components(separatedBy: ".").first ?? ""
         }else{
             return self
         }
@@ -191,7 +214,7 @@ extension String {
         return self.trimmingCharacters(in: .whitespacesAndNewlines)
     }
     var isValidTenDigitMobileNumber : Bool{
-       let p = self.trimSpace
+        let p = self.trimSpace
         return p.count >= 10 ? true : false
     }
     
@@ -204,20 +227,20 @@ extension String {
         return date
     }
     
-   
+    
     var isValidPhoneNumberCountryWise: Bool{
         let PHONE_REGEX = "^\\+(?:[0-9] ?){10,11}[0-9]$"
         let phoneTest = NSPredicate(format: "SELF MATCHES %@", PHONE_REGEX)
         return  phoneTest.evaluate(with: self)
         
     }
-   // MARK: -  PasswordValidation(Minimum 8 characters at least 1 Uppercase Alphabet, 1 Lowercase Alphabet, 1 Number and 1 Special Character)
+    // MARK: -  PasswordValidation(Minimum 8 characters at least 1 Uppercase Alphabet, 1 Lowercase Alphabet, 1 Number and 1 Special Character)
     var isPasswordValidation: Bool{
-         let Password_REGEX = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])[A-Za-z\\d$@$!%*?&]{6,}"
-           let Password = NSPredicate(format: "SELF MATCHES %@", Password_REGEX)
-           return  Password.evaluate(with: self)
-          
-       }
+        let Password_REGEX = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])[A-Za-z\\d$@$!%*?&]{6,}"
+        let Password = NSPredicate(format: "SELF MATCHES %@", Password_REGEX)
+        return  Password.evaluate(with: self)
+        
+    }
     
     //
     
@@ -244,26 +267,26 @@ extension UIImageView {
                     self.contentMode = .scaleAspectFit
                 case .failure( _):
                     self.contentMode = .scaleAspectFit
-                    //print("Error: \(error)")
+                //print("Error: \(error)")
                 }
             }
         }
     }
     /*
-    func downloadImage(from url: URL) {
-        print("Download Started")
-        getData(from: url) { data, response, error in
-            guard let data = data, error == nil else { return }
-            print(response?.suggestedFilename ?? url.lastPathComponent)
-            print("Download Finished")
-            DispatchQueue.main.async() { [weak self] in
-                self?.image = UIImage(data: data)
-            }
-        }
-    }
-    func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
-        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
-    }*/
+     func downloadImage(from url: URL) {
+     print("Download Started")
+     getData(from: url) { data, response, error in
+     guard let data = data, error == nil else { return }
+     print(response?.suggestedFilename ?? url.lastPathComponent)
+     print("Download Finished")
+     DispatchQueue.main.async() { [weak self] in
+     self?.image = UIImage(data: data)
+     }
+     }
+     }
+     func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+     URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
+     }*/
 }
 extension UINavigationController {
     //Mark:  - Check in navigation stack
@@ -285,14 +308,14 @@ extension UINavigationController {
     }
     
     func backToPreviousPage() {
-      self.popViewController(animated: true)
+        self.popViewController(animated: true)
         
     }
     
 }
 extension UIView {
     func makeRound(){
-    let radius = (self.frame.size.width / 2) 
+        let radius = (self.frame.size.width / 2)
         self.layer.cornerRadius = radius
         self.layer.borderWidth = 2.0
         self.layer.borderColor = UIColor.clear.cgColor
@@ -307,27 +330,27 @@ extension UIView {
         self.clipsToBounds = true
     }
     /*
-    func makeRoundCornerRadiusWithColor(color:UIColor){
-        let radius = 5
-        self.layer.cornerRadius = CGFloat(radius)
-        self.layer.borderWidth = 1.0
-        self.layer.borderColor = color.cgColor
-        self.clipsToBounds = true
-    }*/
+     func makeRoundCornerRadiusWithColor(color:UIColor){
+     let radius = 5
+     self.layer.cornerRadius = CGFloat(radius)
+     self.layer.borderWidth = 1.0
+     self.layer.borderColor = color.cgColor
+     self.clipsToBounds = true
+     }*/
     func makeShadow() {
         // Initialization code
         /*
-        self.layer.shadowRadius = 2.5
-        self.layer.shadowColor = UIColor(red: 176.0 / 255.0, green: 199.0 / 255.0, blue: 226.0 / 255.0, alpha: 1.0).cgColor
-        self.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
-        self.layer.shadowOpacity = 0.9
-        self.layer.masksToBounds = false
-
-        let shadowInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        let shadowPath = UIBezierPath(rect: self.bounds.inset(by: shadowInsets))
-        self.layer.shadowPath = shadowPath.cgPath
-        self.layer.cornerRadius = 10
-        */
+         self.layer.shadowRadius = 2.5
+         self.layer.shadowColor = UIColor(red: 176.0 / 255.0, green: 199.0 / 255.0, blue: 226.0 / 255.0, alpha: 1.0).cgColor
+         self.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+         self.layer.shadowOpacity = 0.9
+         self.layer.masksToBounds = false
+         
+         let shadowInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+         let shadowPath = UIBezierPath(rect: self.bounds.inset(by: shadowInsets))
+         self.layer.shadowPath = shadowPath.cgPath
+         self.layer.cornerRadius = 10
+         */
         
         self.layer.masksToBounds = false
         self.layer.shadowColor = UIColor.black.cgColor
@@ -338,11 +361,11 @@ extension UIView {
         
     }
     
-   
+    
 }
 
 extension Date {
- 
+    
     func afterMonth(getMonth:Int) -> Date{
         return Calendar.current.date(byAdding: .month, value: getMonth, to: noon)!
     }
@@ -449,7 +472,7 @@ extension UIImage {
         return UIImage.init(cgImage: newCGImage, scale: 1, orientation: .up)
     }
     
-   
+    
 }
 
 
@@ -506,7 +529,7 @@ extension String {
     var htmlToAttributedString: NSAttributedString? {
         guard let data = data(using: .utf8) else { return NSAttributedString() }
         do {
-           
+            
             let options: [NSAttributedString.DocumentReadingOptionKey : Any] = [
                 NSAttributedString.DocumentReadingOptionKey.characterEncoding : String.Encoding.utf8.rawValue,
                 NSAttributedString.DocumentReadingOptionKey.documentType : NSAttributedString.DocumentType.html
@@ -532,7 +555,7 @@ extension String {
 
 
 extension UILabel {
-   @objc public var substituteFontName : String {
+    @objc public var substituteFontName : String {
         get {
             return self.font.fontName;
         }
@@ -597,148 +620,148 @@ extension UITextField {
     }
 }
 /*
-extension UIView {
-    
-    private struct AssociatedKeys {
-        static var descriptiveName = "AssociatedKeys.DescriptiveName.blurView"
-    }
-    
-    private (set) var blurView: BlurView {
-        get {
-            if let blurView = objc_getAssociatedObject(
-                self,
-                &AssociatedKeys.descriptiveName
-                ) as? BlurView {
-                return blurView
-            }
-            self.blurView = BlurView(to: self)
-            return self.blurView
-        }
-        set(blurView) {
-            objc_setAssociatedObject(
-                self,
-                &AssociatedKeys.descriptiveName,
-                blurView,
-                .OBJC_ASSOCIATION_RETAIN_NONATOMIC
-            )
-        }
-    }
-    
-    class BlurView {
-        
-        private var superview: UIView
-        private var blur: UIVisualEffectView?
-        private var editing: Bool = false
-        private (set) var blurContentView: UIView?
-        private (set) var vibrancyContentView: UIView?
-        
-        var animationDuration: TimeInterval = 0.1
-        
-        /**
-         * Blur style. After it is changed all subviews on
-         * blurContentView & vibrancyContentView will be deleted.
-         */
-        var style: UIBlurEffect.Style = .light {
-            didSet {
-                guard oldValue != style,
-                    !editing else { return }
-                applyBlurEffect()
-            }
-        }
-        /**
-         * Alpha component of view. It can be changed freely.
-         */
-        var alpha: CGFloat = 0 {
-            didSet {
-                guard !editing else { return }
-                if blur == nil {
-                    applyBlurEffect()
-                }
-                let alpha = self.alpha
-                UIView.animate(withDuration: animationDuration) {
-                    self.blur?.alpha = alpha
-                }
-            }
-        }
-        
-        init(to view: UIView) {
-            self.superview = view
-        }
-        
-        func setup(style: UIBlurEffect.Style, alpha: CGFloat) -> Self {
-            self.editing = true
-            
-            self.style = style
-            self.alpha = alpha
-            
-            self.editing = false
-            
-            return self
-        }
-        
-        func enable(isHidden: Bool = false) {
-            if blur == nil {
-                applyBlurEffect()
-            }
-            
-            self.blur?.isHidden = isHidden
-        }
-        
-        private func applyBlurEffect() {
-            blur?.removeFromSuperview()
-            
-            applyBlurEffect(
-                style: style,
-                blurAlpha: alpha
-            )
-        }
-        
-        private func applyBlurEffect(style: UIBlurEffect.Style,
-                                     blurAlpha: CGFloat) {
-            superview.backgroundColor = UIColor.clear
-            
-            let blurEffect = UIBlurEffect(style: style)
-            let blurEffectView = UIVisualEffectView(effect: blurEffect)
-            
-            let vibrancyEffect = UIVibrancyEffect(blurEffect: blurEffect)
-            let vibrancyView = UIVisualEffectView(effect: vibrancyEffect)
-            blurEffectView.contentView.addSubview(vibrancyView)
-            
-            blurEffectView.alpha = blurAlpha
-            
-            superview.insertSubview(blurEffectView, at: 0)
-            
-            blurEffectView.addAlignedConstrains()
-            vibrancyView.addAlignedConstrains()
-            
-            self.blur = blurEffectView
-            self.blurContentView = blurEffectView.contentView
-            self.vibrancyContentView = vibrancyView.contentView
-        }
-    }
-    
-    private func addAlignedConstrains() {
-        translatesAutoresizingMaskIntoConstraints = false
-        addAlignConstraintToSuperview(attribute: NSLayoutConstraint.Attribute.top)
-        addAlignConstraintToSuperview(attribute: NSLayoutConstraint.Attribute.leading)
-        addAlignConstraintToSuperview(attribute: NSLayoutConstraint.Attribute.trailing)
-        addAlignConstraintToSuperview(attribute: NSLayoutConstraint.Attribute.bottom)
-    }
-    
-    private func addAlignConstraintToSuperview(attribute: NSLayoutConstraint.Attribute) {
-        superview?.addConstraint(
-            NSLayoutConstraint(
-                item: self,
-                attribute: attribute,
-                relatedBy: NSLayoutConstraint.Relation.equal,
-                toItem: superview,
-                attribute: attribute,
-                multiplier: 1,
-                constant: 0
-            )
-        )
-    }
-}*/
+ extension UIView {
+ 
+ private struct AssociatedKeys {
+ static var descriptiveName = "AssociatedKeys.DescriptiveName.blurView"
+ }
+ 
+ private (set) var blurView: BlurView {
+ get {
+ if let blurView = objc_getAssociatedObject(
+ self,
+ &AssociatedKeys.descriptiveName
+ ) as? BlurView {
+ return blurView
+ }
+ self.blurView = BlurView(to: self)
+ return self.blurView
+ }
+ set(blurView) {
+ objc_setAssociatedObject(
+ self,
+ &AssociatedKeys.descriptiveName,
+ blurView,
+ .OBJC_ASSOCIATION_RETAIN_NONATOMIC
+ )
+ }
+ }
+ 
+ class BlurView {
+ 
+ private var superview: UIView
+ private var blur: UIVisualEffectView?
+ private var editing: Bool = false
+ private (set) var blurContentView: UIView?
+ private (set) var vibrancyContentView: UIView?
+ 
+ var animationDuration: TimeInterval = 0.1
+ 
+ /**
+ * Blur style. After it is changed all subviews on
+ * blurContentView & vibrancyContentView will be deleted.
+ */
+ var style: UIBlurEffect.Style = .light {
+ didSet {
+ guard oldValue != style,
+ !editing else { return }
+ applyBlurEffect()
+ }
+ }
+ /**
+ * Alpha component of view. It can be changed freely.
+ */
+ var alpha: CGFloat = 0 {
+ didSet {
+ guard !editing else { return }
+ if blur == nil {
+ applyBlurEffect()
+ }
+ let alpha = self.alpha
+ UIView.animate(withDuration: animationDuration) {
+ self.blur?.alpha = alpha
+ }
+ }
+ }
+ 
+ init(to view: UIView) {
+ self.superview = view
+ }
+ 
+ func setup(style: UIBlurEffect.Style, alpha: CGFloat) -> Self {
+ self.editing = true
+ 
+ self.style = style
+ self.alpha = alpha
+ 
+ self.editing = false
+ 
+ return self
+ }
+ 
+ func enable(isHidden: Bool = false) {
+ if blur == nil {
+ applyBlurEffect()
+ }
+ 
+ self.blur?.isHidden = isHidden
+ }
+ 
+ private func applyBlurEffect() {
+ blur?.removeFromSuperview()
+ 
+ applyBlurEffect(
+ style: style,
+ blurAlpha: alpha
+ )
+ }
+ 
+ private func applyBlurEffect(style: UIBlurEffect.Style,
+ blurAlpha: CGFloat) {
+ superview.backgroundColor = UIColor.clear
+ 
+ let blurEffect = UIBlurEffect(style: style)
+ let blurEffectView = UIVisualEffectView(effect: blurEffect)
+ 
+ let vibrancyEffect = UIVibrancyEffect(blurEffect: blurEffect)
+ let vibrancyView = UIVisualEffectView(effect: vibrancyEffect)
+ blurEffectView.contentView.addSubview(vibrancyView)
+ 
+ blurEffectView.alpha = blurAlpha
+ 
+ superview.insertSubview(blurEffectView, at: 0)
+ 
+ blurEffectView.addAlignedConstrains()
+ vibrancyView.addAlignedConstrains()
+ 
+ self.blur = blurEffectView
+ self.blurContentView = blurEffectView.contentView
+ self.vibrancyContentView = vibrancyView.contentView
+ }
+ }
+ 
+ private func addAlignedConstrains() {
+ translatesAutoresizingMaskIntoConstraints = false
+ addAlignConstraintToSuperview(attribute: NSLayoutConstraint.Attribute.top)
+ addAlignConstraintToSuperview(attribute: NSLayoutConstraint.Attribute.leading)
+ addAlignConstraintToSuperview(attribute: NSLayoutConstraint.Attribute.trailing)
+ addAlignConstraintToSuperview(attribute: NSLayoutConstraint.Attribute.bottom)
+ }
+ 
+ private func addAlignConstraintToSuperview(attribute: NSLayoutConstraint.Attribute) {
+ superview?.addConstraint(
+ NSLayoutConstraint(
+ item: self,
+ attribute: attribute,
+ relatedBy: NSLayoutConstraint.Relation.equal,
+ toItem: superview,
+ attribute: attribute,
+ multiplier: 1,
+ constant: 0
+ )
+ )
+ }
+ }*/
 extension Array {
     var data:Data? {
         get{
@@ -753,28 +776,28 @@ extension Array {
     
 }
 /*
-extension UIView {
-    func fadeIn(_ duration: TimeInterval = 0.25,_ delay:TimeInterval = 0.0, completion:((Bool) -> ())? = nil) {
-        self.alpha = 0.0
-        UIView.animate(withDuration: duration, delay: delay, options: UIView.AnimationOptions.curveEaseIn, animations: {
-            self.alpha = 1.0
-        }) { (finished:Bool) in
-            if let completion = completion {
-                completion(finished)
-            }
-        }
-    }
-    func fadeOut(_ duration: TimeInterval = 0.25,_ delay:TimeInterval = 0.0, completion:((Bool) -> ())? = nil) {
-        self.alpha = 1.0
-        UIView.animate(withDuration: duration, delay: delay, options: UIView.AnimationOptions.curveEaseIn, animations: {
-            self.alpha = 0.0
-        }) { (finished:Bool) in
-            if let completion = completion {
-                completion(finished)
-            }
-        }
-    }
-}
+ extension UIView {
+ func fadeIn(_ duration: TimeInterval = 0.25,_ delay:TimeInterval = 0.0, completion:((Bool) -> ())? = nil) {
+ self.alpha = 0.0
+ UIView.animate(withDuration: duration, delay: delay, options: UIView.AnimationOptions.curveEaseIn, animations: {
+ self.alpha = 1.0
+ }) { (finished:Bool) in
+ if let completion = completion {
+ completion(finished)
+ }
+ }
+ }
+ func fadeOut(_ duration: TimeInterval = 0.25,_ delay:TimeInterval = 0.0, completion:((Bool) -> ())? = nil) {
+ self.alpha = 1.0
+ UIView.animate(withDuration: duration, delay: delay, options: UIView.AnimationOptions.curveEaseIn, animations: {
+ self.alpha = 0.0
+ }) { (finished:Bool) in
+ if let completion = completion {
+ completion(finished)
+ }
+ }
+ }
+ }
  */
 
 
@@ -795,7 +818,7 @@ extension UITextField {
     func addDoneCancelToolbar(onDone: (target: Any, action: Selector)? = nil, onCancel: (target: Any, action: Selector)? = nil) {
         let onCancel = onCancel ?? (target: self, action: #selector(cancelButtonTapped))
         let onDone = onDone ?? (target: self, action: #selector(doneButtonTapped))
-
+        
         let toolbar: UIToolbar = UIToolbar()
         toolbar.barStyle = .default
         toolbar.items = [
@@ -804,47 +827,47 @@ extension UITextField {
             UIBarButtonItem(title: "Done", style: .done, target: onDone.target, action: onDone.action)
         ]
         toolbar.sizeToFit()
-
+        
         self.inputAccessoryView = toolbar
     }
-
+    
     // Default actions:
     @objc func doneButtonTapped() { self.resignFirstResponder() }
     @objc func cancelButtonTapped() { self.resignFirstResponder() }
 }
 
 extension UITapGestureRecognizer {
-
+    
     func didTapAttributedTextInLabel(label: UILabel, inRange targetRange: NSRange) -> Bool {
         // Create instances of NSLayoutManager, NSTextContainer and NSTextStorage
         let layoutManager = NSLayoutManager()
         let textContainer = NSTextContainer(size: CGSize.zero)
         let textStorage = NSTextStorage(attributedString: label.attributedText!)
-
+        
         // Configure layoutManager and textStorage
         layoutManager.addTextContainer(textContainer)
         textStorage.addLayoutManager(layoutManager)
-
+        
         // Configure textContainer
         textContainer.lineFragmentPadding = 0.0
         textContainer.lineBreakMode = label.lineBreakMode
         textContainer.maximumNumberOfLines = label.numberOfLines
         let labelSize = label.bounds.size
         textContainer.size = labelSize
-
+        
         // Find the tapped character location and compare it to the specified range
         let locationOfTouchInLabel = self.location(in: label)
         let textBoundingBox = layoutManager.usedRect(for: textContainer)
         //let textContainerOffset = CGPointMake((labelSize.width - textBoundingBox.size.width) * 0.5 - textBoundingBox.origin.x,
-                                              //(labelSize.height - textBoundingBox.size.height) * 0.5 - textBoundingBox.origin.y);
+        //(labelSize.height - textBoundingBox.size.height) * 0.5 - textBoundingBox.origin.y);
         let textContainerOffset = CGPoint(x: (labelSize.width - textBoundingBox.size.width) * 0.5 - textBoundingBox.origin.x, y: (labelSize.height - textBoundingBox.size.height) * 0.5 - textBoundingBox.origin.y)
-
+        
         //let locationOfTouchInTextContainer = CGPointMake(locationOfTouchInLabel.x - textContainerOffset.x,
-                                                        // locationOfTouchInLabel.y - textContainerOffset.y);
+        // locationOfTouchInLabel.y - textContainerOffset.y);
         let locationOfTouchInTextContainer = CGPoint(x: locationOfTouchInLabel.x - textContainerOffset.x, y: locationOfTouchInLabel.y - textContainerOffset.y)
         let indexOfCharacter = layoutManager.characterIndex(for: locationOfTouchInTextContainer, in: textContainer, fractionOfDistanceBetweenInsertionPoints: nil)
         return NSLocationInRange(indexOfCharacter, targetRange)
     }
-
+    
 }
 
