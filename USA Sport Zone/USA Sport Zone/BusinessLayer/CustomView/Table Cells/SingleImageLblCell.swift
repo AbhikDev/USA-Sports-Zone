@@ -36,7 +36,7 @@ class SingleImageLblCell: UITableViewCell , UICollectionViewDelegate, UICollecti
         
         collectionView.layer.cornerRadius = 10.0
         collectionView.layer.borderWidth = 1.0
-        collectionView.layer.borderColor = UIColor.black.cgColor
+        collectionView.layer.borderColor = UIColor.lightGray.cgColor
         self.startTimer()
     }
    

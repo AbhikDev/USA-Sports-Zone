@@ -62,7 +62,7 @@
                                             <constraint firstAttribute="width" secondItem="dZ3-PU-vxX" secondAttribute="height" multiplier="2.5:1" id="Vzu-yR-euj"/>
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" image="AppLogo"/>
+                                        <state key="normal" image="logo"/>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mPb-sX-h6d" customClass="designableView" customModule="USA_Sport_Zone" customModuleProvider="target">
                                         <rect key="frame" x="147" y="40" width="247" height="40"/>
@@ -1083,15 +1083,15 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="VAW-sE-FQN"/>
+        <segue reference="EiH-B1-gcK"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="AppLogo" width="259" height="105"/>
         <image name="Search" width="48" height="48"/>
         <image name="baseline_emoji_events" width="48" height="48"/>
         <image name="baseline_local_shipping" width="48" height="48"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="ic_launcher_round" width="192" height="192"/>
+        <image name="logo" width="259" height="105"/>
         <image name="open_24_hours" width="48" height="48"/>
         <image name="upgrade" width="48" height="48"/>
         <namedColor name="AccentColor">
