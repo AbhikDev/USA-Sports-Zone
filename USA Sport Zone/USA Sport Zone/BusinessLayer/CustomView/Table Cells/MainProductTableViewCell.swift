@@ -182,32 +182,11 @@ class MainProductTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
         }
     }
     
-    func startTimer() {
-        
-        let _ =  Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(self.scrollAutomatically), userInfo: nil, repeats: false)
-    }
+//    func startTimer() {
+//        
+//        let _ =  Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(self.scrollAutomatically), userInfo: nil, repeats: false)
+//    }
     
-    @objc func scrollAutomatically(_ timer1: Timer) {
-        /*
-         if let coll  = collMainProduct {
-         for cell in coll.visibleCells {
-         if indexPathForCell == 1 {
-         let indexPath: IndexPath? = coll.indexPath(for: cell)
-         if ((indexPath?.row)!  < banner.count - 1){
-         let indexPath1: IndexPath?
-         indexPath1 = IndexPath.init(row: (indexPath?.row)! + 1, section: (indexPath?.section)!)
-         
-         coll.scrollToItem(at: indexPath1!, at: .right, animated: true)
-         }
-         else{
-         let indexPath1: IndexPath?
-         indexPath1 = IndexPath.init(row: 0, section: indexPathForCell!)
-         coll.scrollToItem(at: indexPath1!, at: .left, animated: true)
-         }
-         }
-         }
-         }
-         */
-    }
+   
     
 }

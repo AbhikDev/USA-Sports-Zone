@@ -16,7 +16,7 @@ class SingleImageLblCell: UITableViewCell , UICollectionViewDelegate, UICollecti
     @IBOutlet weak var collectionView: UICollectionView!
     var timer : Timer?
     var CallFor = ""
-    var x = 1
+    var x = 0
     var visibleIndexPath: IndexPath? = nil
     
     var direction: UICollectionView.ScrollDirection = .horizontal
@@ -67,10 +67,7 @@ class SingleImageLblCell: UITableViewCell , UICollectionViewDelegate, UICollecti
                 cell.imgMainProductItem.kf.indicatorType = .activity
                 cell.imgMainProductItem.image = UIImage(named: "AppLogo")
             }
-            /*
-            let imgPath =  dict["banner_image"] as! String
-            cell.imgMainProductItem.downloadImageWith(URL: imgPath, Placeholder: UIImage(named: "AppLogo")!)
-          */
+            
             cell.imgMainProductItem.contentMode = .scaleAspectFit
             cell.backgroundColor = UIColor.clear
             return cell
@@ -90,35 +87,20 @@ class SingleImageLblCell: UITableViewCell , UICollectionViewDelegate, UICollecti
     }
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         pageControl.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
+        x = pageControl.currentPage
         var visibleRect = CGRect()
-        
+
         visibleRect.origin = collectionView.contentOffset
         visibleRect.size = collectionView.bounds.size
-        
+
         let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
-        
+
         if let visibleIndexPath = collectionView.indexPathForItem(at: visiblePoint) {
             self.visibleIndexPath = visibleIndexPath
         }
     }
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        /*
-        if let visibleIndexPath = self.visibleIndexPath {
-            
-            // This conditional makes sure you only animate cells from the bottom and not the top, your choice to remove.
-            if indexPath.row > visibleIndexPath.row {
-                
-                cell.contentView.alpha = 0.3
-                
-                cell.layer.transform = CATransform3DMakeScale(0.5, 0.5, 0.5)
-                
-                // Simple Animation
-                UIView.animate(withDuration: 0.5) {
-                    cell.contentView.alpha = 1
-                    cell.layer.transform = CATransform3DScale(CATransform3DIdentity, 1, 1, 1)
-                }
-            }
-        }*/
+        
         cell.layer.transform = CATransform3DMakeScale(0.1,0.1,1)
         UIView.animate(withDuration: 0.3, animations: {
                cell.layer.transform = CATransform3DMakeScale(1.05,1.05,1)
@@ -131,7 +113,7 @@ class SingleImageLblCell: UITableViewCell , UICollectionViewDelegate, UICollecti
     func startTimer() {
         if timer == nil{
 
-         timer =  Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(self.autoScroll), userInfo: nil, repeats: true)
+         timer =  Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(self.scrollToNextCell), userInfo: nil, repeats: true)
         }
     }
     func stopTime(){
@@ -140,52 +122,30 @@ class SingleImageLblCell: UITableViewCell , UICollectionViewDelegate, UICollecti
             timer = nil
         }
     }
-    @objc func autoScroll() {
-            if self.x < self.arrBannerDataSet.count {
-              let indexPath = IndexPath(item: x, section: 0)
-                 DispatchQueue.main.async {
-              self.collectionView.scrollToItem(at: indexPath, at: .right, animated: true)
-                self.pageControl.currentPage  = indexPath.row
-                }
-                
-              self.x = self.x + 1
-            }else{
-              self.x = 0
-                DispatchQueue.main.async {
-                self.pageControl.currentPage = 0
-                
-                     self.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .left, animated: true)
-                }
-            
-               
-            }
-        }
-    /*
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        if  scrollView == self.collectionView{
-        targetContentOffset.pointee = scrollView.contentOffset
-        let pageWidth:CGFloat = CGFloat(self.collectionView.bounds.width)
-        let minSpace:CGFloat = 10.0
-        var cellToSwipe:Double = Double(Float((scrollView.contentOffset.x))/Float((pageWidth+minSpace))) + Double(0.5)
-        if cellToSwipe < 0 {
-            cellToSwipe = 0
-        } else if cellToSwipe >= Double(3) {
-            cellToSwipe = Double(3) - Double(1)
-        }
-        let indexPath:IndexPath = IndexPath(row: Int(cellToSwipe), section:0)
+
+    
+    @objc func scrollToNextCell(){
+
         if self.x < self.arrBannerDataSet.count {
-        self.pageControl.currentPage = indexPath.row
-        self.x = indexPath.row
-        self.collectionView.scrollToItem(at:indexPath, at: UICollectionView.ScrollPosition.left, animated: true)
-        self.x = self.x + 1
+        let cellSize = CGSize(width: self.collectionView.frame.width, height: self.collectionView.frame.height);
+
+            //get current content Offset of the Collection view
+            let contentOffset = collectionView.contentOffset;
+
+            //scroll to next cell
+        collectionView.scrollRectToVisible(CGRect(x: contentOffset.x + cellSize.width, y: contentOffset.y, width: cellSize.width, height: cellSize.height), animated: true)
+            self.x = self.x + 1
+            self.pageControl.currentPage  = x
+            
         }else{
             self.x = 0
-            self.pageControl.currentPage = 0
-            self.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .centeredHorizontally, animated: true)
+            self.pageControl.currentPage  = 0
+            let cellSize = CGSize(width: self.collectionView.frame.width, height: self.collectionView.frame.height);
+            collectionView.scrollRectToVisible(CGRect(x: 0, y: 0, width: cellSize.width, height: cellSize.height), animated: true)
         }
 
         }
-
-    }*/
+    
+    
     
 }

@@ -153,7 +153,7 @@ extension HomeVC:UITableViewDelegate,UITableViewDataSource{
                     cell.collectionView.isHidden = true
                     cell.indicator.startAnimating()
                 }
-                cell.collectionView.reloadData()
+                //cell.collectionView.reloadData()
                 cell.selectionStyle = .none
                 return cell
                 
