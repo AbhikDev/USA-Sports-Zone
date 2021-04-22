@@ -143,6 +143,7 @@ extension AppDelegate {
         if (((object as? OperationQueue) === self.operationQueue) && (keyPath == "operations") && (context == &AppDelegate.kQueueOperationsChanged)) {
             DispatchQueue.main.async {
                 if self.operationQueue.operationCount > 0 {
+                    /*
                     if #available(iOS 13.0, *) {
                         let keyWindow = UIApplication.shared.connectedScenes
                             .filter({$0.activationState == .foregroundActive})
@@ -156,13 +157,13 @@ extension AppDelegate {
                             
                         })
                     } else {
-                        
+                       */
                         UIApplication.shared.keyWindow?.rootViewController?.view.endEditing(true)
                         
                         CustomActivityIndicator.sharedInstance.display(onView: UIApplication.shared.keyWindow, done: {
                             
                         })
-                    }
+                   // }
                     
                 }else{
                     CustomActivityIndicator.sharedInstance.hide {

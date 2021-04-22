@@ -31,8 +31,11 @@ class ProductList: BaseVC {
             childVC.selectedIndex = 1
             childVC.tabBarCollectionView.reloadData()
         }
-        
     }
+    @IBAction func btnBackAction(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
 }
 extension ProductList:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

@@ -55,7 +55,7 @@ class MainProductTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
         //case DashboardSection.DASHBOARD_SECTION_HIGHLITE.rawValue?:
         //    return arrMDataSet.count
         case DashboardSection.DASHBOARD_SECTION_FEATURED.rawValue?:
-            return arrMDataSet.count//arrMDataSet.count
+            return arrCategory_banner.count//arrMDataSet.count
         case DashboardSection.DASHBOARD_SECTION_CATEGORY.rawValue?:
             return arrMDataSet.count
         //case DashboardSection.DASHBOARD_SECTION_TOP.rawValue?:
