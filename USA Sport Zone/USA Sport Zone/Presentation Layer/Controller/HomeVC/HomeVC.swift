@@ -113,7 +113,7 @@ extension HomeVC:UITableViewDelegate,UITableViewDataSource{
             return 130
         case DashboardSection.DASHBOARD_SECTION_TOP.rawValue:
             let productCount =  arrAllData[3].count
-            return CGFloat((productCount / 2 * 230))
+            return CGFloat((productCount / 2 * 220))
         default:
             return 0
         }
