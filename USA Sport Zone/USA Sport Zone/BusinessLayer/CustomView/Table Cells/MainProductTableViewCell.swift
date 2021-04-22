@@ -19,12 +19,12 @@ class MainProductTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
         collMainProduct.dataSource = self
         collMainProduct.delegate = self
         
-       
+        
         collMainProduct.register(UINib(nibName: "MainItemCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "itemMain")
-  
+        
         collMainProduct.register(UINib(nibName: "ReletedProductCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "itemReletedProduct")
         
-    
+        
         collMainProduct.register(UINib(nibName: "ProductCell", bundle: nil), forCellWithReuseIdentifier: "ProductCell")
         
         
@@ -79,24 +79,24 @@ class MainProductTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
                 
                 cell.lblBannerTitle.text = ""
                 cell.imgBanner.downloadImageWith(URL: "", Placeholder: UIImage(named: "AppLogo")!)
-              
+                
                 cell.frame.size = CGSize(width: (collMainProduct.frame.width)/4-8, height: (collMainProduct.frame.width)/4-8)
             }
             
             return cell
         case DashboardSection.DASHBOARD_SECTION_FEATURED.rawValue?:
-           
+            
             /*let cell: ProductCell = collMainProduct.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as! ProductCell
-            
-            cell.frame.size = CGSize(width: 150, height: 160)
-            
-            cell.vawImgContainer.layer.cornerRadius = 10.0
-            cell.vawImgContainer.layer.borderWidth = 1
-            cell.vawImgContainer.layer.borderColor = UIColor.clear.cgColor
-            
-            cell.vawImgContainer.backgroundColor = UIColor(named: "AppLightGrayColor")
-            cell.backgroundColor = .white
-            */
+             
+             cell.frame.size = CGSize(width: 150, height: 160)
+             
+             cell.vawImgContainer.layer.cornerRadius = 10.0
+             cell.vawImgContainer.layer.borderWidth = 1
+             cell.vawImgContainer.layer.borderColor = UIColor.clear.cgColor
+             
+             cell.vawImgContainer.backgroundColor = UIColor(named: "AppLightGrayColor")
+             cell.backgroundColor = .white
+             */
             
             let cell: MainItemCollectionViewCell = collMainProduct.dequeueReusableCell(withReuseIdentifier: "itemMain", for: indexPath) as! MainItemCollectionViewCell
             collMainProduct.backgroundColor = .white
@@ -112,23 +112,23 @@ class MainProductTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
             collMainProduct.backgroundColor = UIColor(named: "AppLightGrayColor")
             cell.frame.size = CGSize(width:150, height: 130)
             
-          
+            
             cell.backgroundColor = .clear
             
             let dict = arrMDataSet[indexPath.row]
             cell.lblInfo.text = (dict["banner_name"] as! String)
-           
+            
             let imgPath =  (dict["banner_image"] as! String)
             let imagePathFull = ImageBaseUrl + imgPath
             cell.imgCellContent.image = UIImage(named: "ic_launcher_round")
             
             cell.imgCellContent.downloadImageWith(URL: imagePathFull, Placeholder: UIImage(named: "AppLogo")!)
             
-           
+            
             return cell
         case DashboardSection.DASHBOARD_SECTION_TOP.rawValue?:
             let cell: ProductCell = collMainProduct.dequeueReusableCell(withReuseIdentifier: "itemMain", for: indexPath) as! ProductCell
-          
+            
             cell.frame.size = CGSize(width: (collMainProduct.frame.width - 40), height: 100)
             
             return cell
@@ -179,7 +179,7 @@ class MainProductTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
             break
         }
     }
-   
+    
     func startTimer() {
         
         let _ =  Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(self.scrollAutomatically), userInfo: nil, repeats: false)
@@ -187,25 +187,25 @@ class MainProductTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
     
     @objc func scrollAutomatically(_ timer1: Timer) {
         /*
-        if let coll  = collMainProduct {
-            for cell in coll.visibleCells {
-                if indexPathForCell == 1 {
-                    let indexPath: IndexPath? = coll.indexPath(for: cell)
-                    if ((indexPath?.row)!  < banner.count - 1){
-                        let indexPath1: IndexPath?
-                        indexPath1 = IndexPath.init(row: (indexPath?.row)! + 1, section: (indexPath?.section)!)
-                        
-                        coll.scrollToItem(at: indexPath1!, at: .right, animated: true)
-                    }
-                    else{
-                        let indexPath1: IndexPath?
-                        indexPath1 = IndexPath.init(row: 0, section: indexPathForCell!)
-                        coll.scrollToItem(at: indexPath1!, at: .left, animated: true)
-                    }
-                }
-            }
-        }
-        */
+         if let coll  = collMainProduct {
+         for cell in coll.visibleCells {
+         if indexPathForCell == 1 {
+         let indexPath: IndexPath? = coll.indexPath(for: cell)
+         if ((indexPath?.row)!  < banner.count - 1){
+         let indexPath1: IndexPath?
+         indexPath1 = IndexPath.init(row: (indexPath?.row)! + 1, section: (indexPath?.section)!)
+         
+         coll.scrollToItem(at: indexPath1!, at: .right, animated: true)
+         }
+         else{
+         let indexPath1: IndexPath?
+         indexPath1 = IndexPath.init(row: 0, section: indexPathForCell!)
+         coll.scrollToItem(at: indexPath1!, at: .left, animated: true)
+         }
+         }
+         }
+         }
+         */
     }
-   
+    
 }

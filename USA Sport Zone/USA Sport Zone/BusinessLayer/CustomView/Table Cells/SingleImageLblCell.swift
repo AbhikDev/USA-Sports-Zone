@@ -71,8 +71,8 @@ class SingleImageLblCell: UITableViewCell , UICollectionViewDelegate, UICollecti
             let imgPath =  dict["banner_image"] as! String
             cell.imgMainProductItem.downloadImageWith(URL: imgPath, Placeholder: UIImage(named: "AppLogo")!)
           */
-            cell.imgMainProductItem.contentMode = .scaleAspectFill
-           
+            cell.imgMainProductItem.contentMode = .scaleAspectFit
+            cell.backgroundColor = UIColor.clear
             return cell
         }
         return UICollectionViewCell()
@@ -136,8 +136,8 @@ class SingleImageLblCell: UITableViewCell , UICollectionViewDelegate, UICollecti
     }
     func stopTime(){
         if timer != nil{
-        timer?.invalidate()
-        timer = nil
+            timer?.invalidate()
+            timer = nil
         }
     }
     @objc func autoScroll() {
@@ -160,7 +160,7 @@ class SingleImageLblCell: UITableViewCell , UICollectionViewDelegate, UICollecti
                
             }
         }
-    
+    /*
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         if  scrollView == self.collectionView{
         targetContentOffset.pointee = scrollView.contentOffset
@@ -186,6 +186,6 @@ class SingleImageLblCell: UITableViewCell , UICollectionViewDelegate, UICollecti
 
         }
 
-    }
+    }*/
     
 }

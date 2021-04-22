@@ -106,14 +106,14 @@ extension HomeVC:UITableViewDelegate,UITableViewDataSource{
         switch indexPath.section {
         ////TopCollCell
         case DashboardSection.DASHBOARD_SECTION_HIGHLITE.rawValue:
-            return 200
+            return (tableHome.frame.size.width * 1 ) / 2.4
         case DashboardSection.DASHBOARD_SECTION_FEATURED.rawValue:
             return 200
         case DashboardSection.DASHBOARD_SECTION_CATEGORY.rawValue:
             return 130
         case DashboardSection.DASHBOARD_SECTION_TOP.rawValue:
             let productCount =  arrAllData[3].count
-            return CGFloat((productCount / 2 * 250))
+            return CGFloat((productCount / 2 * 200))
         default:
             return 0
         }
@@ -289,12 +289,30 @@ extension HomeVC{
         }
         
         AppDelegate.init().operationQueue.addOperation(operation)
+        
     }
     
     func callApiProductListByCategory(categoryName: String,complitionHandeler:@escaping(_ status: Int, _ message : String) -> ()){
         //
         let url =  (API.productByCategory.getURL()?.absoluteString ?? "") + categoryName + "?per_page=100&order=asc"
         let operation = WebServiceOperation.init(url, nil, .WEB_SERVICE_GET, nil)
+        operation.completionBlock = {
+            print(operation.responseData?.arrDictionary ?? "")
+            DispatchQueue.main.async {
+                guard let dictResponse = operation.responseData?.arrDictionary, dictResponse.count > 0 else {
+                    complitionHandeler(1, HomeVC.ALERT_MESSAGE_WRONG)
+                    return
+                }
+                
+                self.arrAllData[3] = dictResponse
+                
+                self.tableHome.reloadData()
+                complitionHandeler(0, "Success")
+                
+            }
+        }
+        appDel?.operationQueue.addOperation(operation)
+        /*
         operation.completionBlock = {
             print(operation.responseData?.arrDictionary ?? "")
             DispatchQueue.main.async {
@@ -313,6 +331,7 @@ extension HomeVC{
         }
         
         AppDelegate.init().operationQueue.addOperation(operation)
+        */
     }
 }
 extension Array {

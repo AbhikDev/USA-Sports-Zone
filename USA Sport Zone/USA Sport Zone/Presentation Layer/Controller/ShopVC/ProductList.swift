@@ -46,6 +46,7 @@ extension ProductList:UICollectionViewDelegate,UICollectionViewDataSource,UIColl
         let dictProduct = arrMDataSet[indexPath.row]
         if let dictTemp =  dictProduct["title"] as? [String:Any]{
             cell.lblRelatedProduct.text = (dictTemp["rendered"] as! String)
+            
         }
         cell.lblRelatedProductCategory.text = (dictProduct["type"] as! String)
         
@@ -98,7 +99,7 @@ extension ProductList:UICollectionViewDelegate,UICollectionViewDataSource,UIColl
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: self.tabBarCollectionView.frame.width/2, height: 250)
+        return CGSize(width: self.tabBarCollectionView.frame.width/2, height: 200)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

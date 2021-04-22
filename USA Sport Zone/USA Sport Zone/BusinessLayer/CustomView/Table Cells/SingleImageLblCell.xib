@@ -26,7 +26,7 @@
                         <color key="color" name="AccentColor"/>
                     </activityIndicatorView>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Kow-Ey-3Hs">
-                        <rect key="frame" x="10" y="10" width="300" height="260"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="280"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="pTu-nd-VKI" customClass="CenterFlowLayout" customModule="USA_Sport_Zone" customModuleProvider="target">
                             <size key="itemSize" width="414" height="200"/>
@@ -41,26 +41,26 @@
                         </connections>
                     </collectionView>
                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="NtF-w3-Haj">
-                        <rect key="frame" x="36" y="250" width="248" height="20"/>
+                        <rect key="frame" x="36" y="260" width="248" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="90D-0T-JDw"/>
                         </constraints>
                         <color key="pageIndicatorTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="currentPageIndicatorTintColor" name="AppBlue"/>
+                        <color key="currentPageIndicatorTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </pageControl>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="NtF-w3-Haj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="20" id="2l7-0D-Bmc"/>
-                    <constraint firstItem="Kow-Ey-3Hs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="5Zg-FE-7ff"/>
+                    <constraint firstItem="Kow-Ey-3Hs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="5Zg-FE-7ff"/>
                     <constraint firstItem="NtF-w3-Haj" firstAttribute="bottom" secondItem="Kow-Ey-3Hs" secondAttribute="bottom" id="7M1-yb-fzZ"/>
-                    <constraint firstAttribute="bottom" secondItem="Kow-Ey-3Hs" secondAttribute="bottom" constant="10" id="MI9-G4-pIo"/>
+                    <constraint firstAttribute="bottom" secondItem="Kow-Ey-3Hs" secondAttribute="bottom" id="MI9-G4-pIo"/>
                     <constraint firstItem="Wt2-F1-1qM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="RVg-xG-Eg1"/>
-                    <constraint firstAttribute="trailing" secondItem="Kow-Ey-3Hs" secondAttribute="trailing" constant="10" id="gWg-Po-Qyq"/>
+                    <constraint firstAttribute="trailing" secondItem="Kow-Ey-3Hs" secondAttribute="trailing" id="gWg-Po-Qyq"/>
                     <constraint firstItem="gQl-QV-7aN" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="hcc-ty-1qV"/>
                     <constraint firstAttribute="trailingMargin" secondItem="NtF-w3-Haj" secondAttribute="trailing" constant="20" id="mAd-hH-u1W"/>
                     <constraint firstItem="gQl-QV-7aN" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="qdx-eG-o37"/>
-                    <constraint firstItem="Kow-Ey-3Hs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="qum-wk-daw"/>
+                    <constraint firstItem="Kow-Ey-3Hs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="qum-wk-daw"/>
                     <constraint firstAttribute="trailing" secondItem="Wt2-F1-1qM" secondAttribute="trailing" id="rKA-Bm-HNQ"/>
                     <constraint firstItem="Wt2-F1-1qM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="vb5-Yy-hdf"/>
                     <constraint firstAttribute="bottom" secondItem="Wt2-F1-1qM" secondAttribute="bottom" id="ymH-T3-83I"/>
@@ -78,9 +78,6 @@
     <resources>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="AppBlue">
-            <color red="0.0040000001899898052" green="0.70899999141693115" blue="0.90100002288818359" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
