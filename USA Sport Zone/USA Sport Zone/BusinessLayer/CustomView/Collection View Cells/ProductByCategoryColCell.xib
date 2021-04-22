@@ -39,8 +39,12 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q7S-YS-Zoj">
-                        <rect key="frame" x="10" y="180" width="236" height="16"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <rect key="frame" x="112.5" y="180" width="31" height="20"/>
+                        <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="Hnz-Yc-P6u"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -56,6 +60,7 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="ezN-WT-cg3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="3wH-S5-ymT"/>
+                <constraint firstItem="q7S-YS-Zoj" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="9Kr-GY-AEm"/>
                 <constraint firstItem="CRG-hX-E59" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="DAf-ZX-NkQ"/>
                 <constraint firstItem="XYz-ly-ytu" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="DsI-4S-M0z"/>
                 <constraint firstItem="XYz-ly-ytu" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="0.5" id="HoN-Y0-meH"/>
@@ -63,11 +68,9 @@
                 <constraint firstItem="CRG-hX-E59" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="0.4" id="bH7-87-Pu7"/>
                 <constraint firstItem="ezN-WT-cg3" firstAttribute="top" secondItem="XYz-ly-ytu" secondAttribute="bottom" constant="8" id="cFy-me-Fff"/>
                 <constraint firstAttribute="trailing" secondItem="ezN-WT-cg3" secondAttribute="trailing" constant="10" id="eS8-iv-rcj"/>
-                <constraint firstAttribute="trailing" secondItem="q7S-YS-Zoj" secondAttribute="trailing" constant="10" id="gl0-ph-BBO"/>
                 <constraint firstItem="XYz-ly-ytu" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="mnj-mw-sGe"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" secondItem="CRG-hX-E59" secondAttribute="bottom" constant="10" id="pGv-AK-UqS"/>
                 <constraint firstItem="q7S-YS-Zoj" firstAttribute="top" secondItem="ezN-WT-cg3" secondAttribute="bottom" constant="8" id="uKO-I5-7Ux"/>
-                <constraint firstItem="q7S-YS-Zoj" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="zPA-sk-q57"/>
             </constraints>
             <size key="customSize" width="256" height="219"/>
             <connections>

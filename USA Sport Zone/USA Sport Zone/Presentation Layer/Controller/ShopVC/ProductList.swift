@@ -48,8 +48,8 @@ extension ProductList:UICollectionViewDelegate,UICollectionViewDataSource,UIColl
             cell.lblRelatedProduct.text = (dictTemp["rendered"] as! String)
             
         }
-        cell.lblRelatedProductCategory.text = (dictProduct["type"] as! String)
-        
+        cell.lblRelatedProductCategory.text = " " + (dictProduct["type"] as! String) + " "
+        cell.lblRelatedProductCategory.layer.cornerRadius = 10
         cell.imgReletedProduct.image = UIImage(named: "ic_launcher_round")
         if let dictTemp =  dictProduct["acf"] as? [String:Any]{
             let contents = (dictTemp["product_image"] as! String)
@@ -99,7 +99,7 @@ extension ProductList:UICollectionViewDelegate,UICollectionViewDataSource,UIColl
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: self.tabBarCollectionView.frame.width/2, height: 200)
+        return CGSize(width: self.tabBarCollectionView.frame.width/2, height: 230)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
