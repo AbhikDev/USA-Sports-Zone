@@ -108,12 +108,12 @@ extension HomeVC:UITableViewDelegate,UITableViewDataSource{
         case DashboardSection.DASHBOARD_SECTION_HIGHLITE.rawValue:
             return (tableHome.frame.size.width * 1 ) / 2.4
         case DashboardSection.DASHBOARD_SECTION_FEATURED.rawValue:
-            return 200
+            return 170
         case DashboardSection.DASHBOARD_SECTION_CATEGORY.rawValue:
-            return 130
+            return 140
         case DashboardSection.DASHBOARD_SECTION_TOP.rawValue:
             let productCount =  arrAllData[3].count
-            return CGFloat((productCount / 2 * 220))
+            return CGFloat((productCount / 2 * 230))
         default:
             return 0
         }
@@ -143,8 +143,7 @@ extension HomeVC:UITableViewDelegate,UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if(indexPath.section == 0){
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "SingleImageLblCell", for: indexPath) as? SingleImageLblCell
-            {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "SingleImageLblCell", for: indexPath) as? SingleImageLblCell{
                 cell.backgroundColor = .clear
                 cell.cellConfigure(arrDataSet: self.arrayImages)
                 if self.arrayImages.count > 0{
@@ -190,18 +189,19 @@ extension HomeVC:UITableViewDelegate,UITableViewDataSource{
                 cell.delegate = self
                 if let layout = cell.collMainProduct.collectionViewLayout as? UICollectionViewFlowLayout {
                     layout.scrollDirection = .horizontal
-                    layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+                    layout.sectionInset = UIEdgeInsets(top: 5, left: 0, bottom: 5, right: 0)
                 }
                 cell.collMainProduct.bounces = true
                 cell.cellConfigure(arrDataSet: arrAllData[2])
             }
+            /*
             else if indexPath.section == DashboardSection.DASHBOARD_SECTION_TOP.rawValue {
                 rc.size.height = cell.collMainProduct.contentSize.height
                 
                 cell.collMainProduct.frame = rc
                 if let layout = cell.collMainProduct.collectionViewLayout as? UICollectionViewFlowLayout {
                     layout.scrollDirection = .horizontal
-                    layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+                    layout.sectionInset = UIEdgeInsets(top: 5, left: 0, bottom: 5, right: 0)
                 }
                 cell.collMainProduct.bounces = true
                 cell.cellConfigure(arrDataSet: arrAllData[3])
@@ -213,7 +213,7 @@ extension HomeVC:UITableViewDelegate,UITableViewDataSource{
                     layout.sectionInset = UIEdgeInsets(top: 5, left: 20, bottom: 5, right: 20)
                 }
                 cell.collMainProduct.bounces = true
-            }
+            }*/
             //cell.layoutSubviews()
             cell.collMainProduct.reloadData()
             return cell

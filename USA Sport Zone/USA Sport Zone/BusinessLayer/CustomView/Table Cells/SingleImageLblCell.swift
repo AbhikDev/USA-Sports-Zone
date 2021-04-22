@@ -78,7 +78,7 @@ class SingleImageLblCell: UITableViewCell , UICollectionViewDelegate, UICollecti
         return UICollectionViewCell()
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize{
-        return CGSize(width:collectionView.frame.size.width , height: collectionView.frame.size.height)
+        return CGSize(width:collectionView.frame.size.width , height: 200)
             //CGSize(width:UIScreen.main.bounds.size.width , height: 290)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

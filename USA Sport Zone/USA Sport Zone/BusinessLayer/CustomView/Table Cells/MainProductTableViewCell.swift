@@ -52,14 +52,14 @@ class MainProductTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         print(indexPathForCell as Any)
         switch indexPathForCell {
-        case DashboardSection.DASHBOARD_SECTION_HIGHLITE.rawValue?:
-            return arrMDataSet.count
+        //case DashboardSection.DASHBOARD_SECTION_HIGHLITE.rawValue?:
+        //    return arrMDataSet.count
         case DashboardSection.DASHBOARD_SECTION_FEATURED.rawValue?:
-            return arrCategory_banner.count//arrMDataSet.count
+            return arrMDataSet.count//arrMDataSet.count
         case DashboardSection.DASHBOARD_SECTION_CATEGORY.rawValue?:
             return arrMDataSet.count
-        case DashboardSection.DASHBOARD_SECTION_TOP.rawValue?:
-            return arrMDataSet.count
+        //case DashboardSection.DASHBOARD_SECTION_TOP.rawValue?:
+        //    return arrMDataSet.count
         default:
             return 8
         }
@@ -68,6 +68,7 @@ class MainProductTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         switch indexPathForCell {
+        /*
         case DashboardSection.DASHBOARD_SECTION_HIGHLITE.rawValue?:
             
             let cell:ShopByCategoryItemCollectionViewCell!  = collectionView.dequeueReusableCell(withReuseIdentifier: "itemShopByCategory", for: indexPath) as? ShopByCategoryItemCollectionViewCell
@@ -84,6 +85,7 @@ class MainProductTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
             }
             
             return cell
+            */
         case DashboardSection.DASHBOARD_SECTION_FEATURED.rawValue?:
             
             /*let cell: ProductCell = collMainProduct.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as! ProductCell
@@ -110,8 +112,6 @@ class MainProductTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
         case DashboardSection.DASHBOARD_SECTION_CATEGORY.rawValue?:
             let cell: CategoryColCell = collMainProduct.dequeueReusableCell(withReuseIdentifier: "CategoryColCell", for: indexPath) as! CategoryColCell
             collMainProduct.backgroundColor = UIColor(named: "AppLightGrayColor")
-            cell.frame.size = CGSize(width:150, height: 130)
-            
             
             cell.backgroundColor = .clear
             
@@ -126,18 +126,21 @@ class MainProductTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
             
             
             return cell
+        /*
         case DashboardSection.DASHBOARD_SECTION_TOP.rawValue?:
             let cell: ProductCell = collMainProduct.dequeueReusableCell(withReuseIdentifier: "itemMain", for: indexPath) as! ProductCell
-            
-            cell.frame.size = CGSize(width: (collMainProduct.frame.width - 40), height: 100)
-            
+            cell.frame.size = CGSize(width:150, height: 130)
             return cell
+            */
         default:
+            return UICollectionViewCell()
+            /*
             let cell: MainItemCollectionViewCell = collMainProduct.dequeueReusableCell(withReuseIdentifier: "itemMain", for: indexPath) as! MainItemCollectionViewCell
             collMainProduct.backgroundColor = .white
             cell.frame.size = CGSize(width: (collMainProduct.frame.width), height: 1)
             cell.contentView.layer.borderWidth = 2
             return cell
+            */
         }
     }
     
@@ -145,17 +148,16 @@ class MainProductTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        if indexPathForCell == DashboardSection.DASHBOARD_SECTION_HIGHLITE.rawValue {
-            return CGSize(width:collMainProduct.frame.width, height: collMainProduct.frame.height)
-        }
-        else if indexPathForCell == DashboardSection.DASHBOARD_SECTION_FEATURED.rawValue {
+       if indexPathForCell == DashboardSection.DASHBOARD_SECTION_FEATURED.rawValue {
             return CGSize(width:200, height: 160)
         }
         else if indexPathForCell == DashboardSection.DASHBOARD_SECTION_CATEGORY.rawValue {
             return CGSize(width:150, height: 130)
-        }else if indexPathForCell == DashboardSection.DASHBOARD_SECTION_TOP.rawValue {
+        }
+        /*else if indexPathForCell == DashboardSection.DASHBOARD_SECTION_TOP.rawValue {
             return CGSize(width: (collMainProduct.frame.width - 40), height: 90)
-        } else {
+        }*/
+        else {
             return CGSize(width: 1, height: 1)
         }
     }

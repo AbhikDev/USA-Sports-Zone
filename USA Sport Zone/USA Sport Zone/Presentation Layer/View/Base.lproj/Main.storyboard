@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="t7T-wp-ewd"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="DLV-jA-Zl8"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ApC-yx-inJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -348,7 +348,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Gsi-56-0aN"/>
                     <connections>
-                        <outlet property="tableHome" destination="mHN-m3-K3i" id="vIY-6W-rpV"/>
+                        <outlet property="tableHome" destination="mHN-m3-K3i" id="g2v-zT-Bqr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -646,6 +646,7 @@
                             <constraint firstItem="nsO-Wj-N42" firstAttribute="trailing" secondItem="qGP-GA-Y7d" secondAttribute="trailing" id="fti-mS-Y7o"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="pXI-mA-ae6"/>
                     <connections>
                         <outlet property="imgviewProfile" destination="NhO-0p-2nT" id="kCO-xo-q1a"/>
                         <outlet property="lblName" destination="H1K-b0-7H2" id="19G-eE-grh"/>

@@ -48,8 +48,10 @@ extension ProductList:UICollectionViewDelegate,UICollectionViewDataSource,UIColl
             cell.lblRelatedProduct.text = (dictTemp["rendered"] as! String)
             
         }
-        cell.lblRelatedProductCategory.text = " " + (dictProduct["type"] as! String) + " "
+        cell.lblRelatedProductCategory.text = "  " + (dictProduct["type"] as! String) + "  "
         cell.lblRelatedProductCategory.layer.cornerRadius = 10
+        cell.lblRelatedProductCategory.layer.borderWidth = 1.0
+        cell.lblRelatedProductCategory.layer.borderColor = UIColor.clear.cgColor
         cell.imgReletedProduct.image = UIImage(named: "ic_launcher_round")
         if let dictTemp =  dictProduct["acf"] as? [String:Any]{
             let contents = (dictTemp["product_image"] as! String)

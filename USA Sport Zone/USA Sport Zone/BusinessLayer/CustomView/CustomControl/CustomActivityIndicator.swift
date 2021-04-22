@@ -34,11 +34,12 @@ class CustomActivityIndicator: UIView {
     func display(onView vw:UIView!,done:@escaping ()->()){
         
         if((self.viewWithTag(1000)) == nil){
+            
             vwContainer = UIView(frame: UIScreen.main.bounds)
             vwContainer?.backgroundColor =  UIColor(red: 0.0/255, green: 0.0/255, blue: 0.0/255, alpha: 0.5)
             self.addSubview(vwContainer!)
             
-            let frame = CGRect(x: ((vw.frame.size.width / 2) - 25), y: ((vw.frame.size.height / 2) - 25), width: 50, height: 50)
+            let frame = CGRect(x: ((vwContainer!.frame.size.width / 2) - 25), y: ((vwContainer!.frame.size.height / 2) - 25), width: 50, height: 50)
             
             activityIndicator = NVActivityIndicatorView(frame: frame)
             activityIndicator.type = .ballGridPulse // add your type
@@ -46,8 +47,9 @@ class CustomActivityIndicator: UIView {
             activityIndicator.tag = 1000
             //activityIndicator.backgroundColor = .clear
             self.addSubview(activityIndicator) // or use  webView.addSubview(activityIndicator)
-            vw.addSubview(self)
+            vwContainer!.addSubview(self)
             activityIndicator.startAnimating()
+            
         }
     }
     
