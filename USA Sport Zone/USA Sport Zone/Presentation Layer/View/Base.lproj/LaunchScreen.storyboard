@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SplashImage" translatesAutoresizingMaskIntoConstraints="NO" id="Osi-I0-Vzh">
-                                <rect key="frame" x="165.5" y="411.5" width="83" height="83"/>
+                                <rect key="frame" x="145" y="391" width="124" height="124"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Osi-I0-Vzh" secondAttribute="height" multiplier="1:1" id="uvg-kj-geE"/>
                                 </constraints>
@@ -27,7 +27,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Osi-I0-Vzh" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.2" id="AGm-2D-OBh"/>
+                            <constraint firstItem="Osi-I0-Vzh" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.3" id="AGm-2D-OBh"/>
                             <constraint firstItem="Osi-I0-Vzh" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="dgi-vW-Ohl"/>
                             <constraint firstItem="Osi-I0-Vzh" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="wz1-VU-SCK"/>
                         </constraints>
