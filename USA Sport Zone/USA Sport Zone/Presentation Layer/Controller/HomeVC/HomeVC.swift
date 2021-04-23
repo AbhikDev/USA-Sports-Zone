@@ -162,6 +162,7 @@ extension HomeVC:UITableViewDelegate,UITableViewDataSource{
             let cell: ProductByCategoryTBLCell! = tableView.dequeueReusableCell(withIdentifier: "ProductByCategoryTBLCell", for: indexPath) as? ProductByCategoryTBLCell
             cell.delegate = self
             cell.cellConfigure(arrDataSet: arrAllData[3])
+            cell.backgroundColor = .cyan
             return cell
         }else{
             let cell: MainProductTableViewCell! = tableView.dequeueReusableCell(withIdentifier: "cellMainProduct", for: indexPath) as? MainProductTableViewCell
@@ -176,7 +177,7 @@ extension HomeVC:UITableViewDelegate,UITableViewDataSource{
                 cell.collMainProduct.frame = rc
                 if let layout = cell.collMainProduct.collectionViewLayout as? UICollectionViewFlowLayout {
                     layout.scrollDirection = .horizontal
-                    layout.sectionInset = UIEdgeInsets(top: 5, left: 0, bottom: 5, right: 0)
+                    layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
                 }
                 cell.collMainProduct.backgroundColor = .white
                 cell.collMainProduct.bounces = false

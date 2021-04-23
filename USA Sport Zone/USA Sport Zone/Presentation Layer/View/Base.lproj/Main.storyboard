@@ -245,8 +245,8 @@
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delivery in 3 Businness day" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wtk-JO-EYp">
-                                                                    <rect key="frame" x="0.0" y="90.5" width="157.5" height="14.5"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delivery in 3 Businness day" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wtk-JO-EYp">
+                                                                    <rect key="frame" x="5" y="90.5" width="147.5" height="29"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
@@ -255,11 +255,11 @@
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstItem="MDZ-Vj-Yar" firstAttribute="centerX" secondItem="MEh-H0-Iyd" secondAttribute="centerX" id="3wo-yR-QFC"/>
-                                                                <constraint firstItem="wtk-JO-EYp" firstAttribute="leading" secondItem="MEh-H0-Iyd" secondAttribute="leading" id="8ux-UV-2Jj"/>
+                                                                <constraint firstItem="wtk-JO-EYp" firstAttribute="leading" secondItem="MEh-H0-Iyd" secondAttribute="leading" constant="5" id="8ux-UV-2Jj"/>
                                                                 <constraint firstItem="wtk-JO-EYp" firstAttribute="top" secondItem="dC2-ci-EDy" secondAttribute="bottom" constant="5" id="M6R-5z-TZ7"/>
                                                                 <constraint firstItem="MDZ-Vj-Yar" firstAttribute="top" secondItem="MEh-H0-Iyd" secondAttribute="top" constant="10" id="epx-T3-cx1"/>
                                                                 <constraint firstItem="dC2-ci-EDy" firstAttribute="leading" secondItem="MEh-H0-Iyd" secondAttribute="leading" id="iAP-YF-nRL"/>
-                                                                <constraint firstAttribute="trailing" secondItem="wtk-JO-EYp" secondAttribute="trailing" id="mnd-Xm-k9Q"/>
+                                                                <constraint firstAttribute="trailing" secondItem="wtk-JO-EYp" secondAttribute="trailing" constant="5" id="mnd-Xm-k9Q"/>
                                                                 <constraint firstAttribute="trailing" secondItem="dC2-ci-EDy" secondAttribute="trailing" id="ojt-FQ-t8S"/>
                                                                 <constraint firstItem="dC2-ci-EDy" firstAttribute="top" secondItem="MDZ-Vj-Yar" secondAttribute="bottom" constant="8" id="tUR-3e-bC2"/>
                                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="wtk-JO-EYp" secondAttribute="bottom" id="wAA-cM-wVH"/>
