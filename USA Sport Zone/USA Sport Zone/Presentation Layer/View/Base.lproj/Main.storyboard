@@ -10,6 +10,11 @@
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Raleway-Bold.ttf">
+            <string>Raleway-Bold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="qT5-f7-jfr">
@@ -20,12 +25,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="DLV-jA-Zl8"/>
+                        <segue destination="SDw-8f-E7M" kind="relationship" relationship="rootViewController" id="L8L-Wm-f3s"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ApC-yx-inJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-851" y="62"/>
+            <point key="canvasLocation" x="-1479" y="61"/>
         </scene>
         <!--HomeVC-->
         <scene sceneID="tne-QT-ifu">
@@ -1245,6 +1250,55 @@
             </objects>
             <point key="canvasLocation" x="3392.8000000000002" y="61.619190404797607"/>
         </scene>
+        <!--Splash Screen-->
+        <scene sceneID="QfI-GS-Fs6">
+            <objects>
+                <viewController storyboardIdentifier="SplashScreen" automaticallyAdjustsScrollViewInsets="NO" id="SDw-8f-E7M" customClass="SplashScreen" customModule="Parcel___Freight_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jtA-ue-tCd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rail Sarige" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tjr-80-Osp">
+                                <rect key="frame" x="19" y="338.5" width="337.5" height="23.5"/>
+                                <fontDescription key="fontDescription" name="Raleway-Bold" family="Raleway" pointSize="20"/>
+                                <color key="textColor" name="AppBlue"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ow1-Pa-kyi">
+                                <rect key="frame" x="118" y="264" width="139" height="139"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Ow1-Pa-kyi" secondAttribute="height" multiplier="1:1" id="1KO-ph-XWi"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USA Sport Zone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BDF-YE-fn8">
+                                <rect key="frame" x="112" y="423" width="151" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" name="AppPurple"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="elt-n6-STi"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Tjr-80-Osp" firstAttribute="width" secondItem="jtA-ue-tCd" secondAttribute="width" multiplier="0.9" id="HuT-mi-XEu"/>
+                            <constraint firstItem="Tjr-80-Osp" firstAttribute="centerY" secondItem="elt-n6-STi" secondAttribute="centerY" multiplier="1.05" id="L1z-ih-9Rh"/>
+                            <constraint firstItem="Ow1-Pa-kyi" firstAttribute="width" secondItem="jtA-ue-tCd" secondAttribute="width" multiplier="0.37" id="UgW-rw-Fpb"/>
+                            <constraint firstItem="Ow1-Pa-kyi" firstAttribute="centerY" secondItem="elt-n6-STi" secondAttribute="centerY" id="Yua-8f-evo"/>
+                            <constraint firstItem="Ow1-Pa-kyi" firstAttribute="centerX" secondItem="elt-n6-STi" secondAttribute="centerX" id="pSt-Ss-xrB"/>
+                            <constraint firstItem="BDF-YE-fn8" firstAttribute="top" secondItem="Ow1-Pa-kyi" secondAttribute="bottom" constant="20" id="rpo-96-Qth"/>
+                            <constraint firstItem="BDF-YE-fn8" firstAttribute="centerX" secondItem="elt-n6-STi" secondAttribute="centerX" id="tAO-KS-KVA"/>
+                            <constraint firstItem="Tjr-80-Osp" firstAttribute="centerX" secondItem="elt-n6-STi" secondAttribute="centerX" id="v7t-rA-9HY"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="eeL-L1-bbY"/>
+                    <connections>
+                        <outlet property="vwContainer" destination="Ow1-Pa-kyi" id="apl-qj-sOH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uyf-Rl-Mko" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-738" y="61"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="VAW-sE-FQN"/>
@@ -1261,6 +1315,9 @@
         <image name="upgrade" width="48" height="48"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="AppBlue">
+            <color red="0.0040000001899898052" green="0.70899999141693115" blue="0.90100002288818359" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="AppLightGrayColor">
             <color red="0.97299998998641968" green="0.97299998998641968" blue="0.97299998998641968" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

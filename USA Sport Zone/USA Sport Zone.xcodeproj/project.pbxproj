@@ -51,6 +51,8 @@
 		11848651262D38D50077328A /* MainProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1184864D262D38D50077328A /* MainProductTableViewCell.swift */; };
 		11848655262D4A630077328A /* CategoryColCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11848653262D4A630077328A /* CategoryColCell.swift */; };
 		11848656262D4A630077328A /* CategoryColCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11848654262D4A630077328A /* CategoryColCell.xib */; };
+		118BD843263320BF0052F59B /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118BD842263320BF0052F59B /* SplashScreen.swift */; };
+		118BD84A263323930052F59B /* Shop.json in Resources */ = {isa = PBXBuildFile; fileRef = 118BD849263323920052F59B /* Shop.json */; };
 		118F023B262DBE1800A3600B /* ProductByCategoryColCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118F0239262DBE1800A3600B /* ProductByCategoryColCell.swift */; };
 		118F023C262DBE1800A3600B /* ProductByCategoryColCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 118F023A262DBE1800A3600B /* ProductByCategoryColCell.xib */; };
 		7569B71A93AAEFB2C3731C06 /* Pods_USA_Sport_Zone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 594CDA108E55A1157A6ABB8A /* Pods_USA_Sport_Zone.framework */; };
@@ -144,6 +146,8 @@
 		1184864D262D38D50077328A /* MainProductTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainProductTableViewCell.swift; sourceTree = "<group>"; };
 		11848653262D4A630077328A /* CategoryColCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryColCell.swift; sourceTree = "<group>"; };
 		11848654262D4A630077328A /* CategoryColCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryColCell.xib; sourceTree = "<group>"; };
+		118BD842263320BF0052F59B /* SplashScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
+		118BD849263323920052F59B /* Shop.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Shop.json; sourceTree = "<group>"; };
 		118F0239262DBE1800A3600B /* ProductByCategoryColCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductByCategoryColCell.swift; sourceTree = "<group>"; };
 		118F023A262DBE1800A3600B /* ProductByCategoryColCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductByCategoryColCell.xib; sourceTree = "<group>"; };
 		3801CBCBBA5FBF43873EA7CB /* Pods-USA Sport Zone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-USA Sport Zone.release.xcconfig"; path = "Target Support Files/Pods-USA Sport Zone/Pods-USA Sport Zone.release.xcconfig"; sourceTree = "<group>"; };
@@ -324,6 +328,7 @@
 		112C9544262C6E20005A7788 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				118BD849263323920052F59B /* Shop.json */,
 				112C9545262C6E47005A7788 /* network_error.json */,
 			);
 			path = Animations;
@@ -359,6 +364,7 @@
 		112C955D262C6F18005A7788 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				118BD842263320BF0052F59B /* SplashScreen.swift */,
 				CECCE8B2262CAE7400D240BF /* BaseVC.swift */,
 				CEC44F0D26309BC9004AE647 /* CMSVC */,
 				CECCE8AA262CACE600D240BF /* ShopVC */,
@@ -627,6 +633,7 @@
 				112C9573262C6FC3005A7788 /* Assets.xcassets in Resources */,
 				11848650262D38D50077328A /* SingleImageLblCell.xib in Resources */,
 				112C9555262C6ED6005A7788 /* CustomNavigationView.xib in Resources */,
+				118BD84A263323930052F59B /* Shop.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -745,6 +752,7 @@
 				CE544690262E1184004D656A /* _embedded.swift in Sources */,
 				112C9525262C6B7F005A7788 /* Constant.swift in Sources */,
 				CEC44F682630B7F2004AE647 /* Woocommerce_single.swift in Sources */,
+				118BD843263320BF0052F59B /* SplashScreen.swift in Sources */,
 				112C9583262C70C8005A7788 /* CustomAdaptiveView.swift in Sources */,
 				CECCE8BC262CB38500D240BF /* CustomClass.swift in Sources */,
 				CEC44F622630B7F2004AE647 /* Shop_single.swift in Sources */,
