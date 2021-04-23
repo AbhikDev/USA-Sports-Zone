@@ -1248,7 +1248,7 @@
         <!--Splash Screen-->
         <scene sceneID="QfI-GS-Fs6">
             <objects>
-                <viewController storyboardIdentifier="SplashScreen" automaticallyAdjustsScrollViewInsets="NO" id="SDw-8f-E7M" customClass="SplashScreen" customModule="Parcel___Freight_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SplashScreen" automaticallyAdjustsScrollViewInsets="NO" id="SDw-8f-E7M" customClass="SplashScreen" customModule="USA_Sport_Zone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jtA-ue-tCd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

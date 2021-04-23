@@ -62,16 +62,16 @@ extension CMSVC:UITableViewDataSource,UITableViewDelegate{
         // cell.lblName.text = stringCMSDetails
         //cell.lblImage.text = tempCate[indexPath.row].key ?? ""
         
-        if let data = stringCMSDetails?.data(using: .utf8) {
-            var attributedText: NSMutableAttributedString!
-            let options: [NSAttributedString.DocumentReadingOptionKey : Any] = [
-                .documentType: NSAttributedString.DocumentType.html,
-                .characterEncoding: NSNumber(value: String.Encoding.utf8.rawValue)
-            ]
-            do {
-                attributedText = try NSMutableAttributedString(data: data, options: options, documentAttributes: nil)
-                let paragraphStyle = NSMutableParagraphStyle()
-                paragraphStyle.lineBreakMode = .byWordWrapping
+       // if let data = stringCMSDetails?.data(using: .utf8) {
+//            var attributedText: NSMutableAttributedString!
+//            let options: [NSAttributedString.DocumentReadingOptionKey : Any] = [
+//                .documentType: NSAttributedString.DocumentType.html,
+//                .characterEncoding: NSNumber(value: String.Encoding.utf8.rawValue)
+//            ]
+         //   do {
+//                attributedText = try NSMutableAttributedString(data: data, options: options, documentAttributes: nil)
+//                let paragraphStyle = NSMutableParagraphStyle()
+//                paragraphStyle.lineBreakMode = .byWordWrapping
                 
                 
                 let htmlDesc = htmlforMobile.appending(stringCMSDetails ?? "")
@@ -101,10 +101,10 @@ extension CMSVC:UITableViewDataSource,UITableViewDelegate{
                 //tap.delegate = self
                 //cell.viewweb.addGestureRecognizer(tap)
                 
-            }catch{
-                
-            }
-        }
+//            }catch{
+//                
+//            }
+        //}
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

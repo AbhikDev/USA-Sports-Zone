@@ -49,8 +49,24 @@ extension ProductByCategoryTBLCell:UICollectionViewDelegate,UICollectionViewData
         
         let dictProduct = arrMDataSet[indexPath.row]
         if let dictTemp =  dictProduct["title"] as? [String:Any]{
-           
-            cell.lblRelatedProduct.text = (dictTemp["rendered"] as! String)
+            if let data = (dictTemp["rendered"] as! String).data(using: .utf8) {
+            var attributedText: NSMutableAttributedString!
+            let options: [NSAttributedString.DocumentReadingOptionKey : Any] = [
+                .documentType: NSAttributedString.DocumentType.html,
+                .characterEncoding: NSNumber(value: String.Encoding.utf8.rawValue)
+            ]
+            do {
+                attributedText = try NSMutableAttributedString(data: data, options: options, documentAttributes: nil)
+                cell.lblRelatedProduct.attributedText = attributedText//(dictTemp["rendered"] as! String)
+            }catch{
+                cell.lblRelatedProduct.text = (dictTemp["rendered"] as! String)
+            }
+            }else{
+                cell.lblRelatedProduct.text = (dictTemp["rendered"] as! String)
+            }
+            
+            cell.lblRelatedProduct.textAlignment = .center
+            cell.lblRelatedProduct.font = UIFont(name: "Arial", size: 12)
         }
         cell.lblRelatedProductCategory.text = " " + (dictProduct["type"] as! String) + " "
         cell.lblRelatedProductCategory.layer.cornerRadius = 10
