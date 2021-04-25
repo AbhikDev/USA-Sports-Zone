@@ -23,12 +23,20 @@
                                     <constraint firstAttribute="width" secondItem="Osi-I0-Vzh" secondAttribute="height" multiplier="1:1" id="uvg-kj-geE"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USA Sport Zone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Tx-8A-Jvr">
+                                <rect key="frame" x="131.5" y="535" width="151" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Osi-I0-Vzh" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.3" id="AGm-2D-OBh"/>
                             <constraint firstItem="Osi-I0-Vzh" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="dgi-vW-Ohl"/>
+                            <constraint firstItem="4Tx-8A-Jvr" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="jLk-EB-yhQ"/>
+                            <constraint firstItem="4Tx-8A-Jvr" firstAttribute="top" secondItem="Osi-I0-Vzh" secondAttribute="bottom" constant="20" id="rbH-zo-hEs"/>
                             <constraint firstItem="Osi-I0-Vzh" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="wz1-VU-SCK"/>
                         </constraints>
                     </view>
