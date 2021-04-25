@@ -48,8 +48,26 @@ extension ProductList:UICollectionViewDelegate,UICollectionViewDataSource,UIColl
        
         let dictProduct = arrMDataSet[indexPath.row]
         if let dictTemp =  dictProduct["title"] as? [String:Any]{
-            cell.lblRelatedProduct.text = (dictTemp["rendered"] as! String)
+            if let data = (dictTemp["rendered"] as! String).data(using: .utf8) {
+            var attributedText: NSMutableAttributedString!
+            let options: [NSAttributedString.DocumentReadingOptionKey : Any] = [
+                .documentType: NSAttributedString.DocumentType.html,
+                .characterEncoding: NSNumber(value: String.Encoding.utf8.rawValue)
+            ]
+            do {
+                attributedText = try NSMutableAttributedString(data: data, options: options, documentAttributes: nil)
+                cell.lblRelatedProduct.attributedText = attributedText//(dictTemp["rendered"] as! String)
+            }catch{
+                cell.lblRelatedProduct.text = (dictTemp["rendered"] as! String)
+            }
+            }else{
+                cell.lblRelatedProduct.text = (dictTemp["rendered"] as! String)
+            }
             
+            cell.lblRelatedProduct.textAlignment = .center
+            cell.lblRelatedProduct.font = UIFont(name: "Arial", size: 12)
+        }else{
+            cell.lblRelatedProduct.text = ""
         }
         cell.lblRelatedProductCategory.text = "  " + (dictProduct["type"] as! String) + "  "
         cell.lblRelatedProductCategory.layer.cornerRadius = 10
@@ -117,7 +135,12 @@ extension ProductList:UICollectionViewDelegate,UICollectionViewDataSource,UIColl
 }
 extension ProductList{
     func callApiProductListByCategory(categoryName: String,complitionHandeler:@escaping(_ status: Int, _ message : String) -> ()){
-        //
+        let networkReachability = Reachability.networkReachabilityForInternetConnection()
+        let networkStatus = networkReachability!.currentReachabilityStatus
+        if networkStatus == .notReachable {
+            showInternetCheckCustomPopUp(vc: self)
+            return
+        }
         let url =  (API.productByCategory.getURL()?.absoluteString ?? "") + categoryName + "?per_page=100&order=asc"
         let operation = WebServiceOperation.init(url, nil, .WEB_SERVICE_GET, nil)
         operation.completionBlock = {
