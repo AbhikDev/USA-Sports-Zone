@@ -43,7 +43,19 @@ class BaseVC: UIViewController {
         }
        
         
+    func showInternetCheckCustomPopUp(vc:UIViewController) {
         
+        if let foundView = vc.view.viewWithTag(2000) {
+            foundView.removeFromSuperview()
+        }
+        
+       
+        let vw = NetWorkErrorView()
+        vw.tag = 2000
+        vw.frame = UIScreen.main.bounds
+        vw.setupContentUI()
+        vc.view.addSubview(vw)
+    }
         
     }
 

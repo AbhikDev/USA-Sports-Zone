@@ -12,6 +12,7 @@ class HomeVC: BaseVC {
     var arrAllData : Array<Array<[String:Any]>> = []
     @IBOutlet weak var tableHome: UITableView!
     var arrayImages:[String] = []
+    var isInterNetAvail:Bool = true
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -153,6 +154,9 @@ extension HomeVC:UITableViewDelegate,UITableViewDataSource{
                     cell.collectionView.isHidden = true
                     cell.indicator.startAnimating()
                 }
+                if isInterNetAvail == false{
+                    cell.indicator.isHidden = true
+                }
                 //cell.collectionView.reloadData()
                 cell.selectionStyle = .none
                 return cell
@@ -259,6 +263,17 @@ extension HomeVC:CustomCellProductDelegate{
 }
 extension HomeVC{
     func callApiPopuleBannerList(complitionHandeler:@escaping(_ status: Int, _ message : String) -> ()){
+        let networkReachability = Reachability.networkReachabilityForInternetConnection()
+        let networkStatus = networkReachability!.currentReachabilityStatus
+        
+        
+        if networkStatus == .notReachable {
+            isInterNetAvail = false
+            self.tableHome.reloadData()
+            showInternetCheckCustomPopUp(vc: self)
+            return
+        }
+        
         let operation = WebServiceOperation.init((API.banners.getURL()?.absoluteString ?? ""), nil, .WEB_SERVICE_GET, nil)
         operation.completionBlock = {
             print(operation.responseData?.arrDictionary ?? "")
@@ -294,7 +309,14 @@ extension HomeVC{
     }
     
     func callApiProductListByCategory(categoryName: String,complitionHandeler:@escaping(_ status: Int, _ message : String) -> ()){
-        //
+        let networkReachability = Reachability.networkReachabilityForInternetConnection()
+        let networkStatus = networkReachability!.currentReachabilityStatus
+        if networkStatus == .notReachable {
+            isInterNetAvail = false
+            self.tableHome.reloadData()
+            showInternetCheckCustomPopUp(vc: self)
+            return
+        }
         let url =  (API.productByCategory.getURL()?.absoluteString ?? "") + categoryName + "?per_page=100&order=asc"
         let operation = WebServiceOperation.init(url, nil, .WEB_SERVICE_GET, nil)
         operation.completionBlock = {

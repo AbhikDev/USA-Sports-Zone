@@ -111,6 +111,12 @@ extension BlogVC:UITableViewDataSource,UITableViewDelegate{
 }
 extension BlogVC{
     func callApiPopuleblogList(complitionHandeler:@escaping(_ status: Int, _ message : String) -> ()){
+        let networkReachability = Reachability.networkReachabilityForInternetConnection()
+        let networkStatus = networkReachability!.currentReachabilityStatus
+        if networkStatus == .notReachable {
+            showInternetCheckCustomPopUp(vc: self)
+            return
+        }
         let operation = WebServiceOperation.init((API.Blog.getURL()?.absoluteString ?? ""), nil, .WEB_SERVICE_GET, nil)
         operation.completionBlock = {
             print(operation.responseData?.arrDictionary ?? "")
