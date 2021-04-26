@@ -23,14 +23,16 @@ class MoreVC: BaseVC {
     @IBOutlet weak var imgviewCover: UIImageView!
    
     
-    let arrImg = ["user","terms","policy","contact"]
-    let arrImgColor = ["#c6794d","#2a88d9","#f80100","#249937"]
-    let arrbgColor = ["#fff3eb" ,"#ecf6ff", "#ffebec", "#eaf9ed"]
+    let arrImg = ["user","terms","policy","contact","rateus","share"]
+    let arrImgColor = ["#c6794d","#2a88d9","#f80100","#249937","#5B5B5B","#09967F"]
+    let arrbgColor = ["#fff3eb" ,"#ecf6ff", "#ffebec", "#eaf9ed","#EBEBEB","#EBF7F7"]
     fileprivate func setupTable() {
         let section1 = HomeSections.init(key: "\u{f007}", value: "About Us", object: nil)
         let section2 = HomeSections.init(key: "\u{f0e0}", value: "Terms & Condition", object: nil)
         let section3 = HomeSections.init(key: "\u{f0f3}", value: "Privacy Policy", object: nil)
         let section4 = HomeSections.init(key: "\u{f004}", value: "Contact Us", object: nil)
+        let section5 = HomeSections.init(key: "rateus", value: "Rate Us", object: nil)
+        let section6 = HomeSections.init(key: "share", value: "Share App", object: nil)
         tempCate = [section1,section2,section3,section4]
     }
     
@@ -94,13 +96,26 @@ extension MoreVC:UITableViewDataSource,UITableViewDelegate{
             nextVC.stringCMSDetails = PrivacyPolicy
         }else if indexPath.row == 3{
             nextVC.stringCMSDetails = contactus
+        }else if indexPath.row == 4{
+            if let url = URL(string: "https://www.apple.com/app-store/") {
+                UIApplication.shared.open(url)
+            }
+            return
+        }else if indexPath.row == 5{
+            let text = "Let me recommend you this application"
+            //let image = UIImage(named: "Product")
+            let myWebsite = NSURL(string:"https://itunes.apple.com/us/app/myapp/idxxxxxxxx?ls=1&mt=8")
+            let shareAll = [text , myWebsite! as URL] as [Any]
+            
+            
+            let activityViewController = UIActivityViewController(activityItems: shareAll, applicationActivities: nil)
+            activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
+            
+            // exclude some activity types from the list (optional)
+            self.present(activityViewController, animated: true, completion: nil)
+            return
         }
         nextVC.getIndex = indexPath.row
         navigationController?.pushViewController(nextVC,animated: true)
     }
-    
-       
-    
-   
-    
 }
