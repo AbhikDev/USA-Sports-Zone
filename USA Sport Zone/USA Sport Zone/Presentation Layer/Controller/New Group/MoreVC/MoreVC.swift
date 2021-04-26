@@ -33,7 +33,7 @@ class MoreVC: BaseVC {
         let section4 = HomeSections.init(key: "\u{f004}", value: "Contact Us", object: nil)
         let section5 = HomeSections.init(key: "rateus", value: "Rate Us", object: nil)
         let section6 = HomeSections.init(key: "share", value: "Share App", object: nil)
-        tempCate = [section1,section2,section3,section4]
+        tempCate = [section1,section2,section3,section4,section5,section6]
     }
     
     override func viewDidLoad() {
