@@ -147,7 +147,7 @@ let contactus = """
 <h3><strong>Details :&nbsp;</strong></h3>
  <ul>
  <li>&nbsp;Contact number - <a href="tel:+19497717739">+1 949 771 7739</a></li>
- <li>&nbsp;Contact email - <a href="mailto:rravilch1@gmail.com">rravilch1@gmail.com</a></li>
+ <li>&nbsp;Contact email - <a href="mailto:mail.usasportzone@gmail.com">mail.usasportzone@gmail.com</a></li>
  <li>&nbsp;Address - 27762 Antonio Pkwy Ste L-1-206 ,Ladera Ranch, CA 92694</li>
  </ul>
 """
