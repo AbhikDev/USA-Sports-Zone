@@ -96,7 +96,7 @@ These terms and conditions are effective as of 2021-04-15
 </p> <p><strong>Contact Us</strong></p> <p>
 If you have any questions or suggestions about my
 Terms and Conditions, do not hesitate to contact me
-at rravilch1@gmail.com.
+at mail.usasportzone@gmail.com.
 """
 let PrivacyPolicy = """
 <h2>Privacy Policy</h2>

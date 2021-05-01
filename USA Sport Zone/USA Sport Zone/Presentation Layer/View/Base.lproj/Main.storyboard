@@ -1002,8 +1002,8 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.backward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="t4L-5V-m1k">
-                                        <rect key="frame" x="10" y="50.5" width="24" height="19"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="left_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="t4L-5V-m1k">
+                                        <rect key="frame" x="10" y="48" width="24" height="24"/>
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="24" id="J4X-hG-8Xy"/>
@@ -1047,7 +1047,7 @@
                         <viewLayoutGuide key="safeArea" id="VkP-oR-21v"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="SOl-JV-hPP" firstAttribute="top" secondItem="8CT-nX-c7K" secondAttribute="top" constant="-20" id="2lt-Z7-3ac"/>
+                            <constraint firstItem="SOl-JV-hPP" firstAttribute="top" secondItem="VkP-oR-21v" secondAttribute="top" constant="-20" id="2lt-Z7-3ac"/>
                             <constraint firstItem="9G8-Tf-ClE" firstAttribute="leading" secondItem="VkP-oR-21v" secondAttribute="leading" id="CsA-oy-d1E"/>
                             <constraint firstItem="VkP-oR-21v" firstAttribute="bottom" secondItem="9G8-Tf-ClE" secondAttribute="bottom" id="HUj-Ff-zyq"/>
                             <constraint firstItem="VkP-oR-21v" firstAttribute="trailing" secondItem="SOl-JV-hPP" secondAttribute="trailing" id="Ic7-Ev-OtC"/>
@@ -1185,8 +1185,8 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.backward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="H7t-wy-pCa">
-                                        <rect key="frame" x="10" y="50.5" width="24" height="19"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="left_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="H7t-wy-pCa">
+                                        <rect key="frame" x="10" y="48" width="24" height="24"/>
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="24" id="7dr-aN-gzD"/>
@@ -1287,15 +1287,15 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="VAW-sE-FQN"/>
+        <segue reference="0Dv-jt-3Ok"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Search" width="48" height="48"/>
-        <image name="arrow.backward" catalog="system" width="128" height="98"/>
         <image name="baseline_emoji_events" width="48" height="48"/>
         <image name="baseline_local_shipping" width="48" height="48"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="ic_launcher_round" width="192" height="192"/>
+        <image name="left_arrow" width="25" height="25"/>
         <image name="logo" width="259" height="105"/>
         <image name="open_24_hours" width="48" height="48"/>
         <image name="upgrade" width="48" height="48"/>

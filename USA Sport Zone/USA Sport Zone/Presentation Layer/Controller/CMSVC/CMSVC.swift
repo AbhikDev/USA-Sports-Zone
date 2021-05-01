@@ -184,9 +184,9 @@ extension CMSVC{
                     }
                     decisionHandler(.cancel)
                      return
-                 } else if url.absoluteString == "mailto:rravilch1@gmail.com" {
+                 } else if url.absoluteString == "mailto:mail.usasportzone@gmail.com" {
                     
-                    let email = "rravilch1@gmail.com"
+                    let email = "mail.usasportzone@gmail.com"
                     if let url = URL(string: "mailto:\(email)") {
                       if #available(iOS 10.0, *) {
                         UIApplication.shared.open(url)
