@@ -62,29 +62,29 @@ extension BlogVC:UITableViewDataSource,UITableViewDelegate{
         }
         cell.lblTitle.text = arrayBlog[indexPath.row].title?.rendered
         //cell.lblContent.text = arrayBlog[indexPath.row].excerpt?.rendered
-        if let data = arrayBlog[indexPath.row].excerpt?.rendered?.data(using: .utf8) {
+        if let data = arrayBlog[indexPath.row].content?.rendered?.data(using: .utf8) {
         var attributedText: NSMutableAttributedString!
             let options: [NSAttributedString.DocumentReadingOptionKey : Any] = [
                 .documentType: NSAttributedString.DocumentType.html,
                 .characterEncoding: NSNumber(value: String.Encoding.utf8.rawValue)
             ]
-        do {
-            attributedText = try NSMutableAttributedString(data: data, options: options, documentAttributes: nil)
-          //  let paragraphStyle = NSMutableParagraphStyle()
-            //paragraphStyle.lineBreakMode = .byWordWrapping
-
-
-            //let htmlDesc = htmlforMobile.appending(stringCMSDetails ?? "")
-//                cell.txtViewCMS.textAlignment = .leftstringCMSDetails
-           //      paragraphStyle.alignment = .left
-//
-           // attributedText.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attributedText.length))
-//
-            cell.lblContent.attributedText = attributedText
-            cell.lblContent.font = UIFont(name: "Helvetica Neue", size: 13)
-            cell.lblContent.textColor = .gray
-
-        }catch{
+            do {
+                attributedText = try NSMutableAttributedString(data: data, options: options, documentAttributes: nil)
+                //  let paragraphStyle = NSMutableParagraphStyle()
+                //paragraphStyle.lineBreakMode = .byWordWrapping
+                
+                
+                //let htmlDesc = htmlforMobile.appending(stringCMSDetails ?? "")
+                //                cell.txtViewCMS.textAlignment = .leftstringCMSDetails
+                //      paragraphStyle.alignment = .left
+                //
+                // attributedText.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attributedText.length))
+                //
+                cell.lblContent.attributedText = attributedText
+                cell.lblContent.font = UIFont(name: "Helvetica Neue", size: 13)
+                cell.lblContent.textColor = .gray
+                
+            }catch{
             
         }
        

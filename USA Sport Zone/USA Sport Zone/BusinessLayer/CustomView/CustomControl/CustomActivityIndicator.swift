@@ -34,7 +34,7 @@ class CustomActivityIndicator: UIView {
     func display(onView vw:UIView!,done:@escaping ()->()){
         
         if((self.viewWithTag(1000)) == nil){
-            
+            vw.isUserInteractionEnabled = false
             vwContainer = UIView(frame: UIScreen.main.bounds)
             vwContainer?.backgroundColor =  UIColor(red: 0.0/255, green: 0.0/255, blue: 0.0/255, alpha: 0.5)
             self.addSubview(vwContainer!)
@@ -54,7 +54,7 @@ class CustomActivityIndicator: UIView {
     }
     
     func hide(_:@escaping ()->()){
-        
+        activityIndicator.superview?.superview?.isUserInteractionEnabled = true
         activityIndicator.stopAnimating()
         activityIndicator.removeFromSuperview()
         vwContainer?.removeFromSuperview()
