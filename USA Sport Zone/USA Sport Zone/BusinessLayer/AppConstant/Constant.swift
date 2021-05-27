@@ -173,7 +173,7 @@ public enum API:Int {
     }
 }
 
-
+var isNotOpenAmazone = true
 
 var shadowView = UIView()
 //var mulListV = MultipleSelecetionListPicker()

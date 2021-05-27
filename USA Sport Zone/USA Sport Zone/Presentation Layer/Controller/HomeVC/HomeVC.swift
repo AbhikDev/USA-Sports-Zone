@@ -200,25 +200,25 @@ extension HomeVC:UITableViewDelegate,UITableViewDataSource{
                 cell.cellConfigure(arrDataSet: arrAllData[2])
             }
             /*
-            else if indexPath.section == DashboardSection.DASHBOARD_SECTION_TOP.rawValue {
-                rc.size.height = cell.collMainProduct.contentSize.height
-                
-                cell.collMainProduct.frame = rc
-                if let layout = cell.collMainProduct.collectionViewLayout as? UICollectionViewFlowLayout {
-                    layout.scrollDirection = .horizontal
-                    layout.sectionInset = UIEdgeInsets(top: 5, left: 0, bottom: 5, right: 0)
-                }
-                cell.collMainProduct.bounces = true
-                cell.cellConfigure(arrDataSet: arrAllData[3])
-            }
-            else {
-                rc.size.height = 100
-                if let layout = cell.collMainProduct.collectionViewLayout as? UICollectionViewFlowLayout {
-                    layout.scrollDirection = .horizontal
-                    layout.sectionInset = UIEdgeInsets(top: 5, left: 20, bottom: 5, right: 20)
-                }
-                cell.collMainProduct.bounces = true
-            }*/
+             else if indexPath.section == DashboardSection.DASHBOARD_SECTION_TOP.rawValue {
+             rc.size.height = cell.collMainProduct.contentSize.height
+             
+             cell.collMainProduct.frame = rc
+             if let layout = cell.collMainProduct.collectionViewLayout as? UICollectionViewFlowLayout {
+             layout.scrollDirection = .horizontal
+             layout.sectionInset = UIEdgeInsets(top: 5, left: 0, bottom: 5, right: 0)
+             }
+             cell.collMainProduct.bounces = true
+             cell.cellConfigure(arrDataSet: arrAllData[3])
+             }
+             else {
+             rc.size.height = 100
+             if let layout = cell.collMainProduct.collectionViewLayout as? UICollectionViewFlowLayout {
+             layout.scrollDirection = .horizontal
+             layout.sectionInset = UIEdgeInsets(top: 5, left: 20, bottom: 5, right: 20)
+             }
+             cell.collMainProduct.bounces = true
+             }*/
             //cell.layoutSubviews()
             cell.collMainProduct.reloadData()
             return cell
@@ -239,24 +239,37 @@ extension HomeVC:CustomDelegate{
 }
 extension HomeVC:CustomCellProductDelegate{
     func didSelectProductItem(indexPath: Int) {
-        let dictProduct = arrAllData[3][indexPath]
-        if let dictTemp =  dictProduct["acf"] as? [String:Any]{
-            let contents = (dictTemp["product_image"] as! String)
-            //do {
-            
-            do {
-                let doc: Document = try SwiftSoup.parse(contents)
+        if(isNotOpenAmazone){
+            if #available(iOS 13.0, *) {
+                let vc = self.storyboard?.instantiateViewController(identifier: "ProductDetailVC") as! ProductDetailVC
+                vc.selectedProduct = arrAllData[3][indexPath]
+                self.navigationController?.pushViewController(vc, animated: true)
+            } else {
+                // Fallback on earlier versions
+                let vc = ProductDetailVC.init(nibName: "ProductDetailVC", bundle: nil)
+                vc.selectedProduct = arrAllData[3][indexPath]
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        }else{
+            let dictProduct = arrAllData[3][indexPath]
+            if let dictTemp =  dictProduct["acf"] as? [String:Any]{
+                let contents = (dictTemp["product_image"] as! String)
+                //do {
                 
-                let src: Element = try doc.select("a").first()!
-                let srcText: String = try src.attr("href")
-                let refPath = srcText
-                
-                guard let url = URL(string: refPath) else { return }
-                UIApplication.shared.open(url)
-            } catch Exception.Error( _, let message) {
-                print(message)
-            } catch {
-                print("error")
+                do {
+                    let doc: Document = try SwiftSoup.parse(contents)
+                    
+                    let src: Element = try doc.select("a").first()!
+                    let srcText: String = try src.attr("href")
+                    let refPath = srcText
+                    
+                    guard let url = URL(string: refPath) else { return }
+                    UIApplication.shared.open(url)
+                } catch Exception.Error( _, let message) {
+                    print(message)
+                } catch {
+                    print("error")
+                }
             }
         }
     }
@@ -336,25 +349,25 @@ extension HomeVC{
         }
         appDel?.operationQueue.addOperation(operation)
         /*
-        operation.completionBlock = {
-            print(operation.responseData?.arrDictionary ?? "")
-            DispatchQueue.main.async {
-                guard let dictResponse = operation.responseData?.arrDictionary, dictResponse.count > 0 else {
-                    complitionHandeler(1, HomeVC.ALERT_MESSAGE_WRONG)
-                    return
-                }
-                
-                
-                self.arrAllData[3] = dictResponse
-                
-                self.tableHome.reloadData()
-                complitionHandeler(0, "Success")
-                
-            }
-        }
-        
-        AppDelegate.init().operationQueue.addOperation(operation)
-        */
+         operation.completionBlock = {
+         print(operation.responseData?.arrDictionary ?? "")
+         DispatchQueue.main.async {
+         guard let dictResponse = operation.responseData?.arrDictionary, dictResponse.count > 0 else {
+         complitionHandeler(1, HomeVC.ALERT_MESSAGE_WRONG)
+         return
+         }
+         
+         
+         self.arrAllData[3] = dictResponse
+         
+         self.tableHome.reloadData()
+         complitionHandeler(0, "Success")
+         
+         }
+         }
+         
+         AppDelegate.init().operationQueue.addOperation(operation)
+         */
     }
 }
 extension Array {

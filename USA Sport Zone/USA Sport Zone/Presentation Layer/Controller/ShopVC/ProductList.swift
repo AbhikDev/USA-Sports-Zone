@@ -92,32 +92,49 @@ extension ProductList:UICollectionViewDelegate,UICollectionViewDataSource,UIColl
             } catch {
                 print("error")
             }
+            if(isNotOpenAmazone){
+                cell.imgShopNow.image = UIImage(named: "order-now")
+            }else{
+                cell.imgShopNow.image = UIImage(named: "shopbtn")
+            }
             
         }
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let dictProduct = arrMDataSet[indexPath.row]
-        if let dictTemp =  dictProduct["acf"] as? [String:Any]{
-            let contents = (dictTemp["product_image"] as! String)
-            //do {
-            
-            do {
-                let doc: Document = try SwiftSoup.parse(contents)
+        if(isNotOpenAmazone){
+            if #available(iOS 13.0, *) {
+                let vc = self.storyboard?.instantiateViewController(identifier: "ProductDetailVC") as! ProductDetailVC
+                vc.selectedProduct = arrMDataSet[indexPath.row]
+                self.navigationController?.pushViewController(vc, animated: true)
+            } else {
+                // Fallback on earlier versions
+                let vc = ProductDetailVC.init(nibName: "ProductDetailVC", bundle: nil)
+                vc.selectedProduct = arrMDataSet[indexPath.row]
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        }else{
+            let dictProduct = arrMDataSet[indexPath.row]
+            if let dictTemp =  dictProduct["acf"] as? [String:Any]{
+                let contents = (dictTemp["product_image"] as! String)
+                //do {
                 
-                let src: Element = try doc.select("a").first()!
-                let srcText: String = try src.attr("href")
-                let refPath = srcText
-                
-                guard let url = URL(string: refPath) else { return }
-                UIApplication.shared.open(url)
-            } catch Exception.Error( _, let message) {
-                print(message)
-            } catch {
-                print("error")
+                do {
+                    let doc: Document = try SwiftSoup.parse(contents)
+                    
+                    let src: Element = try doc.select("a").first()!
+                    let srcText: String = try src.attr("href")
+                    let refPath = srcText
+                    
+                    guard let url = URL(string: refPath) else { return }
+                    UIApplication.shared.open(url)
+                } catch Exception.Error( _, let message) {
+                    print(message)
+                } catch {
+                    print("error")
+                }
             }
         }
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

@@ -71,6 +71,7 @@
             <size key="customSize" width="256" height="219"/>
             <connections>
                 <outlet property="imgReletedProduct" destination="XYz-ly-ytu" id="Rqg-84-Y1I"/>
+                <outlet property="imgShopNow" destination="CRG-hX-E59" id="2ih-Oj-HzE"/>
                 <outlet property="lblRelatedProduct" destination="ezN-WT-cg3" id="N17-w4-UVd"/>
                 <outlet property="lblRelatedProductCategory" destination="q7S-YS-Zoj" id="Ypq-6J-phh"/>
             </connections>
