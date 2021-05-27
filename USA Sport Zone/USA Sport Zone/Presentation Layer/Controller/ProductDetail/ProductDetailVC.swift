@@ -74,17 +74,36 @@ class ProductDetailVC: BaseVC {
     }
     @IBAction func requestForProduct(_ sender: UIButton) {
         
-        if let urlMobile = NSURL(string: "tel:+19497717739"){
-            if UIApplication.shared.canOpenURL(urlMobile as URL) {
-                
-                if #available(iOS 10.0, *) {
-                    UIApplication.shared.open(urlMobile as URL, options: [:], completionHandler: nil)
-                }
-                else {
-                    UIApplication.shared.openURL(urlMobile as URL)
+        
+        
+        let refreshAlert = UIAlertController(title: App_Title, message: "Do you want to request an order by", preferredStyle: .actionSheet)
+
+        refreshAlert.addAction(UIAlertAction(title: "Mail", style: .default, handler: { (action: UIAlertAction!) in
+            let email = "mail.usasportzone@gmail.com"
+            if let url = URL(string: "mailto:\(email)") {
+               UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        }))
+
+        refreshAlert.addAction(UIAlertAction(title: "Phone", style: .default, handler: { (action: UIAlertAction!) in
+            if let urlMobile = NSURL(string: "tel:+19497717739"){
+                if UIApplication.shared.canOpenURL(urlMobile as URL) {
+                    
+                    if #available(iOS 10.0, *) {
+                        UIApplication.shared.open(urlMobile as URL, options: [:], completionHandler: nil)
+                    }
+                    else {
+                        UIApplication.shared.openURL(urlMobile as URL)
+                    }
                 }
             }
-        }
+        }))
+        refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+              print("Handle Cancel Logic here")
+        }))
+
+        present(refreshAlert, animated: true, completion: nil)
+        
     }
     
 }

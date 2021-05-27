@@ -82,9 +82,20 @@ class HomeVC: BaseVC {
         self.callApiPopuleBannerList { (status, message) in
             
         }
-        self.callApiProductListByCategory(categoryName: "headphones"){ (status, message) in
-            
+        if (UserDefaults.standard.value(forKey: "APPLIVE") != nil){
+            self.callApiProductListByCategory(categoryName: "headphones"){ (status, message) in
+                
+            }
+        }else{
+            self.calliOSCheckAPI { (status, message) in
+                self.callApiProductListByCategory(categoryName: "headphones"){ (status, message) in
+                    
+                }
+            }
         }
+        
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -319,6 +330,47 @@ extension HomeVC{
         AppDelegate.init().operationQueue.addOperation(operation)
         
     }
+    
+    func calliOSCheckAPI(complitionHandeler:@escaping(_ status: Int, _ message : String) -> ()){
+        let networkReachability = Reachability.networkReachabilityForInternetConnection()
+        let networkStatus = networkReachability!.currentReachabilityStatus
+        
+        
+        if networkStatus == .notReachable {
+            isInterNetAvail = false
+            self.tableHome.reloadData()
+            showInternetCheckCustomPopUp(vc: self)
+            return
+        }
+        
+        let operation = WebServiceOperation.init((API.iOSCheck.getURL()?.absoluteString ?? ""), nil, .WEB_SERVICE_GET, nil)
+        operation.completionBlock = {
+            print(operation.responseData?.dictionary ?? "")
+            DispatchQueue.main.async {
+                guard let dictResponse = operation.responseData?.dictionary, dictResponse.count > 0 else {
+                    complitionHandeler(1, HomeVC.ALERT_MESSAGE_WRONG)
+                    return
+                }
+                do{
+                    let appliveValue  = dictResponse["status"] as? Bool
+                    if appliveValue == true{
+                        UserDefaults.standard.setValue("1", forKey: "APPLIVE")
+                    }else{
+                        
+                    }
+                    complitionHandeler(0, "Success")
+                }catch let error {
+                    print(error)
+                    complitionHandeler(1, HomeVC.ALERT_MESSAGE_WRONG)
+                }
+            }
+        }
+        
+        AppDelegate.init().operationQueue.addOperation(operation)
+        
+    }
+    
+    
     
     func callApiProductListByCategory(categoryName: String,complitionHandeler:@escaping(_ status: Int, _ message : String) -> ()){
         let networkReachability = Reachability.networkReachabilityForInternetConnection()

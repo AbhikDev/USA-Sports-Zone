@@ -157,9 +157,11 @@ public enum API:Int {
     case banners
     case productByCategory
     case Blog
+    case iOSCheck
     func getURL() -> URL? {
         switch self {
-            
+        case .iOSCheck:
+            return URL.init(string: (ApiBaseUrl+"ios_app/link"))
         case .getTrainParcel:
             return URL.init(string: (ApiBaseUrl+"/parcel_train"))
         case .banners:
