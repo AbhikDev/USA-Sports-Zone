@@ -254,8 +254,7 @@ extension HomeVC:CustomCellProductDelegate{
             let dictProduct = arrAllData[3][indexPath]
             if let dictTemp =  dictProduct["acf"] as? [String:Any]{
                 let contents = (dictTemp["product_image"] as! String)
-                //do {
-                
+            
                 do {
                     let doc: Document = try SwiftSoup.parse(contents)
                     
