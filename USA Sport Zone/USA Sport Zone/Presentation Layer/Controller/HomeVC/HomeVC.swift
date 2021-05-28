@@ -82,21 +82,40 @@ class HomeVC: BaseVC {
         self.callApiPopuleBannerList { (status, message) in
             
         }
+        
+        
+        if let _ = (UserDefaults.standard.object(forKey: "APPLIVE") as? Bool){
+            isOpenAmazone = (UserDefaults.standard.object(forKey: "APPLIVE") as? Bool)!
+            
+        }else{
+            isOpenAmazone = false
+        }
+        /*
         if (UserDefaults.standard.value(forKey: "APPLIVE") != nil){
             self.callApiProductListByCategory(categoryName: "headphones"){ (status, message) in
                 
             }
         }else{
-            if(!isOpenAmazone){
+           
+        
                 self.calliOSCheckAPI { (status, message) in
                     self.callApiProductListByCategory(categoryName: "headphones"){ (status, message) in
                         
                     }
                 }
+        }*/
+        
+        if(!isOpenAmazone){
+            self.calliOSCheckAPI { (status, message) in
+                self.callApiProductListByCategory(categoryName: "headphones"){ (status, message) in
+                    
+                }
+            }
+        }else{
+            self.callApiProductListByCategory(categoryName: "headphones"){ (status, message) in
+                
             }
         }
-        
-        
         
     }
     
@@ -356,9 +375,9 @@ extension HomeVC{
                 if let appliveValue  = dictResponse["status"] as? Bool{
                     isOpenAmazone = appliveValue
                     if appliveValue == true{
-                        UserDefaults.standard.setValue("1", forKey: "APPLIVE")
+                        UserDefaults.standard.setValue(true, forKey: "APPLIVE")
                     }else{
-                        
+                        UserDefaults.standard.setValue(false, forKey: "APPLIVE")
                     }
                     complitionHandeler(0, "Success")
                 }else{
