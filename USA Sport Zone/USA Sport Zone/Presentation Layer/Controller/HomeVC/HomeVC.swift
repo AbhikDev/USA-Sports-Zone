@@ -87,9 +87,11 @@ class HomeVC: BaseVC {
                 
             }
         }else{
-            self.calliOSCheckAPI { (status, message) in
-                self.callApiProductListByCategory(categoryName: "headphones"){ (status, message) in
-                    
+            if(!isOpenAmazone){
+                self.calliOSCheckAPI { (status, message) in
+                    self.callApiProductListByCategory(categoryName: "headphones"){ (status, message) in
+                        
+                    }
                 }
             }
         }
