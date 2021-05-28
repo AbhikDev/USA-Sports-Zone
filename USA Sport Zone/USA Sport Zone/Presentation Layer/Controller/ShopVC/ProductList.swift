@@ -92,28 +92,17 @@ extension ProductList:UICollectionViewDelegate,UICollectionViewDataSource,UIColl
             } catch {
                 print("error")
             }
-            if(isNotOpenAmazone){
-                cell.imgShopNow.image = UIImage(named: "order-now")
-            }else{
+            if(isOpenAmazone){
                 cell.imgShopNow.image = UIImage(named: "shopbtn")
+            }else{
+                cell.imgShopNow.image = UIImage(named: "order-now")
             }
             
         }
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if(isNotOpenAmazone){
-            if #available(iOS 13.0, *) {
-                let vc = self.storyboard?.instantiateViewController(identifier: "ProductDetailVC") as! ProductDetailVC
-                vc.selectedProduct = arrMDataSet[indexPath.row]
-                self.navigationController?.pushViewController(vc, animated: true)
-            } else {
-                // Fallback on earlier versions
-                let vc = ProductDetailVC.init(nibName: "ProductDetailVC", bundle: nil)
-                vc.selectedProduct = arrMDataSet[indexPath.row]
-                self.navigationController?.pushViewController(vc, animated: true)
-            }
-        }else{
+        if(isOpenAmazone){
             let dictProduct = arrMDataSet[indexPath.row]
             if let dictTemp =  dictProduct["acf"] as? [String:Any]{
                 let contents = (dictTemp["product_image"] as! String)
@@ -133,6 +122,17 @@ extension ProductList:UICollectionViewDelegate,UICollectionViewDataSource,UIColl
                 } catch {
                     print("error")
                 }
+            }
+        }else{
+            if #available(iOS 13.0, *) {
+                let vc = self.storyboard?.instantiateViewController(identifier: "ProductDetailVC") as! ProductDetailVC
+                vc.selectedProduct = arrMDataSet[indexPath.row]
+                self.navigationController?.pushViewController(vc, animated: true)
+            } else {
+                // Fallback on earlier versions
+                let vc = ProductDetailVC.init(nibName: "ProductDetailVC", bundle: nil)
+                vc.selectedProduct = arrMDataSet[indexPath.row]
+                self.navigationController?.pushViewController(vc, animated: true)
             }
         }
     }

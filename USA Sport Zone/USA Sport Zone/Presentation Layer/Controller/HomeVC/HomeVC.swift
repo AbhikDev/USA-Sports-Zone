@@ -250,18 +250,7 @@ extension HomeVC:CustomDelegate{
 }
 extension HomeVC:CustomCellProductDelegate{
     func didSelectProductItem(indexPath: Int) {
-        if(isNotOpenAmazone){
-            if #available(iOS 13.0, *) {
-                let vc = self.storyboard?.instantiateViewController(identifier: "ProductDetailVC") as! ProductDetailVC
-                vc.selectedProduct = arrAllData[3][indexPath]
-                self.navigationController?.pushViewController(vc, animated: true)
-            } else {
-                // Fallback on earlier versions
-                let vc = ProductDetailVC.init(nibName: "ProductDetailVC", bundle: nil)
-                vc.selectedProduct = arrAllData[3][indexPath]
-                self.navigationController?.pushViewController(vc, animated: true)
-            }
-        }else{
+        if(isOpenAmazone){
             let dictProduct = arrAllData[3][indexPath]
             if let dictTemp =  dictProduct["acf"] as? [String:Any]{
                 let contents = (dictTemp["product_image"] as! String)
@@ -280,6 +269,17 @@ extension HomeVC:CustomCellProductDelegate{
                 } catch {
                     print("error")
                 }
+            }
+        }else{
+            if #available(iOS 13.0, *) {
+                let vc = self.storyboard?.instantiateViewController(identifier: "ProductDetailVC") as! ProductDetailVC
+                vc.selectedProduct = arrAllData[3][indexPath]
+                self.navigationController?.pushViewController(vc, animated: true)
+            } else {
+                // Fallback on earlier versions
+                let vc = ProductDetailVC.init(nibName: "ProductDetailVC", bundle: nil)
+                vc.selectedProduct = arrAllData[3][indexPath]
+                self.navigationController?.pushViewController(vc, animated: true)
             }
         }
     }
@@ -351,18 +351,18 @@ extension HomeVC{
                     complitionHandeler(1, HomeVC.ALERT_MESSAGE_WRONG)
                     return
                 }
-                do{
-                    let appliveValue  = dictResponse["status"] as? Bool
+                if let appliveValue  = dictResponse["status"] as? Bool{
+                    isOpenAmazone = appliveValue
                     if appliveValue == true{
                         UserDefaults.standard.setValue("1", forKey: "APPLIVE")
                     }else{
                         
                     }
                     complitionHandeler(0, "Success")
-                }catch let error {
-                    print(error)
+                }else{
                     complitionHandeler(1, HomeVC.ALERT_MESSAGE_WRONG)
                 }
+                
             }
         }
         

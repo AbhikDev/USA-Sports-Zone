@@ -55,16 +55,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2F677A9C-7648-4D41-A04B-F2132E6F2F02"
+            uuid = "A3BD4E7B-7C4B-4BAF-87E3-D0EB56A75A60"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "USA Sport Zone/Presentation Layer/Controller/ProductDetail/ProductDetailVC.swift"
+            filePath = "USA Sport Zone/Presentation Layer/Controller/ShopVC/ProductList.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
-            landmarkName = "setProductData()"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "collectionView(_:didSelectItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

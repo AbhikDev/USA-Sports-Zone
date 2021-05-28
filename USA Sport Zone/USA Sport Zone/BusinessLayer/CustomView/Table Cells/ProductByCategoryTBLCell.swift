@@ -89,10 +89,10 @@ extension ProductByCategoryTBLCell:UICollectionViewDelegate,UICollectionViewData
             } catch {
                 print("error")
             }
-            if(isNotOpenAmazone){
-                cell.imgShopNow.image = UIImage(named: "order-now")
-            }else{
+            if(isOpenAmazone){
                 cell.imgShopNow.image = UIImage(named: "shopbtn")
+            }else{
+                cell.imgShopNow.image = UIImage(named: "order-now")
             }
         }
         
