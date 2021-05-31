@@ -72,10 +72,40 @@ class ProductDetailVC: BaseVC {
     @IBAction func btnBackAction(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
-    @IBAction func requestForProduct(_ sender: UIButton) {
-        
-        
-        
+    func actionSheetForiPad(_ sender: UIButton)  {
+        let actionSheet = UIAlertController(title: App_Title, message: "Do you want to request an order by", preferredStyle: .actionSheet)
+
+           actionSheet.addAction(UIAlertAction(title: "Mail", style: .default, handler: {
+           action in
+            let email = "mail.usasportzone@gmail.com"
+            if let url = URL(string: "mailto:\(email)") {
+               UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+           }))
+           actionSheet.addAction(UIAlertAction(title: "Phone", style: .default, handler: {
+               action in
+            if let urlMobile = NSURL(string: "tel:+19497717739"){
+                if UIApplication.shared.canOpenURL(urlMobile as URL) {
+                    
+                    if #available(iOS 10.0, *) {
+                        UIApplication.shared.open(urlMobile as URL, options: [:], completionHandler: nil)
+                    }
+                    else {
+                        UIApplication.shared.openURL(urlMobile as URL)
+                    }
+                }
+            }
+           }))
+           actionSheet.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: {
+               action in
+               print("third button")
+           }))
+           actionSheet.popoverPresentationController?.sourceView = self.view
+           actionSheet.popoverPresentationController?.sourceRect = sender.frame
+           present(actionSheet, animated: true, completion: nil)
+    }
+    func actionSheetForIphone(){
+         
         let refreshAlert = UIAlertController(title: App_Title, message: "Do you want to request an order by", preferredStyle: .actionSheet)
 
         refreshAlert.addAction(UIAlertAction(title: "Mail", style: .default, handler: { (action: UIAlertAction!) in
@@ -104,6 +134,14 @@ class ProductDetailVC: BaseVC {
 
         present(refreshAlert, animated: true, completion: nil)
         
+    }
+    @IBAction func requestForProduct(_ sender: UIButton) {
+        
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            actionSheetForiPad(sender)
+        }else{
+            actionSheetForIphone()
+        }
     }
     
 }
