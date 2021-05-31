@@ -104,7 +104,7 @@ class ProductDetailVC: BaseVC {
            actionSheet.popoverPresentationController?.sourceRect = sender.frame
            present(actionSheet, animated: true, completion: nil)
     }
-    func actionSheetForIphone(){
+    func actionSheetForiPhone(){
          
         let refreshAlert = UIAlertController(title: App_Title, message: "Do you want to request an order by", preferredStyle: .actionSheet)
 
@@ -140,7 +140,7 @@ class ProductDetailVC: BaseVC {
         if UIDevice.current.userInterfaceIdiom == .pad {
             actionSheetForiPad(sender)
         }else{
-            actionSheetForIphone()
+            actionSheetForiPhone()
         }
     }
     
