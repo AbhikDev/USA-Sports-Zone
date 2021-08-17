@@ -1,10 +1,4 @@
-//
-//  BaseVC.swift
 
-// //  WilCity
-//  Created by Mahesh Mahalik on 30/01/20.
-//  Copyright © 2020 Mahesh Mahalik. All rights reserved.
-//
 
 import UIKit
 
