@@ -1,9 +1,4 @@
-//
-//  AppDelegate.swift
-//  USA Sport Zone
-//
-//  Created by Gali Srikanth on 18/04/21.
-//
+
 
 import UIKit
 import CoreData
