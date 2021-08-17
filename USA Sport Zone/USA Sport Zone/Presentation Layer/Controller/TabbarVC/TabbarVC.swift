@@ -1,5 +1,3 @@
-//  Copyright © 2020 Mahesh Mahalik. All rights reserved.
-
 
 import UIKit
 class TabbarCollCell:UICollectionViewCell{
