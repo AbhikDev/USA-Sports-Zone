@@ -1,5 +1,3 @@
-//  WilCity
-//  Copyright © 2020 Mahesh Mahalik. All rights reserved.
 
 import Foundation
 import UIKit
