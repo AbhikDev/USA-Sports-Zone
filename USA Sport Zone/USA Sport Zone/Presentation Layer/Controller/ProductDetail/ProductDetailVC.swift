@@ -1,9 +1,4 @@
-//
-//  ProductDetailVC.swift
-//  USA Sport Zone
-//
-//  Created by Gali Srikanth on 27/05/21.
-//
+
 
 import UIKit
 import SwiftSoup
