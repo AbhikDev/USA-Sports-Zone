@@ -1,9 +1,4 @@
-//
-//  ProductList.swift
-//  USA Sport Zone
-//
-//  Created by Gali Srikanth on 20/04/21.
-//
+
 
 import UIKit
 import SwiftSoup
